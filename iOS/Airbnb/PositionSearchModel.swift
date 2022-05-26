@@ -37,18 +37,11 @@ class PositionSearchModel {
         guard let searchText = searchText else {
             return
         }
-        
         if searchText.count <= 0 {
             self.isSearching = false
             return
         }
-        
-        self.filteredSamples = []
-        for sample in samples {
-            if sample.address.contains(searchText) {
-                self.filteredSamples.append(sample)
-            }
-        }
+        self.filteredSamples = samples.filter{ $0.address.contains(searchText) }
         self.isSearching = true
     }
 }
