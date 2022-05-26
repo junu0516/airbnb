@@ -18,9 +18,9 @@ class ViewController: UIViewController {
 
 extension ViewController: UISearchBarDelegate {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         self.navigationController?.pushViewController(PositionSearchViewController(), animated: false)
-        searchBar.endEditing(true)
+        return false
     }
 }
 
