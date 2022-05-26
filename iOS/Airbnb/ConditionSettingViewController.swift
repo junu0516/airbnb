@@ -40,9 +40,12 @@ final class ConditionSettingViewController: UIViewController {
     private func setToolBar() {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let prevBarItem = UIBarButtonItem(title: "건너뛰기", style: .plain, target: self, action: nil)
-        let nextBarItem = UIBarButtonItem(title: "다음", style: .plain, target: self, action: nil)
+        let nextBarItem = UIBarButtonItem(title: "다음", style: .plain, target: self, action: #selector(pushNextViewController))
         self.navigationController?.isToolbarHidden = false
         self.toolbarItems = [prevBarItem,flexibleSpace,nextBarItem]
+        toolbarItems?.forEach { $0.tintColor = .black }
+        
+        prevBarItem.isEnabled = false
     }
     
     private func addComponentViews() {
@@ -62,6 +65,13 @@ final class ConditionSettingViewController: UIViewController {
             conditionSettingTableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             conditionSettingTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    //추후 검색 결과 리스트 보여주는 화면으로 넘어가는 로직으로 대체해야 함
+    @objc private func pushNextViewController() {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .white
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
