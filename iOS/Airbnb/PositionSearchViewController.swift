@@ -24,8 +24,11 @@ class PositionSearchViewController: UIViewController {
         super.viewDidLoad()
         self.view = tableView
         setNavigationBar()
-        
-        model.bindUI = { [weak self] in
+        bindModel()
+    }
+    
+    private func bindModel() {
+        model.isSearching.bind { [weak self] _ in
             self?.tableView.reloadData()
         }
     }
