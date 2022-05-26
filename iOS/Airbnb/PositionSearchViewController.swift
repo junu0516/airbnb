@@ -52,6 +52,12 @@ extension PositionSearchViewController: UITableViewDataSource {
     }
 }
 
+extension PositionSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(ConditionSettingViewController(), animated: true)
+    }
+}
+
 extension PositionSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         model.updateSearchResults(searchText: searchController.searchBar.text)
