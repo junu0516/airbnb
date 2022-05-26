@@ -1,25 +1,8 @@
 import UIKit
 
 class PositionSearchViewController: UIViewController {
-    
-    private let categories: [RoomPositionCategory] = [
-        .init(categoryLiteral: "서울시"),
-        .init(categoryLiteral: "부산시"),
-        .init(categoryLiteral: "제주도")
-    ]
-    
-    private let samples: [RoomPosition] = [
-        .init(address: "양재"),
-        .init(address: "서울특별시 서초구 양재동"),
-        .init(address: "양재 시민의 숲"),
-        .init(address: "양재IC")
-    ]
-    private var filteredSamples = [RoomPosition]()
-    private var isSearching: Bool = false {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+
+    private let model = PositionSearchModel()
     
     private lazy var searchContoller: UISearchController = {
         let searchController = UISearchController()
@@ -41,6 +24,10 @@ class PositionSearchViewController: UIViewController {
         super.viewDidLoad()
         self.view = tableView
         setNavigationBar()
+        
+        model.bindUI = { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     private func setNavigationBar() {
@@ -52,39 +39,24 @@ class PositionSearchViewController: UIViewController {
 
 extension PositionSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isSearching ? filteredSamples.count : categories.count
+        return model.rowsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = isSearching ? filteredSamples[indexPath.row].address : categories[indexPath.row].categoryLiteral
+        cell.textLabel?.text = model.titleText(in: indexPath.row)
         return cell
     }
 }
 
 extension PositionSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchBarText = searchController.searchBar.text else {
-            return
-        }
-        
-        if searchBarText.count <= 0 {
-            self.isSearching = false
-            return
-        }
-        
-        self.filteredSamples = []
-        for sample in samples {
-            if sample.address.contains(searchBarText) {
-                self.filteredSamples.append(sample)
-            }
-        }
-        self.isSearching = true
+        model.updateSearchResults(searchText: searchController.searchBar.text)
     }
 }
 
 extension PositionSearchViewController: UISearchControllerDelegate {
     func didDismissSearchController(_ searchController: UISearchController) {
-        self.isSearching = false
+        model.setIsSearching(false)
     }
 }
