@@ -21,6 +21,7 @@
 		B5093530283DCB490017C8E0 /* PositionSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B509352F283DCB490017C8E0 /* PositionSearchViewController.swift */; };
 		B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093538283E12D70017C8E0 /* RoomPositionCategory.swift */; };
 		B509353B283F68C50017C8E0 /* ConditionSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B509353A283F68C50017C8E0 /* ConditionSettingViewController.swift */; };
+		B5093544283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B509352F283DCB490017C8E0 /* PositionSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionSearchViewController.swift; sourceTree = "<group>"; };
 		B5093538283E12D70017C8E0 /* RoomPositionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionCategory.swift; sourceTree = "<group>"; };
 		B509353A283F68C50017C8E0 /* ConditionSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingViewController.swift; sourceTree = "<group>"; };
+		B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				B509352F283DCB490017C8E0 /* PositionSearchViewController.swift */,
 				98F11302283F11B700009232 /* PositionSearchModel.swift */,
 				B509353A283F68C50017C8E0 /* ConditionSettingViewController.swift */,
+				B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */,
 				98593E06283CC75D00B28960 /* Assets.xcassets */,
 				98593E08283CC75D00B28960 /* LaunchScreen.storyboard */,
 				98593E0B283CC75D00B28960 /* Info.plist */,
@@ -297,6 +300,7 @@
 				98593DFE283CC75C00B28960 /* AppDelegate.swift in Sources */,
 				98593E00283CC75C00B28960 /* SceneDelegate.swift in Sources */,
 				B5093530283DCB490017C8E0 /* PositionSearchViewController.swift in Sources */,
+				B5093544283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
