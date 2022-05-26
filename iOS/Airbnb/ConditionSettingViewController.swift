@@ -20,8 +20,6 @@ final class ConditionSettingViewController: UIViewController {
         return tableView
     }()
     
-    private let categories: [String] = ["위치", "체크인/체크아웃", "요금", "인원"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -47,7 +45,7 @@ final class ConditionSettingViewController: UIViewController {
 extension ConditionSettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return ConditionCategory.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
