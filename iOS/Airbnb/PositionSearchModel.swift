@@ -2,12 +2,7 @@ import Foundation
 
 class PositionSearchModel {
     
-    var bindUI:() -> Void = {}
-    private var isSearching: Bool = false {
-        didSet {
-            self.bindUI()
-        }
-    }
+    private (set) var isSearching = Observable<Bool>(false)
     private var filteredSamples = [RoomPosition]()
     private let categories: [RoomPositionCategory] = [
         .init(categoryLiteral: "서울시"),
@@ -22,15 +17,15 @@ class PositionSearchModel {
     ]
  
     func rowsCount() -> Int {
-        return isSearching ? filteredSamples.count : categories.count
+        return isSearching.value ? filteredSamples.count : categories.count
     }
     
     func titleText(in rowIndex: Int) -> String {
-        return isSearching ? filteredSamples[rowIndex].address : categories[rowIndex].categoryLiteral
+        return isSearching.value ? filteredSamples[rowIndex].address : categories[rowIndex].categoryLiteral
     }
     
     func setIsSearching(_ isSearching: Bool) {
-        self.isSearching = isSearching
+        self.isSearching.value = isSearching
     }
     
     func updateSearchResults(searchText: String?) {
@@ -38,10 +33,10 @@ class PositionSearchModel {
             return
         }
         if searchText.count <= 0 {
-            self.isSearching = false
+            self.isSearching.value = false
             return
         }
         self.filteredSamples = samples.filter{ $0.address.contains(searchText) }
-        self.isSearching = true
+        self.isSearching.value = true
     }
 }
