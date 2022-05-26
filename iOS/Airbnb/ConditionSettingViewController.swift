@@ -25,9 +25,19 @@ final class ConditionSettingViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationItem.title = "숙소 찾기"
+        setToolBar()
         addComponentViews()
         setComponentLayouts()
     }
+    
+    private func setToolBar() {
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let prevBarItem = UIBarButtonItem(title: "건너뛰기", style: .plain, target: self, action: nil)
+        let nextBarItem = UIBarButtonItem(title: "다음", style: .plain, target: self, action: nil)
+        self.navigationController?.isToolbarHidden = false
+        self.toolbarItems = [prevBarItem,flexibleSpace,nextBarItem]
+    }
+    
     private func addComponentViews() {
         self.view.addSubview(dummyView)
         self.view.addSubview(conditionSettingTableView)
