@@ -15,6 +15,7 @@ final class ConditionSettingViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isScrollEnabled = false
         tableView.isUserInteractionEnabled = false
+        tableView.rowHeight = 40
         tableView.register(ConditionSettingTableViewCell.self, forCellReuseIdentifier: ConditionSettingTableViewCell.identifier)
         return tableView
     }()
@@ -33,7 +34,7 @@ final class ConditionSettingViewController: UIViewController {
             dummyView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             dummyView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             dummyView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            dummyView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.6),
+            dummyView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.67),
             
             conditionSettingTableView.topAnchor.constraint(equalTo: dummyView.bottomAnchor),
             conditionSettingTableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
