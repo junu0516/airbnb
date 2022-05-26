@@ -2,7 +2,7 @@ import UIKit
 
 class PositionSearchViewController: UIViewController {
 
-    private let model = PositionSearchModel()
+    private let model = PositionSearchModel(PositionSearchFactory(categoryCount: 9, dataCount: 9))
     
     private lazy var searchContoller: UISearchController = {
         let searchController = UISearchController()

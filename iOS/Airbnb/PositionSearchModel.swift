@@ -4,18 +4,14 @@ class PositionSearchModel {
     
     private (set) var isSearching = Observable<Bool>(false)
     private var filteredSamples = [RoomPosition]()
-    private let categories: [RoomPositionCategory] = [
-        .init(categoryLiteral: "서울시"),
-        .init(categoryLiteral: "부산시"),
-        .init(categoryLiteral: "제주도")
-    ]
-    private let samples: [RoomPosition] = [
-        .init(address: "양재"),
-        .init(address: "서울특별시 서초구 양재동"),
-        .init(address: "양재 시민의 숲"),
-        .init(address: "양재IC")
-    ]
- 
+    private let categories: [RoomPositionCategory]
+    private let samples: [RoomPosition]
+    
+    init(_ mockFactory: PositionSearchFactory) {
+        self.categories = mockFactory.categories
+        self.samples = mockFactory.datas
+    }
+    
     func rowsCount() -> Int {
         return isSearching.value ? filteredSamples.count : categories.count
     }
