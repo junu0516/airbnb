@@ -12,10 +12,11 @@ final class ConditionSettingViewController: UIViewController {
     private lazy var conditionSettingTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isScrollEnabled = false
         tableView.isUserInteractionEnabled = false
-        tableView.rowHeight = 40
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(ConditionSettingTableViewCell.self, forCellReuseIdentifier: ConditionSettingTableViewCell.identifier)
         return tableView
     }()
@@ -24,10 +25,15 @@ final class ConditionSettingViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationItem.title = "숙소 찾기"
-        
+        addComponentViews()
+        setComponentLayouts()
+    }
+    private func addComponentViews() {
         self.view.addSubview(dummyView)
         self.view.addSubview(conditionSettingTableView)
-        
+    }
+    
+    private func setComponentLayouts() {
         NSLayoutConstraint.activate([
             dummyView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             dummyView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
@@ -52,5 +58,12 @@ extension ConditionSettingViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ConditionSettingTableViewCell.identifier, for: indexPath) as? ConditionSettingTableViewCell else { return UITableViewCell() }
         cell.updateLabelText(conditionTitle: ConditionCategory.allCases[indexPath.row].description, conditionValue: "")
         return cell
+    }
+}
+
+extension ConditionSettingViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.height/CGFloat(ConditionCategory.allCases.count)
     }
 }
