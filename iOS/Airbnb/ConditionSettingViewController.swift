@@ -11,7 +11,7 @@ final class ConditionSettingViewController: UIViewController {
     
     private lazy var conditionSettingTableView: UITableView = {
         let tableView = UITableView()
-        tableView.dataSource = self
+        tableView.dataSource = conditionSettingTableViewDataSource
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isScrollEnabled = false
@@ -20,6 +20,13 @@ final class ConditionSettingViewController: UIViewController {
         tableView.register(ConditionSettingTableViewCell.self, forCellReuseIdentifier: ConditionSettingTableViewCell.identifier)
         return tableView
     }()
+    
+    typealias CELL = ConditionSettingTableViewCell
+    typealias DataSource = ConditionSettingTableViewDataSource
+    private let conditionSettingTableViewDataSource: DataSource<CELL,String> = DataSource(cellIdentifier: CELL.identifier,
+                                                                                          items: ConditionCategory.allCases.map { $0.rawValue }) { cell, value in
+        cell.updateLabelText(conditionTitle: value, conditionValue: "")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,19 +62,6 @@ final class ConditionSettingViewController: UIViewController {
             conditionSettingTableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             conditionSettingTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
-    }
-}
-
-extension ConditionSettingViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ConditionCategory.allCases.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ConditionSettingTableViewCell.identifier, for: indexPath) as? ConditionSettingTableViewCell else { return UITableViewCell() }
-        cell.updateLabelText(conditionTitle: ConditionCategory.allCases[indexPath.row].description, conditionValue: "")
-        return cell
     }
 }
 
