@@ -16,6 +16,7 @@ class PositionSearchViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
