@@ -24,6 +24,9 @@
 		B5093544283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */; };
 		B5093546283FD50D0017C8E0 /* ConditionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093545283FD50D0017C8E0 /* ConditionCategory.swift */; };
 		B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */; };
+		B570BC4F283FF8F1008BBC79 /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = B570BC4E283FF8F1008BBC79 /* GoogleMaps */; };
+		B570BC51283FF8F1008BBC79 /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = B570BC50283FF8F1008BBC79 /* GooglePlaces */; };
+		B570BC53283FF97C008BBC79 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B570BC52283FF97C008BBC79 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,7 @@
 		B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewCell.swift; sourceTree = "<group>"; };
 		B5093545283FD50D0017C8E0 /* ConditionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCategory.swift; sourceTree = "<group>"; };
 		B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewDataSource.swift; sourceTree = "<group>"; };
+		B570BC52283FF97C008BBC79 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B570BC4F283FF8F1008BBC79 /* GoogleMaps in Frameworks */,
+				B570BC51283FF8F1008BBC79 /* GooglePlaces in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +132,7 @@
 				B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */,
 				B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */,
 				B5093545283FD50D0017C8E0 /* ConditionCategory.swift */,
+				B570BC52283FF97C008BBC79 /* MapViewController.swift */,
 				98593E06283CC75D00B28960 /* Assets.xcassets */,
 				98593E08283CC75D00B28960 /* LaunchScreen.storyboard */,
 				98593E0B283CC75D00B28960 /* Info.plist */,
@@ -183,6 +190,10 @@
 			dependencies = (
 			);
 			name = Airbnb;
+			packageProductDependencies = (
+				B570BC4E283FF8F1008BBC79 /* GoogleMaps */,
+				B570BC50283FF8F1008BBC79 /* GooglePlaces */,
+			);
 			productName = Airbnb;
 			productReference = 98593DFA283CC75C00B28960 /* Airbnb.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +266,9 @@
 				Base,
 			);
 			mainGroup = 98593DF1283CC75C00B28960;
+			packageReferences = (
+				B570BC4D283FF8F1008BBC79 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
+			);
 			productRefGroup = 98593DFB283CC75C00B28960 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,6 +323,7 @@
 				98593E00283CC75C00B28960 /* SceneDelegate.swift in Sources */,
 				B5093530283DCB490017C8E0 /* PositionSearchViewController.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift in Sources */,
+				B570BC53283FF97C008BBC79 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +492,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Airbnb/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -504,6 +520,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Airbnb/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -636,6 +653,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B570BC4D283FF8F1008BBC79 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/YAtechnologies/GoogleMaps-SP.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B570BC4E283FF8F1008BBC79 /* GoogleMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B570BC4D283FF8F1008BBC79 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMaps;
+		};
+		B570BC50283FF8F1008BBC79 /* GooglePlaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B570BC4D283FF8F1008BBC79 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GooglePlaces;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98593DF2283CC75C00B28960 /* Project object */;
 }
