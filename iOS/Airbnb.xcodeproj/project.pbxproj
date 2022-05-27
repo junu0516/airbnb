@@ -27,6 +27,7 @@
 		B570BC4F283FF8F1008BBC79 /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = B570BC4E283FF8F1008BBC79 /* GoogleMaps */; };
 		B570BC51283FF8F1008BBC79 /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = B570BC50283FF8F1008BBC79 /* GooglePlaces */; };
 		B570BC53283FF97C008BBC79 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B570BC52283FF97C008BBC79 /* MapViewController.swift */; };
+		B570BC5528406881008BBC79 /* PrivateStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B570BC5428406881008BBC79 /* PrivateStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		B5093545283FD50D0017C8E0 /* ConditionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCategory.swift; sourceTree = "<group>"; };
 		B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewDataSource.swift; sourceTree = "<group>"; };
 		B570BC52283FF97C008BBC79 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B570BC5428406881008BBC79 /* PrivateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */,
 				B5093545283FD50D0017C8E0 /* ConditionCategory.swift */,
 				B570BC52283FF97C008BBC79 /* MapViewController.swift */,
+				B570BC5428406881008BBC79 /* PrivateStorage.swift */,
 				98593E06283CC75D00B28960 /* Assets.xcassets */,
 				98593E08283CC75D00B28960 /* LaunchScreen.storyboard */,
 				98593E0B283CC75D00B28960 /* Info.plist */,
@@ -318,6 +321,7 @@
 				98E0C687283DF8DA00C5BDF9 /* RoomPosition.swift in Sources */,
 				B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */,
 				B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */,
+				B570BC5528406881008BBC79 /* PrivateStorage.swift in Sources */,
 				98593E02283CC75C00B28960 /* ViewController.swift in Sources */,
 				98593DFE283CC75C00B28960 /* AppDelegate.swift in Sources */,
 				98593E00283CC75C00B28960 /* SceneDelegate.swift in Sources */,
