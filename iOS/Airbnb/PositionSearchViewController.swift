@@ -16,6 +16,7 @@ class PositionSearchViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -49,6 +50,12 @@ extension PositionSearchViewController: UITableViewDataSource {
         let cell = UITableViewCell()
         cell.textLabel?.text = model.titleText(in: indexPath.row)
         return cell
+    }
+}
+
+extension PositionSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(ConditionSettingViewController(), animated: true)
     }
 }
 
