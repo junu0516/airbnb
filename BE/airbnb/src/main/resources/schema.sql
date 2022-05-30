@@ -5,13 +5,13 @@
 -- -----------------------------------------------------
 -- Schema airbnb_schema
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `airbnb_schema` DEFAULT CHARACTER SET utf8mb4 ;
-USE `airbnb_schema` ;
-
+-- CREATE SCHEMA IF NOT EXISTS `airbnb_schema` DEFAULT CHARACTER SET utf8mb4 ;
+-- USE `airbnb_schema` ;
+USE db_study1;
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`USER`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `airbnb_schema`.`USER` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`USER` (
     `USER_ID` BIGINT NOT NULL AUTO_INCREMENT,
     `USERNAME` VARCHAR(45) NOT NULL,
     `PROFILE_IMAGE` VARCHAR(500) NULL,
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `airbnb_schema`.`USER` (
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`ROOM`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `airbnb_schema`.`ROOM` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`ROOM` (
     `ROOM_ID` BIGINT NOT NULL AUTO_INCREMENT,
     `HOST_ID` BIGINT NOT NULL,
     `ROOM_NAME` VARCHAR(50) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `airbnb_schema`.`ROOM` (
     INDEX `fk_ROOM_USER_idx` (`HOST_ID` ASC) VISIBLE,
     CONSTRAINT `fk_ROOM_USER`
     FOREIGN KEY (`HOST_ID`)
-    REFERENCES `airbnb_schema`.`USER` (`USER_ID`)
+    REFERENCES `db_study1`.`USER` (`USER_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `airbnb_schema`.`ROOM` (
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`WISHLIST`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `airbnb_schema`.`WISHLIST` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`WISHLIST` (
     `USER_USER_ID` BIGINT NOT NULL,
     `ROOM_ROOM_ID` BIGINT NOT NULL,
     `IS_DELETED` TINYINT(1) NULL DEFAULT 0,
@@ -62,12 +62,12 @@ CREATE TABLE IF NOT EXISTS `airbnb_schema`.`WISHLIST` (
     INDEX `fk_USER_has_ROOM_USER1_idx` (`USER_USER_ID` ASC) VISIBLE,
     CONSTRAINT `fk_USER_has_ROOM_USER1`
     FOREIGN KEY (`USER_USER_ID`)
-    REFERENCES `airbnb_schema`.`USER` (`USER_ID`)
+    REFERENCES `db_study1`.`USER` (`USER_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     CONSTRAINT `fk_USER_has_ROOM_ROOM1`
     FOREIGN KEY (`ROOM_ROOM_ID`)
-    REFERENCES `airbnb_schema`.`ROOM` (`ROOM_ID`)
+    REFERENCES `db_study1`.`ROOM` (`ROOM_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `airbnb_schema`.`WISHLIST` (
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`IMAGE`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `airbnb_schema`.`IMAGE` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`IMAGE` (
     `IMAGE_ID` BIGINT NOT NULL AUTO_INCREMENT,
     `ROOM_ID` BIGINT NOT NULL,
     `IMAGE_LINK` VARCHAR(500) NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `airbnb_schema`.`IMAGE` (
     INDEX `fk_IMAGE_ROOM1_idx` (`ROOM_ID` ASC) VISIBLE,
     CONSTRAINT `fk_IMAGE_ROOM1`
     FOREIGN KEY (`ROOM_ID`)
-    REFERENCES `airbnb_schema`.`ROOM` (`ROOM_ID`)
+    REFERENCES `db_study1`.`ROOM` (`ROOM_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `airbnb_schema`.`IMAGE` (
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`RESERVATION`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `airbnb_schema`.`RESERVATION` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`RESERVATION` (
     `RESERVATION_ID` BIGINT NOT NULL AUTO_INCREMENT,
     `ROOM_ID` BIGINT NOT NULL,
     `GUEST_ID` BIGINT NOT NULL,
@@ -107,24 +107,15 @@ CREATE TABLE IF NOT EXISTS `airbnb_schema`.`RESERVATION` (
     INDEX `fk_RESERVATION1_USER1_idx` (`GUEST_ID` ASC) VISIBLE,
     CONSTRAINT `fk_RESERVATION1_ROOM1`
     FOREIGN KEY (`ROOM_ID`)
-    REFERENCES `airbnb_schema`.`ROOM` (`ROOM_ID`)
+    REFERENCES `db_study1`.`ROOM` (`ROOM_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     CONSTRAINT `fk_RESERVATION1_USER1`
     FOREIGN KEY (`GUEST_ID`)
-    REFERENCES `airbnb_schema`.`USER` (`USER_ID`)
+    REFERENCES `db_study1`.`USER` (`USER_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;
-
-
-
-
-
-
-
-
-
 
 
 --

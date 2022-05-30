@@ -3,6 +3,7 @@ package team07.airbnb.review;
 import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,16 +16,16 @@ import team07.airbnb.user.User;
 
 @Entity
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id;")
+@EqualsAndHashCode(of = "id")
 public class Review {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REVIEW_ID")
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ROOM_ID")
     private Room room;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     private User user;
 

@@ -12,14 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import team07.airbnb.address.Address;
 import team07.airbnb.user.User;
 
 @Entity
 @EqualsAndHashCode(of = "id")
-//@Table(indexes = {@Index(columnList = "address")})
 @NoArgsConstructor
+@Getter
 public class Room {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +32,7 @@ public class Room {
     private String roomName;
     @Embedded
     private Address address;
-    private String description;
+    private String roomDescription;
     private int maxNumberOfGuest;
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
