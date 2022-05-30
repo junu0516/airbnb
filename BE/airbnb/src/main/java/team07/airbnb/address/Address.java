@@ -1,13 +1,15 @@
 package team07.airbnb.address;
 
+import java.math.BigDecimal;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address {
 
-    private String province;
+    private String country;
+    private String state;
     private String city;
-    private String gu;
-    private String coordinate;
+    private BigDecimal longitude;
+    private BigDecimal latitude;
 
 }

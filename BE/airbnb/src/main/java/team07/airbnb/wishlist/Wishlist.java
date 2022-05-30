@@ -1,6 +1,6 @@
 package team07.airbnb.wishlist;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +18,6 @@ import team07.airbnb.user.User;
 public class Wishlist {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "WISHLIST_ID")
     private Long id;
     @ManyToOne
     @JoinColumn(name = "USER_ID")
@@ -27,4 +26,8 @@ public class Wishlist {
     @JoinColumn(name = "ROOM_ID")
     private Room room;
 
+
 }
+
+//목록조회 -> isDeleted
+//위시리스트..

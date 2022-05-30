@@ -19,22 +19,16 @@ import team07.airbnb.user.User;
 public class Reservation {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reservation_no")
     private Long reservationId;
     @ManyToOne
-    @JoinColumn(name = "accomodation_id")
+    @JoinColumn(name = "ROOM_ID")
     private Room room;
     @ManyToOne
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "GUEST_ID")
     private User user;
-    @Column(name = "start_at")
-    private LocalDate checkinDate;
-    @Column(name = "end_at")
-    private LocalDate checkoutDate;
-    @Column(name = "number_of_guest")
-    private int guestAmount;
-    @Column(name = "number_of_infant")
-    private int infantAmount;
-    private int price;
+    private LocalDate startAt;
+    private LocalDate endAt;
+    private int numberOfGuest;
+    private int totalPrice;
 
 }

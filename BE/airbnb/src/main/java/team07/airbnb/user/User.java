@@ -1,6 +1,8 @@
 package team07.airbnb.user;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,15 +23,18 @@ public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    private String email;
-    private String nickName;
-    private String phone;
-    private String role;
+    private String username;
+    private String profileImage;
+    private String userEmail;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+    private String userPhone;
 
-    public User(String email, String nickName, String phone, String role) {
-        this.email = email;
-        this.nickName = nickName;
-        this.phone = phone;
+
+    public User(String userEmail, String username, String userPhone, UserRole role) {
+        this.userEmail = userEmail;
+        this.username = username;
+        this.userPhone = userPhone;
         this.role = role;
     }
 }

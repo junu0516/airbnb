@@ -2,8 +2,6 @@ package team07.airbnb.image;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,8 +23,7 @@ public class Image {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ROOM_ID")
     private Room room;
-    private String imageUrl;
-    @Enumerated(value = EnumType.STRING)
-    private ImageType imageType;
+    private String imageLink;
+    private int imageOrder;
 
 }
