@@ -1,12 +1,12 @@
 package team07.airbnb.address;
 
 import java.math.BigDecimal;
+
 import javax.persistence.Embeddable;
-import lombok.Getter;
 
 @Embeddable
-@Getter
 public class Address {
+    public static final String ADDRESS_TEXT = "%s %s %s";
     private String roomCountry;
 
     private String roomState;
@@ -16,4 +16,8 @@ public class Address {
     private BigDecimal roomLongitude;
 
     private BigDecimal roomLatitude;
+
+    public String divisions() {
+        return String.format(ADDRESS_TEXT, roomCity, roomState, roomCountry);
+    }
 }
