@@ -1,4 +1,4 @@
-package team07.airbnb.dto;
+package team07.airbnb.wishlist;
 
 import lombok.Getter;
 import org.springframework.lang.NonNull;

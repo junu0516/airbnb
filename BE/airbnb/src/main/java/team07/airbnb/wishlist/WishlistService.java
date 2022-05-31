@@ -3,7 +3,7 @@ package team07.airbnb.wishlist;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import team07.airbnb.dto.WishlistAddRequest;
+
 import team07.airbnb.room.Room;
 import team07.airbnb.room.RoomRepository;
 import team07.airbnb.user.User;
