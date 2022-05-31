@@ -31,4 +31,11 @@ public class RoomService {
 
         return RoomDetailResponse.of(findRoom, roomImages, wishlists, userId);
     }
+
+    @Transactional(readOnly = true)
+    public Room getRoom(Long roomId) {
+        return roomRepository.findById(roomId)
+            .orElseThrow(() -> new RuntimeException("no entity"));
+    }
+
 }
