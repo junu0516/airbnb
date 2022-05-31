@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class ImageRepository {
-
     private final EntityManager em;
 
     public List<Image> findByRoomId(Long roomId) {
@@ -16,5 +15,4 @@ public class ImageRepository {
             .setParameter("roomId", roomId)
             .getResultList();
     }
-
 }

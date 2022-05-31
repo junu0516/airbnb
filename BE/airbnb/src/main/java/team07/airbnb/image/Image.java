@@ -20,14 +20,15 @@ import team07.airbnb.room.Room;
 @ToString(exclude = "room")
 @Getter
 public class Image {
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IMAGE_ID")
     private Long id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ROOM_ID")
     private Room room;
-    private String imageLink;
-    private int imageOrder;
 
+    private String imageLink;
+
+    private int imageOrder;
 }

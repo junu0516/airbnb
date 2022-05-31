@@ -1,5 +1,5 @@
 package team07.airbnb.room;
 
 public enum RoomType {
-    oneRoom, doubleRoom, residence, pension
+    ONE_ROOM, DOUBLE_ROOM, RESIDENCE, PENSION
 }

@@ -17,18 +17,14 @@ import team07.airbnb.user.User;
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 public class Wishlist {
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     private User user;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ROOM_ID")
     private Room room;
-
-
 }
-
-//목록조회 -> isDeleted
-//위시리스트..

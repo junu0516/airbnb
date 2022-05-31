@@ -20,16 +20,19 @@ import lombok.ToString;
 @Entity
 @Getter
 public class User {
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
+
     private String username;
+
     private String profileImage;
+
     private String userEmail;
+
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
-    private String userPhone;
 
+    private String userPhone;
 
     public User(String userEmail, String username, String userPhone, UserRole role) {
         this.userEmail = userEmail;
