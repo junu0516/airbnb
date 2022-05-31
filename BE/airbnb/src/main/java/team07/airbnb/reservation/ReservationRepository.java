@@ -1,17 +1,19 @@
 package team07.airbnb.reservation;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 
-import javax.persistence.EntityManager;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
+import java.time.LocalDate;
+import java.util.Optional;
 
-@Repository
-@RequiredArgsConstructor
-public class ReservationRepository {
-    private final EntityManager em;
+public interface ReservationRepository extends JpaRepository<Reservation, Long> {
+	Optional<Reservation> findFirstByRoomIdAndStartAtBetweenOrEndAtBetween(
+		@Param("roomId") Long roomId,
+		@Param("checkInA") LocalDate checkInA, @Param("checkOutA") LocalDate checkOutA,
+		@Param("checkInB") LocalDate checkInB, @Param("checkOutB")LocalDate checkOutB);
 
-    public Reservation findReservationWithRoomAndHost(Long reservationId) {
-        return em.createQuery("select re from Reservation re join fetch re.room ro join fetch ro.host where re.reservationId=:reservationId", Reservation.class)
-            .setParameter("reservationId", reservationId).getSingleResult();
-    }
+	Optional<Reservation> findFirstByRoomIdAndStartAtLessThanEqualAndEndAtGreaterThanEqual(
+		@Param("roomId") Long roomId,
+		@Param("dayA") LocalDate oneDayA,
+		@Param("dayB") LocalDate oneDayB);
 }
