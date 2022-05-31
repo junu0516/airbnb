@@ -24,22 +24,29 @@ import team07.airbnb.user.User;
 @Getter
 @ToString(exclude = "host")
 public class Room {
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ROOM_ID")
     private Long id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "HOST_ID")
     private User host;
+
     private String roomName;
+
     @Embedded
     private Address address;
+
     private String roomDescription;
+
     private int maxNumberOfGuest;
+
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
-    private int numberOfBed;
-    private int numberOfToilet;
-    private int roomPricePerDay;
 
+    private int numberOfBed;
+
+    private int numberOfToilet;
+
+    private int roomPricePerDay;
 }

@@ -9,11 +9,13 @@ import lombok.ToString;
 @Getter
 @ToString
 public class Address {
-
     private String roomCountry;
-    private String roomState;
-    private String roomCity;
-    private BigDecimal roomLongitude;
-    private BigDecimal roomLatitude;
 
+    private String roomState;
+
+    private String roomCity;
+
+    private BigDecimal roomLongitude;
+
+    private BigDecimal roomLatitude;
 }

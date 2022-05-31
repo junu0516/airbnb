@@ -4,7 +4,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import team07.airbnb.dto.ReservationDetailResponse;
+
 import team07.airbnb.image.Image;
 import team07.airbnb.image.ImageRepository;
 
@@ -12,7 +12,6 @@ import team07.airbnb.image.ImageRepository;
 @RequiredArgsConstructor
 @Transactional
 public class ReservationService {
-
     private final ReservationRepository reservationRepository;
     private final ImageRepository imageRepository;
 
@@ -22,5 +21,4 @@ public class ReservationService {
         List<Image> images = imageRepository.findByRoomId(reservationAndRoom.getRoom().getId());
         return ReservationDetailResponse.of(reservationAndRoom, images);
     }
-
 }

@@ -1,4 +1,4 @@
-package team07.airbnb.dto;
+package team07.airbnb.reservation;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -7,18 +7,23 @@ import java.util.stream.Collectors;
 import lombok.Getter;
 import team07.airbnb.address.Address;
 import team07.airbnb.image.Image;
-import team07.airbnb.reservation.Reservation;
 
 @Getter
 public class ReservationDetailResponse {
-
      private String roomName;
+
      private Address address;
+
      private List<String> images = new ArrayList<>();
+
      private LocalDate startAt;
+
      private LocalDate endAt;
+
      private String hostName;
+
      private int guestAmount;
+
      private int totalPrice;
 
      public ReservationDetailResponse(String roomName, Address address,

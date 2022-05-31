@@ -9,24 +9,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import team07.airbnb.room.Room;
 import team07.airbnb.user.User;
 
 @Entity
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "wishlistId")
 @NoArgsConstructor
-@Getter
 @ToString(exclude = {"user", "room"})
 public class Wishlist {
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long wishlistId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     private User user;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ROOM_ID")
     private Room room;
@@ -37,4 +34,3 @@ public class Wishlist {
     }
 
 }
-
