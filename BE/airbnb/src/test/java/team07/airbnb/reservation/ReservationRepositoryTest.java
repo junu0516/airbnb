@@ -97,6 +97,20 @@ class ReservationRepositoryTest {
 		assertThat(actual.isEmpty()).isFalse();
 	}
 
+	@Test
+	@DisplayName("1일 예약 요청에 대해 해당 숙소의 예약날짜와 중복 여부 확인한다.")
+	void invalid_reservation_duplicated_date() {
+		int filledDate = startAtArr[1]+1;
+		LocalDate startAt = LocalDate.of(2022, 5, filledDate);
+		LocalDate endAt = LocalDate.of(2022, 5, filledDate+1);
+		Optional<Reservation> actual = reservationRepository.findFirstByRoomIdAndStartAtLessThanEqualAndEndAtGreaterThanEqual(
+			ROOM_ID,
+			startAt,
+			endAt);
+
+		assertThat(actual.isEmpty()).isFalse();
+	}
+
 	//  9 ~ 13
 	// 16 ~ 20
 	private List<Reservation> getReservation() {
