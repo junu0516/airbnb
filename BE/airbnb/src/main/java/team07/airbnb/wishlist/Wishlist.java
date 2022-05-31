@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import team07.airbnb.room.Room;
 import team07.airbnb.user.User;
 
@@ -31,6 +32,10 @@ public class Wishlist {
     public Wishlist(User user, Room room) {
         this.user = user;
         this.room = room;
+    }
+
+    public Long guestId() {
+        return user.getUserId();
     }
 
 }

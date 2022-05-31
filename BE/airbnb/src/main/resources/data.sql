@@ -2,10 +2,10 @@
 insert into user
 (USERNAME, USER_EMAIL, USER_PHONE, USER_ROLE, PROFILE_IMAGE)
 values
-    ('sally', 'sally@email.com', '010-1234-1234', 'guest', 'https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%ED%8C%8C%EC%9D%B4%ED%8C%85.png'),
-    ('zzangmin', 'zzangmin@email.com', '010-7890-1234', 'host','https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%EC%A7%B1%EA%B5%AC-%ED%94%84%EB%A1%9C%ED%95%84.PNG'),
-    ('공유', 'gongicheol@email.com', '010-2345-1234', 'host','https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%EA%B3%B5%EC%9C%A0-%ED%94%84%EB%A1%9C%ED%95%84.PNG'),
-    ('BoGum', 'BoGumn@email.com', '010-1111-1234', 'host','https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%B0%95%EB%B3%B4%EA%B2%80-%ED%94%84%EB%A1%9C%ED%95%84.jpg');
+    ('sally', 'sally@email.com', '010-1234-1234', 'GUEST', 'https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%ED%8C%8C%EC%9D%B4%ED%8C%85.png'),
+    ('zzangmin', 'zzangmin@email.com', '010-7890-1234', 'HOST','https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%EC%A7%B1%EA%B5%AC-%ED%94%84%EB%A1%9C%ED%95%84.PNG'),
+    ('공유', 'gongicheol@email.com', '010-2345-1234', 'HOST','https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%EA%B3%B5%EC%9C%A0-%ED%94%84%EB%A1%9C%ED%95%84.PNG'),
+    ('BoGum', 'BoGumn@email.com', '010-1111-1234', 'HOST','https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%B0%95%EB%B3%B4%EA%B2%80-%ED%94%84%EB%A1%9C%ED%95%84.jpg');
 
 insert into ROOM
 (ROOM_PRICE_PER_DAY, ROOM_NAME, MAX_NUMBER_OF_GUEST, ROOM_TYPE, NUMBER_OF_BED, NUMBER_OF_TOILET, ROOM_DESCRIPTION, HOST_ID, ROOM_COUNTRY, ROOM_STATE, ROOM_CITY, ROOM_LONGITUDE, ROOM_LATITUDE)

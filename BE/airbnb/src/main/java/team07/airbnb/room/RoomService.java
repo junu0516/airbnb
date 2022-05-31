@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import team07.airbnb.dto.RoomDetailResponse;
 import team07.airbnb.image.Image;
 import team07.airbnb.image.ImageRepository;
 import team07.airbnb.wishlist.Wishlist;

@@ -42,4 +42,12 @@ public class User {
     public String nickName() {
         return this.username;
     }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public HostProfile getHost() {
+        return new HostProfile(this.username, this.profileImage);
+    }
 }

@@ -14,18 +14,20 @@ import javax.persistence.ManyToOne;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import team07.airbnb.address.Address;
 import team07.airbnb.reservation.ReservationCalculator;
 import team07.airbnb.reservation.ReservationRoom;
+import team07.airbnb.user.HostProfile;
 import team07.airbnb.user.User;
 
-@Entity
+@Getter
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
-@Entity
 @ToString(exclude = "host")
+@Entity
 public class Room {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ROOM_ID")
@@ -63,5 +65,9 @@ public class Room {
 
     public ReservationRoom getReservationRoom() {
         return new ReservationRoom(this.roomName, this.address.divisions(), this.host.nickName());
+    }
+
+    protected HostProfile hostProfile() {
+        return this.host.getHost();
     }
 }

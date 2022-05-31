@@ -2,6 +2,7 @@ package team07.airbnb.address;
 
 import java.math.BigDecimal;
 import javax.persistence.Embeddable;
+import lombok.ToString;
 
 @Embeddable
 @ToString
