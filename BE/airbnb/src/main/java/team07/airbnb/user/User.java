@@ -9,7 +9,6 @@ import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -18,7 +17,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "userId")
 @Entity
-@Getter
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
@@ -39,5 +37,9 @@ public class User {
         this.username = username;
         this.userPhone = userPhone;
         this.userRole = role;
+    }
+
+    public String nickName() {
+        return this.username;
     }
 }
