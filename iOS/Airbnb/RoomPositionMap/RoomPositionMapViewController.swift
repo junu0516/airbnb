@@ -30,10 +30,10 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
     private lazy var roomPositionInfoCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: .zero, left: .zero, bottom: .zero, right: 5)
+        layout.sectionInset = UIEdgeInsets(top: .zero, left: .zero, bottom: .zero, right: 15)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.isScrollEnabled = true
+        collectionView.isPagingEnabled = true
         collectionView.register(RoomPositionMapCollectionViewCell.self,
                                 forCellWithReuseIdentifier: RoomPositionMapCollectionViewCell.identifier)
         collectionView.delegate = self
@@ -41,6 +41,7 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    private var currentCellIndex = 0
     
     private let locationManager: CLLocationManager = CLLocationManager()
     private var markers: [GMSMarker] = []
@@ -56,7 +57,7 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
         super.viewDidLoad()
         self.roomPositionMapUseCase?.initialize()
         self.view.backgroundColor = .systemBackground
-
+        
         addComponentViews()
         setComponentLayout()
         bindView()
@@ -95,9 +96,8 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
             roomPositionInfoCollectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2)
         ])
     }
-
+    
     private func configureMap() {
-        mapView.delegate = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -117,24 +117,30 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
     }
 }
 
-extension RoomPositionMapViewController: GMSMapViewDelegate {
-    
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        print("탭한 위치 표시\n위도:\(coordinate.latitude)\n경도:\(coordinate.longitude)")
-    }
-    
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        let topLeft = mapView.projection.visibleRegion().farLeft
-        let topRight = mapView.projection.visibleRegion().farRight
-        let bottomleft = mapView.projection.visibleRegion().nearLeft
-        let bottomRight = mapView.projection.visibleRegion().nearRight
-
-    }
-}
-
 extension RoomPositionMapViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width*0.9, height: collectionView.frame.height)
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        guard let items = self.roomPositionMapUseCase?.roomPositionInfoList.value else { return }
+        let itemCount = items.count
+        let fullWidth = self.roomPositionInfoCollectionView.frame.width
+        let contentOffsetX = targetContentOffset.pointee.x
+        
+        let targetItem = lround(Double(contentOffsetX/fullWidth))
+        let targetIndex = targetItem % itemCount
+        
+        let latitude = Double(items[targetIndex].latitude) ?? 0.0
+        let longitude = Double(items[targetIndex].longitude) ?? 0.0
+        let coordinate = CLLocationCoordinate2D(latitude: latitude , longitude: longitude)
+        
+        moveToTargetPosition(coordinate: coordinate)
+    }
+    
+    private func moveToTargetPosition(coordinate: CLLocationCoordinate2D) {
+        let camera = GMSCameraPosition(target: coordinate, zoom: 16)
+        self.mapView.camera = camera
     }
 }

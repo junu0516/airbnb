@@ -16,7 +16,7 @@ import Foundation
 
 struct RoomPositionInfoList: Codable {
     let countOfRooms: Int
-    let rooms: [RoomPositionInfo]
+    var rooms: [RoomPositionInfo]
 }
 
 struct RoomPositionInfo: Codable {
@@ -28,8 +28,8 @@ struct RoomPositionInfo: Codable {
     let averageOfStar: Float
     let numberOfReviews: Int
     let isWished: Bool
-    let latitude: String
-    let longitude: String
+    var latitude: String
+    var longitude: String
     
     enum CodingKeys: String, CodingKey {
         case roomId
