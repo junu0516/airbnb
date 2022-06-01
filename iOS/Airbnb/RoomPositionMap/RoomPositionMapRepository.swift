@@ -12,14 +12,14 @@ struct RoomPositionMapRepository {
         self.jsonHandler = jsonHandler
     }
     
-    func fetch(completion: @escaping (RoomPositionInfo) -> Void) {
+    func fetch(completion: @escaping (RoomPositionInfoList) -> Void) {
         networkHandler.request(endPoint: .list,
                                method: .get,
                                contentType: .json,
                                body: nil) { result in
             switch result {
             case .success(let data):
-                if let decodedData = jsonHandler.convertJsonToObject(from: data, to: RoomPositionInfo.self) {
+                if let decodedData = jsonHandler.convertJsonToObject(from: data, to: RoomPositionInfoList.self) {
                     completion(decodedData)
                 }
             case .failure(let error):
