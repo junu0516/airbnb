@@ -25,7 +25,6 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isScrollEnabled = true
-        collectionView.backgroundColor = .systemBackground
         collectionView.register(RoomPositionMapCollectionViewCell.self,
                                 forCellWithReuseIdentifier: RoomPositionMapCollectionViewCell.identifier)
         collectionView.dataSource = self
@@ -78,7 +77,7 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
             mapView.leadingAnchor.constraint(equalTo: mapBackgroundView.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: mapBackgroundView.trailingAnchor),
             
-            roomPositionInfoCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            roomPositionInfoCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             roomPositionInfoCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             roomPositionInfoCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             roomPositionInfoCollectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2)
@@ -129,8 +128,10 @@ extension RoomPositionMapViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoomPositionMapCollectionViewCell.identifier, for: indexPath) as? RoomPositionMapCollectionViewCell,
               let roomPositionInfo = self.roomPositionMapUseCase?.roomPositionInfoList.value[indexPath.row] else { return UICollectionViewCell() }
-        print(roomPositionInfo)
-        cell.updateInfo(title: roomPositionInfo.roomName, price: String(roomPositionInfo.price))
+        cell.updateInfo(title: roomPositionInfo.roomName,
+                        price: String(roomPositionInfo.price),
+                        starCount: String(roomPositionInfo.averageOfStar),
+                        reviewCount: String(roomPositionInfo.numberOfReviews))
         return cell
     }
     
