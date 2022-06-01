@@ -40,7 +40,7 @@
 		B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */; };
 		B55A638D2845AC5B00E08EE0 /* ConditionSettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638C2845AC5B00E08EE0 /* ConditionSettingUseCase.swift */; };
 		B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */; };
-		B55A6392284706B100E08EE0 /* RoomPositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A6391284706B100E08EE0 /* RoomPositionUseCase.swift */; };
+		B55A6392284706B100E08EE0 /* RoomPositionMapUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */; };
 		B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A63932847070200E08EE0 /* JsonHandler.swift */; };
 		B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */; };
 		B5E098E928406B8D00A69BDF /* PrivateStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E098E828406B8D00A69BDF /* PrivateStorage.swift */; };
@@ -105,7 +105,7 @@
 		B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewDataSource.swift; sourceTree = "<group>"; };
 		B55A638C2845AC5B00E08EE0 /* ConditionSettingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingUseCase.swift; sourceTree = "<group>"; };
 		B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapRepository.swift; sourceTree = "<group>"; };
-		B55A6391284706B100E08EE0 /* RoomPositionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionUseCase.swift; sourceTree = "<group>"; };
+		B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapUseCase.swift; sourceTree = "<group>"; };
 		B55A63932847070200E08EE0 /* JsonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHandler.swift; sourceTree = "<group>"; };
 		B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapViewController.swift; sourceTree = "<group>"; };
 		B5E098E828406B8D00A69BDF /* PrivateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStorage.swift; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 			children = (
 				B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */,
 				B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */,
-				B55A6391284706B100E08EE0 /* RoomPositionUseCase.swift */,
+				B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */,
 			);
 			path = RoomPositionMap;
 			sourceTree = "<group>";
@@ -625,7 +625,7 @@
 				B5093546283FD50D0017C8E0 /* ConditionCategory.swift in Sources */,
 				98F11303283F11B700009232 /* PositionSearchUseCase.swift in Sources */,
 				986B005A283F86C2008E3EEB /* RoomListViewController.swift in Sources */,
-				B55A6392284706B100E08EE0 /* RoomPositionUseCase.swift in Sources */,
+				B55A6392284706B100E08EE0 /* RoomPositionMapUseCase.swift in Sources */,
 				98E0C687283DF8DA00C5BDF9 /* RoomPosition.swift in Sources */,
 				B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */,
 				B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */,
