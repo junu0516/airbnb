@@ -5,7 +5,7 @@ protocol JsonHandlable {
     func convertObjectToJson<T:Encodable>(from object: T) -> Data?
 }
 
-struct JsonHandler {
+struct JsonHandler: JsonHandlable {
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
