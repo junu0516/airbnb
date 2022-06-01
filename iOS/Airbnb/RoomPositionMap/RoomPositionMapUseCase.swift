@@ -13,10 +13,10 @@ final class RoomPositionMapUseCase {
     func initialize() {
         roomPositionMapRepository.fetch { [weak self] roomPositionInfoList in
             var roomPositionInfoList = roomPositionInfoList
-            roomPositionInfoList.rooms[0].latitude = "37.485124"
-            roomPositionInfoList.rooms[0].longitude = "127.0275777"
-            roomPositionInfoList.rooms[1].latitude = "37.490864"
-            roomPositionInfoList.rooms[1].longitude = "127.033406"
+            roomPositionInfoList.rooms[0].latitude = 37.485124
+            roomPositionInfoList.rooms[0].longitude = 127.0275777
+            roomPositionInfoList.rooms[1].latitude = 37.490864
+            roomPositionInfoList.rooms[1].longitude = 127.033406
             self?.roomPositionInfoList.value = roomPositionInfoList.rooms
         }
     }

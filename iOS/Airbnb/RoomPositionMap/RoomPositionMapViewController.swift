@@ -49,7 +49,6 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
     convenience init(roomPositionMapUseCase useCase: RoomPositionMapUseCase) {
         self.init()
         self.roomPositionMapUseCase = useCase
-        
     }
     
     override func viewDidLoad() {
@@ -144,10 +143,8 @@ extension RoomPositionMapViewController: UICollectionViewDelegate, UICollectionV
         let targetItem = lround(Double(contentOffsetX/fullWidth))
         let targetIndex = targetItem % itemCount
         
-        let latitude = Double(items[targetIndex].latitude) ?? 0.0
-        let longitude = Double(items[targetIndex].longitude) ?? 0.0
-        let coordinate = CLLocationCoordinate2D(latitude: latitude , longitude: longitude)
-        
+        let coordinate = CLLocationCoordinate2D(latitude: items[targetIndex].latitude,
+                                                longitude: items[targetIndex].longitude)
         self.moveToTargetPosition(coordinate: coordinate)
     }
 }

@@ -28,8 +28,8 @@ struct RoomPositionInfo: Codable {
     let averageOfStar: Float
     let numberOfReviews: Int
     let isWished: Bool
-    var latitude: String
-    var longitude: String
+    var latitude: Double
+    var longitude: Double
     
     enum CodingKeys: String, CodingKey {
         case roomId
@@ -55,7 +55,9 @@ struct RoomPositionInfo: Codable {
         self .averageOfStar = try container.decode(Float.self, forKey: .averageOfStar)
         self.numberOfReviews = try container.decode(Int.self, forKey: .numberOfReviews)
         self.isWished = try container.decode(Bool.self, forKey: .isWished)
-        self.latitude = try container.decode(String.self, forKey: .latitude)
-        self.longitude = try container.decode(String.self, forKey: .longitude)
+        let latitude = try container.decode(String.self, forKey: .latitude)
+        self.latitude = Double(latitude) ?? 0.0
+        let longitude = try container.decode(String.self, forKey: .longitude)
+        self.longitude = Double(longitude) ?? 0.0
     }
 }
