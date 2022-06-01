@@ -2,9 +2,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
-    
-    private var locationManager: CLLocationManager = CLLocationManager()
+class RoomPositionMapViewController: UIViewController, CLLocationManagerDelegate {
     
     private let mapBackgroundView: UIView = {
         let view = UIView()
@@ -21,6 +19,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         return mapView
     }()
     
+    //마커, 컬렉션뷰
+    
+    private let locationManager: CLLocationManager = CLLocationManager()
     private var markers: [GMSMarker] = []
     
     override func viewDidLoad() {
@@ -73,7 +74,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
 }
 
-extension MapViewController: GMSMapViewDelegate {
+extension RoomPositionMapViewController: GMSMapViewDelegate {
     
     //터치한 지점의 좌표값 출력
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
