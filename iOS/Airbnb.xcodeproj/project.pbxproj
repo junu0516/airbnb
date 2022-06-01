@@ -209,6 +209,7 @@
 		98593DFC283CC75C00B28960 /* Airbnb */ = {
 			isa = PBXGroup;
 			children = (
+				B55A638E284705E900E08EE0 /* RoomPositionMap */,
 				982F765A2844C30E00DF8523 /* Server */,
 				982F76572844BDAA00DF8523 /* ExtraSearch */,
 				982F76562844BD5700DF8523 /* RoomDetail */,
@@ -272,6 +273,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B55A638E284705E900E08EE0 /* RoomPositionMap */ = {
+			isa = PBXGroup;
+			children = (
+				B570BC52283FF97C008BBC79 /* MapViewController.swift */,
+			);
+			path = RoomPositionMap;
+			sourceTree = "<group>";
+		};
 		B576AE0B28406E6600B21D80 /* PositionSearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,7 +294,6 @@
 		B576AE0C28406E9600B21D80 /* RoomList */ = {
 			isa = PBXGroup;
 			children = (
-				B570BC52283FF97C008BBC79 /* MapViewController.swift */,
 				986B0059283F86C2008E3EEB /* RoomListViewController.swift */,
 			);
 			path = RoomList;
