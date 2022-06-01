@@ -34,8 +34,4 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-bootRun {
-	String activeProfile = System.properties['spring.profiles.active']
-	systemProperty "spring.profiles.active", activeProfile
-}
 
