@@ -56,4 +56,5 @@ jobs:
             docker pull leezzangmin/team07-airbnb:be-${GITHUB_SHA::7}
             docker tag leezzangmin/team07-airbnb:be-${GITHUB_SHA::7} airbnb:be-${GITHUB_SHA::7}
             docker stop server
-            docker run -d --rm --name server -p 8080:8080 airbnb:be-${GITHUB_SHA::7}
+            docker run -d --rm -e profile=$profile -e MYSQL_DATABASE_USERNAME=$MYSQL_DATABASE_USERNAME -e MYSQL_DATABASE_URL=$MYSQL_DATABASE_URL -e MYSQL_DATABASE_PASSWORD=$MYSQL_DATABASE_PASSWORD --name server -p 8080:8080 airbnb:be-${GITHUB_SHA::7}
+
