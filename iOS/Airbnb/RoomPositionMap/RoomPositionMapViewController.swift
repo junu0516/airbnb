@@ -18,6 +18,15 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
         return mapView
     }()
     
+    typealias Cell = RoomPositionMapCollectionViewCell
+    typealias Item = RoomPositionInfo
+    private let collectionViewDataSource = CustomCollectionViewDataSource<Cell, Item>(identifier: Cell.identifier,
+                                                                                      items: []) { cell , item in
+        cell.updateInfo(title: item.roomName,
+                        price: String(item.price),
+                        starCount: String(item.averageOfStar),
+                        reviewCount: String(item.numberOfReviews))
+    }
     private lazy var roomPositionInfoCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -27,8 +36,8 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
         collectionView.isScrollEnabled = true
         collectionView.register(RoomPositionMapCollectionViewCell.self,
                                 forCellWithReuseIdentifier: RoomPositionMapCollectionViewCell.identifier)
-        collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.dataSource = self.collectionViewDataSource
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -40,21 +49,24 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
     convenience init(roomPositionMapUseCase useCase: RoomPositionMapUseCase) {
         self.init()
         self.roomPositionMapUseCase = useCase
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.roomPositionMapUseCase?.initialize()
         self.view.backgroundColor = .systemBackground
-        mapView.delegate = self
+
         addComponentViews()
         setComponentLayout()
-        configureMap()
         bindView()
+        configureMap()
     }
     
     private func bindView() {
         self.roomPositionMapUseCase?.roomPositionInfoList.bind { [weak self] _ in
+            guard let items = self?.roomPositionMapUseCase?.roomPositionInfoList.value else { return }
+            self?.collectionViewDataSource.updateNewItems(items: items)
             self?.roomPositionInfoCollectionView.reloadData()
         }
     }
@@ -83,8 +95,9 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
             roomPositionInfoCollectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2)
         ])
     }
-    
+
     private func configureMap() {
+        mapView.delegate = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -117,24 +130,6 @@ extension RoomPositionMapViewController: GMSMapViewDelegate {
         let bottomRight = mapView.projection.visibleRegion().nearRight
 
     }
-}
-
-extension RoomPositionMapViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return roomPositionMapUseCase?.roomPositionInfoList.value.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoomPositionMapCollectionViewCell.identifier, for: indexPath) as? RoomPositionMapCollectionViewCell,
-              let roomPositionInfo = self.roomPositionMapUseCase?.roomPositionInfoList.value[indexPath.row] else { return UICollectionViewCell() }
-        cell.updateInfo(title: roomPositionInfo.roomName,
-                        price: String(roomPositionInfo.price),
-                        starCount: String(roomPositionInfo.averageOfStar),
-                        reviewCount: String(roomPositionInfo.numberOfReviews))
-        return cell
-    }
-    
 }
 
 extension RoomPositionMapViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
