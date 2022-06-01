@@ -41,10 +41,8 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
-    private var currentCellIndex = 0
     
     private let locationManager: CLLocationManager = CLLocationManager()
-    private var markers: [GMSMarker] = []
     private var roomPositionMapUseCase: RoomPositionMapUseCase?
     
     convenience init(roomPositionMapUseCase useCase: RoomPositionMapUseCase) {
@@ -69,6 +67,7 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
             guard let items = self?.roomPositionMapUseCase?.roomPositionInfoList.value else { return }
             self?.collectionViewDataSource.updateNewItems(items: items)
             self?.roomPositionInfoCollectionView.reloadData()
+            self?.addMarkers(roomPositionInfoList: items)
         }
     }
     
@@ -102,18 +101,30 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-        
-        addMarker(coordinate: mapView.camera.target, title: "코드스쿼드", snippet: "코드스쿼드")
     }
     
-    //위치값 입력받아서, 해당 위치에 마커 추가
-    private func addMarker(coordinate: CLLocationCoordinate2D, title: String, snippet: String) {
-        let marker = GMSMarker()
-        marker.position = coordinate
-        marker.title = title
-        marker.snippet = snippet
-        marker.map = mapView
-        markers.append(marker)
+    private func addMarkers(roomPositionInfoList items: [RoomPositionInfo]) {
+        for (index,item) in items.enumerated() {
+            let latitude = Double(item.latitude) ?? 0.0
+            let longitude = Double(item.longitude) ?? 0.0
+            let coordinate = CLLocationCoordinate2D(latitude: latitude , longitude: longitude)
+
+            addMarker(coordinate: coordinate, title: String(item.price), snippet: "가격표시")
+            if index == 0 { moveToTargetPosition(coordinate: coordinate)}
+        }
+        
+        func addMarker(coordinate: CLLocationCoordinate2D, title: String, snippet: String) {
+            let marker = GMSMarker()
+            marker.position = coordinate
+            marker.title = title
+            marker.snippet = snippet
+            marker.map = mapView
+        }
+    }
+    
+    private func moveToTargetPosition(coordinate: CLLocationCoordinate2D) {
+        let camera = GMSCameraPosition(target: coordinate, zoom: 16)
+        self.mapView.camera = camera
     }
 }
 
@@ -136,11 +147,6 @@ extension RoomPositionMapViewController: UICollectionViewDelegate, UICollectionV
         let longitude = Double(items[targetIndex].longitude) ?? 0.0
         let coordinate = CLLocationCoordinate2D(latitude: latitude , longitude: longitude)
         
-        moveToTargetPosition(coordinate: coordinate)
-    }
-    
-    private func moveToTargetPosition(coordinate: CLLocationCoordinate2D) {
-        let camera = GMSCameraPosition(target: coordinate, zoom: 16)
-        self.mapView.camera = camera
+        self.moveToTargetPosition(coordinate: coordinate)
     }
 }
