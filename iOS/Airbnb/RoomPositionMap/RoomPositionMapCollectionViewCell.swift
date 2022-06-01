@@ -55,6 +55,9 @@ final class RoomPositionMapCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.contentView.backgroundColor = .systemBackground
+        self.contentView.layer.cornerRadius = 10
+        self.contentView.layer.masksToBounds = true
+        
         self.addComponentViews()
         self.setCompoentLayout()
     }

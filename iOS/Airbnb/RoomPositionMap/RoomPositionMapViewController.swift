@@ -33,6 +33,7 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
         layout.sectionInset = UIEdgeInsets(top: .zero, left: .zero, bottom: .zero, right: 15)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
         collectionView.isPagingEnabled = true
         collectionView.register(RoomPositionMapCollectionViewCell.self,
                                 forCellWithReuseIdentifier: RoomPositionMapCollectionViewCell.identifier)
