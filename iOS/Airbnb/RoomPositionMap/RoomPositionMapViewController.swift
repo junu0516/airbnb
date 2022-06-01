@@ -109,15 +109,15 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
             let longitude = Double(item.longitude) ?? 0.0
             let coordinate = CLLocationCoordinate2D(latitude: latitude , longitude: longitude)
 
-            addMarker(coordinate: coordinate, title: String(item.price), snippet: "가격표시")
+            addMarker(coordinate: coordinate, price: String(item.price), roomName: item.roomName)
             if index == 0 { moveToTargetPosition(coordinate: coordinate)}
         }
         
-        func addMarker(coordinate: CLLocationCoordinate2D, title: String, snippet: String) {
-            let marker = GMSMarker()
-            marker.position = coordinate
-            marker.title = title
-            marker.snippet = snippet
+        func addMarker(coordinate: CLLocationCoordinate2D, price: String, roomName: String) {
+            let marker = CustomMarker(title: price ,position: coordinate)
+            marker.title = roomName
+            marker.appearAnimation = GMSMarkerAnimation.pop
+            
             marker.map = mapView
         }
     }
