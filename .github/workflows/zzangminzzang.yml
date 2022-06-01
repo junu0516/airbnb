@@ -8,8 +8,8 @@
 name: Java CI with Gradle (nathan Copy-Ninza)
 
 on:
-  push:
-    branches: [BE]
+  workflow_dispatch: 
+#   branches: [BE]
 
 permissions:
   contents: read
