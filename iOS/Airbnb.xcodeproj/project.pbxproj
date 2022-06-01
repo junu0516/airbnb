@@ -39,6 +39,9 @@
 		B5093546283FD50D0017C8E0 /* ConditionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093545283FD50D0017C8E0 /* ConditionCategory.swift */; };
 		B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */; };
 		B55A638D2845AC5B00E08EE0 /* ConditionSettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638C2845AC5B00E08EE0 /* ConditionSettingUseCase.swift */; };
+		B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */; };
+		B55A6392284706B100E08EE0 /* RoomPositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A6391284706B100E08EE0 /* RoomPositionUseCase.swift */; };
+		B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A63932847070200E08EE0 /* JsonHandler.swift */; };
 		B570BC53283FF97C008BBC79 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B570BC52283FF97C008BBC79 /* MapViewController.swift */; };
 		B5E098E928406B8D00A69BDF /* PrivateStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E098E828406B8D00A69BDF /* PrivateStorage.swift */; };
 		B8F22F16D6A74B2E79A1AB68 /* Pods_AirbnbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA6B6A2DF8511623B1A7059 /* Pods_AirbnbTests.framework */; };
@@ -101,6 +104,9 @@
 		B5093545283FD50D0017C8E0 /* ConditionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCategory.swift; sourceTree = "<group>"; };
 		B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewDataSource.swift; sourceTree = "<group>"; };
 		B55A638C2845AC5B00E08EE0 /* ConditionSettingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingUseCase.swift; sourceTree = "<group>"; };
+		B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapRepository.swift; sourceTree = "<group>"; };
+		B55A6391284706B100E08EE0 /* RoomPositionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionUseCase.swift; sourceTree = "<group>"; };
+		B55A63932847070200E08EE0 /* JsonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHandler.swift; sourceTree = "<group>"; };
 		B570BC52283FF97C008BBC79 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B5E098E828406B8D00A69BDF /* PrivateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStorage.swift; sourceTree = "<group>"; };
 		B8C1C869B0BC716E37E2003A /* Pods_Airbnb_AirbnbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb_AirbnbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				98F11305283F27C000009232 /* Observable.swift */,
+				B55A63932847070200E08EE0 /* JsonHandler.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -277,6 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				B570BC52283FF97C008BBC79 /* MapViewController.swift */,
+				B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */,
+				B55A6391284706B100E08EE0 /* RoomPositionUseCase.swift */,
 			);
 			path = RoomPositionMap;
 			sourceTree = "<group>";
@@ -616,13 +625,16 @@
 				B5093546283FD50D0017C8E0 /* ConditionCategory.swift in Sources */,
 				98F11303283F11B700009232 /* PositionSearchUseCase.swift in Sources */,
 				986B005A283F86C2008E3EEB /* RoomListViewController.swift in Sources */,
+				B55A6392284706B100E08EE0 /* RoomPositionUseCase.swift in Sources */,
 				98E0C687283DF8DA00C5BDF9 /* RoomPosition.swift in Sources */,
 				B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */,
 				B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */,
+				B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */,
 				989934AC2844F69500317A84 /* RoomDetailUseCase.swift in Sources */,
 				98593E02283CC75C00B28960 /* HomeViewController.swift in Sources */,
 				983A6005283F6CF600DDB517 /* PositionSearchFactory.swift in Sources */,
 				989934A22844E98600317A84 /* RoomDetailRepository.swift in Sources */,
+				B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */,
 				989934A62844F56A00317A84 /* EndPoint.swift in Sources */,
 				989934A82844F5A700317A84 /* ContentType.swift in Sources */,
 				98593DFE283CC75C00B28960 /* AppDelegate.swift in Sources */,
