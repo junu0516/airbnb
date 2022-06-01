@@ -26,7 +26,9 @@ class RoomListViewController: UIViewController {
         button.backgroundColor = .brown
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addAction(UIAction(handler: { [weak self] _ in
-            self?.navigationController?.pushViewController(RoomPositionMapViewController(), animated: true)
+            let repository = RoomPositionMapRepository(networkHandler: NetworkHandler(), jsonHandler: JsonHandler())
+            let useCase = RoomPositionMapUseCase(roomPositionMapRepository: repository)
+            self?.navigationController?.pushViewController(RoomPositionMapViewController(roomPositionMapUseCase: useCase), animated: true)
         }), for: .touchDown)
         return button
     }()
