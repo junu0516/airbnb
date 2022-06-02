@@ -48,11 +48,9 @@ class ReservationRepositoryTest {
 		user = userRepository.findById(ROOM_ID).orElseThrow(() -> new RuntimeException("error of user"));
 		room = roomRepository.findById(ROOM_ID).orElseThrow(() -> new RuntimeException("error"));
 		for (Reservation reservation : getReservation()) {
-			System.out.println(reservation);
 			reservationRepository.save(reservation);
 		}
 	}
-
 
 	@Test
 	@DisplayName("요청받은 숙소의 예약 날짜기간에 대해 해당 숙소의 예약 날짜들과 겹치지 않음을 확인한다.")
@@ -65,7 +63,6 @@ class ReservationRepositoryTest {
 			startAt, endAt,
 			startAt, endAt);
 
-		System.out.println(actual);
 		assertThat(actual.isEmpty()).isTrue();
 	}
 
@@ -84,6 +81,19 @@ class ReservationRepositoryTest {
 	}
 
 	@Test
+	@DisplayName("예약 요청에 대해 다른 숙소의 부분 기간이 중복되는 날짜이지만, 해당하지 않은 숙소는 예약 가능하다")
+	void reservation_room() {
+		int filledDate = startAtArr[1];
+		LocalDate startAt = LocalDate.of(2022, 5, filledDate);
+		LocalDate endAt = LocalDate.of(2022, 5, filledDate + 1);
+		Optional<Reservation> actual = reservationRepository.findFirstByRoomIdAndStartAtBetweenOrEndAtBetween(
+			2L,
+			startAt, endAt,
+			startAt, endAt);
+		assertThat(actual.isEmpty()).isTrue();
+		assertThat(actual.isPresent()).isFalse();
+	}
+	@Test
 	@DisplayName("1일 예약 요청에 대해 해당 숙소의 예약날짜와 중복 여부 확인한다.")
 	void reservation_one_day() {
 		int filledDate = startAtArr[1]+1;
@@ -97,7 +107,7 @@ class ReservationRepositoryTest {
 	}
 
 	@Test
-	@DisplayName("1일 예약 요청에 대해 해당 숙소의 예약날짜와 중복 여부 확인한다.")
+	@DisplayName("기간내 수일 예약 요청에 대해 해당 숙소의 예약날짜와 중복 여부 확인한다.")
 	void invalid_reservation_duplicated_date() {
 		int filledDate = startAtArr[1]+1;
 		LocalDate startAt = LocalDate.of(2022, 5, filledDate);
@@ -108,6 +118,20 @@ class ReservationRepositoryTest {
 			endAt);
 
 		assertThat(actual.isEmpty()).isFalse();
+	}
+
+	@Test
+	@DisplayName("기간내 수일 예약 요청에 대해 다른 숙소는 예약 가능하다.")
+	void reservation_date() {
+		int filledDate = startAtArr[1]+1;
+		LocalDate startAt = LocalDate.of(2022, 5, filledDate);
+		LocalDate endAt = LocalDate.of(2022, 5, filledDate+1);
+		Optional<Reservation> actual = reservationRepository.findFirstByRoomIdAndStartAtLessThanEqualAndEndAtGreaterThanEqual(
+			2L,
+			startAt,
+			endAt);
+
+		assertThat(actual.isEmpty()).isTrue();
 	}
 
 	//  9 ~ 13
