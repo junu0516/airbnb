@@ -10,7 +10,7 @@ final class RoomPositionMapUseCase {
     }
     
     //임시로 임의의 좌표값 부여하는 로직을 임시로 적용(추후 실서버 붙였을 때 제거해야 함)
-    func initialize() {
+    func initializeData() {
         roomPositionMapRepository.fetch { [weak self] roomPositionInfoList in
             var roomPositionInfoList = roomPositionInfoList
             roomPositionInfoList.rooms[0].latitude = 37.485124

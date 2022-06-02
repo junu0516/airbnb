@@ -1,6 +1,6 @@
 import Foundation
 
-struct RoomSearchUseCase {
+struct SearchFilterUseCase {
     
     private var searchCondition = Observable<SearchCondition>(SearchCondition())
     

@@ -1,6 +1,6 @@
 import Foundation
 
-enum ConditionCategory: String, CaseIterable, CustomStringConvertible {
+enum FilterCategory: String, CaseIterable, CustomStringConvertible {
     case position = "위치"
     case period = "체크인/체크아웃"
     case price = "요금"
