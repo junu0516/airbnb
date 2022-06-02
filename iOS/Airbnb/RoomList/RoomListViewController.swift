@@ -5,8 +5,6 @@ class RoomListViewController: UIViewController {
 
     private var useCase: RoomListUseCase?
     
-    private let dummy = ["cozy house", "private room", "party room"]
-    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
@@ -47,7 +45,10 @@ class RoomListViewController: UIViewController {
         
         self.title = "숙소 찾기"
         self.view.backgroundColor = .white
-        
+        setupViews()
+    }
+    
+    private func setupViews() {
         view.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -74,18 +75,25 @@ class RoomListViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension RoomListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return useCase?.roomList.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultRoomCell", for: indexPath) as? SearchResultRoomCell else { return UICollectionViewCell() }
+        guard let room = useCase?.roomList[indexPath.row],
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultRoomCell", for: indexPath) as? SearchResultRoomCell else {
+            return UICollectionViewCell()
+        }
+        cell.updateViews(title: room.roomName)
         return cell
     }
 }
 
 extension RoomListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailUseCase = RoomDetailUseCase(roomId: 1, repository: RoomDetailRepository())
+        guard let selectedRoomId = useCase?.roomList[indexPath.row].roomId else {
+            return
+        }
+        let detailUseCase = RoomDetailUseCase(roomId: selectedRoomId, repository: RoomDetailRepository())
         let viewController = RoomDetailViewController(useCase: detailUseCase)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
@@ -104,9 +112,13 @@ class SearchResultRoomCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let titleLabel: UILabel = {
+    func updateViews(title: String) {
+        self.titleLabel.text = title
+    }
+    
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "aaaa"
+        label.text = "Title"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .lightGray
         return label
