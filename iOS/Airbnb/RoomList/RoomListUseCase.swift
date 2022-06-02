@@ -2,7 +2,7 @@ import Foundation
 
 class RoomListUseCase {
     
-    private let roomList: [Room]
+    private (set)var roomList: [Room]
     
     init(roomList: [Room]) {
         self.roomList = roomList
