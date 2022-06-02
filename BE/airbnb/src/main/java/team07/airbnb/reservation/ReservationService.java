@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import team07.airbnb.image.Image;
 import team07.airbnb.image.ImageRepository;
+import team07.airbnb.reservation.calculation.ReservationCalculator;
 import team07.airbnb.room.Room;
 import team07.airbnb.room.RoomService;
 import team07.airbnb.user.User;
@@ -20,6 +21,7 @@ import team07.airbnb.user.UserService;
 public class ReservationService {
     private final UserService userService;
     private final RoomService roomService;
+    private final ReservationCalculator reservationCalculator;
 
     private final ReservationPureRepository reservationPureRepository;
     private final ReservationRepository reservationRepository;
@@ -36,7 +38,8 @@ public class ReservationService {
         isValidDate(request, period);
 
         Room roomInfo = roomService.getRoom(request.getRoomId());
-        ReservationCalculator reservationCalculator = roomInfo.toCalculator();
+        this.reservationCalculator.add(roomInfo.toReservationReport(period));
+
         if (reservationCalculator.isNotSame(request.getTotalPrice(), period)) {
             throw new RuntimeException("요청 예약 금액이 유효하지 않습니다.");
         }
