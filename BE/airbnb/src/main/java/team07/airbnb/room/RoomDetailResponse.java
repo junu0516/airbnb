@@ -33,7 +33,7 @@ public class RoomDetailResponse {
     public static RoomDetailResponse of(Room room, List<Image> images, List<Wishlist> wishlists, Long userId) {
         return new RoomDetailResponse(
             room.getId(),
-            imageEntitiesToStringList(images),
+            Image.imageEntitiesToStringList(images),
             isUserWishRoom(wishlists, userId), // api 명세 수정필요
             room.getRoomName(),
             4.8, // 수정필요
@@ -47,11 +47,6 @@ public class RoomDetailResponse {
             room.getNumberOfToilet(),
             room.getRoomDescription(),
             room.getRoomPricePerDay());
-    }
-
-    private static List<String> imageEntitiesToStringList(List<Image> images) {
-        return images.stream().map(i -> i.getImageLink())
-            .collect(Collectors.toList());
     }
 
     private static boolean isUserWishRoom(List<Wishlist> wishlists, Long userId) {

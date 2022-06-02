@@ -1,5 +1,7 @@
 package team07.airbnb.image;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,4 +33,9 @@ public class Image {
     private String imageLink;
 
     private int imageOrder;
+
+    public static List<String> imageEntitiesToStringList(List<Image> images) {
+        return images.stream().map(Image::getImageLink)
+            .collect(Collectors.toList());
+    }
 }

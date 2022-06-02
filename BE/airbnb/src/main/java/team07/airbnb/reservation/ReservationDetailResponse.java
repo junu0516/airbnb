@@ -39,7 +39,7 @@ public class ReservationDetailResponse {
           return ReservationDetailResponse.builder()
               .roomName(reservation.getTitle())
               .address(reservation.getAddress())
-              .images(imageEntitiesToStringList(images))
+              .images(Image.imageEntitiesToStringList(images))
               .startAt(reservation.checkIn())
               .endAt(reservation.checkOut())
               .hostName(reservation.getHostName())
@@ -48,8 +48,4 @@ public class ReservationDetailResponse {
               .build();
      }
 
-     private static List<String> imageEntitiesToStringList(List<Image> images) {
-          return images.stream().map(i -> i.getImageLink())
-              .collect(Collectors.toList());
-     }
 }

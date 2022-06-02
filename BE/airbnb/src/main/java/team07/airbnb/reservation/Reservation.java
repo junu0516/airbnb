@@ -50,11 +50,11 @@ public class Reservation {
         return reservation;
     }
 
-    protected Long reservedNo() {
+    Long reservedNo() {
         return this.room.getId();
     }
 
-    protected ReservationRoom getInfo() {
+    ReservationRoom getInfo() {
         ReservationRoom reservationRoom = this.room.getReservationRoom();
         reservationRoom.applyGuest(Period.of(startAt, endAt), this.numberOfGuest, this.totalPrice);
         return reservationRoom;

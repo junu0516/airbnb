@@ -12,20 +12,20 @@ public class Period {
 		this.endAt = endAt;
 	}
 
-	protected static Period of(LocalDate startAt, LocalDate endAt) {
+	static Period of(LocalDate startAt, LocalDate endAt) {
 		return new Period(startAt, endAt);
 	}
 
-	protected boolean isAbove(int range) {
+	boolean isLonger(int range) {
 		long between = ChronoUnit.DAYS.between(this.startAt, this.endAt);
 		return between >= range;
 	}
 
-	protected LocalDate startAt() {
+	LocalDate startAt() {
 		return this.startAt;
 	}
 
-	protected LocalDate endAt() {
+	LocalDate endAt() {
 		return this.endAt;
 	}
 }

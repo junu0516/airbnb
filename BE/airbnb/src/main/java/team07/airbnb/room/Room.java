@@ -67,7 +67,7 @@ public class Room {
         return new ReservationRoom(this.roomName, this.address.divisions(), this.host.nickName());
     }
 
-    protected HostProfile hostProfile() {
+    HostProfile hostProfile() {
         return this.host.getHost();
     }
 }

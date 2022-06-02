@@ -16,37 +16,37 @@ public class ReservationRoom {
 		this.hostName = hostNickName;
 	}
 
-	protected void applyGuest(Period period, int numberOfGuest, int totalPrice) {
+	void applyGuest(Period period, int numberOfGuest, int totalPrice) {
 		this.period = period;
 		this.numberOfGuest = numberOfGuest;
 		this.totalPrice = totalPrice;
 	}
 
-	protected String getTitle() {
+	String getTitle() {
 		return title;
 	}
 
-	protected String getAddress() {
+	String getAddress() {
 		return address;
 	}
 
-	protected String getHostName() {
+	String getHostName() {
 		return hostName;
 	}
 
-	protected LocalDate checkIn() {
+	LocalDate checkIn() {
 		return period.startAt();
 	}
 
-	protected LocalDate checkOut() {
+	LocalDate checkOut() {
 		return period.endAt();
 	}
 
-	protected int getNumberOfGuest() {
+	int getNumberOfGuest() {
 		return numberOfGuest;
 	}
 
-	protected int getTotalPrice() {
+	int getTotalPrice() {
 		return totalPrice;
 	}
 }

@@ -24,7 +24,7 @@ public class ReservationCalculator {
 	}
 
 	private int calculate(Period period) {
-		if (period.isAbove(discountConditionDays)) { // 7일 이상 할인 여부
+		if (period.isLonger(discountConditionDays)) { // 7일 이상 할인 여부
 			totalPrice = totalPrice.subtract(totalPrice.multiply(weeklyDiscountRate));
 		}
 		BigDecimal cleaningFee = totalPrice.multiply(ratioOfCleaningFee);

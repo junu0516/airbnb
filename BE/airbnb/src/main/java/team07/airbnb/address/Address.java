@@ -7,7 +7,8 @@ import lombok.ToString;
 @Embeddable
 @ToString
 public class Address {
-    public static final String ADDRESS_TEXT = "%s %s %s";
+    private
+    static final String ADDRESS_TEXT = "%s %s %s";
     private String roomCountry;
 
     private String roomState;

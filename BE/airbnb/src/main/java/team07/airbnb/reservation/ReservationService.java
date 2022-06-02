@@ -31,7 +31,6 @@ public class ReservationService {
      * 예약 저장
      * @param request
      */
-    @Transactional
     public void make(ReservationRequestDto request) {
         Period period = Period.of(request.getCheckIn(), request.getCheckOut());
         isValidDate(request, period);
@@ -39,7 +38,7 @@ public class ReservationService {
         Room roomInfo = roomService.getRoom(request.getRoomId());
         ReservationCalculator reservationCalculator = roomInfo.toCalculator();
         if (reservationCalculator.isNotSame(request.getTotalPrice(), period)) {
-            throw new RuntimeException("cannot make reservation");
+            throw new RuntimeException("요청 예약 금액이 유효하지 않습니다.");
         }
 
         User guestInfo = userService.get(request.getGuestId());
@@ -61,18 +60,7 @@ public class ReservationService {
 
     private void isValidDate(ReservationRequestDto request, Period period) {
         isWithin(request.getRoomId(), period);
-        isInvolved(request.getRoomId(), period);
-    }
-
-    private void isInvolved(Long roomId, Period period) {
-        Optional<Reservation> reservationed = reservationRepository.findFirstByRoomIdAndStartAtBetweenOrEndAtBetween(
-            roomId,
-            period.startAt(), period.endAt(),
-            period.startAt(),  period.endAt());
-
-        if (reservationed.isPresent()) {
-            throw new RuntimeException("make no reservation");
-        }
+        isAlreadyReservationRoom(request.getRoomId(), period);
     }
 
     private void isWithin(Long roomId, Period period) {
@@ -85,4 +73,17 @@ public class ReservationService {
             throw new RuntimeException("make no reservation");
         }
     }
+
+    private void isAlreadyReservationRoom(Long roomId, Period period) {
+        Optional<Reservation> reservationed = reservationRepository.findFirstByRoomIdAndStartAtBetweenOrEndAtBetween(
+            roomId,
+            period.startAt(), period.endAt(),
+            period.startAt(),  period.endAt());
+
+        if (reservationed.isPresent()) {
+            throw new RuntimeException("방을 예약하려는 날짜에 이미 예약이 차있습니다.");
+        }
+    }
+
+
 }
