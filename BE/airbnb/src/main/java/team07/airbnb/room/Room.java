@@ -12,14 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import team07.airbnb.address.Address;
-import team07.airbnb.reservation.ReservationCalculator;
+import team07.airbnb.reservation.Period;
 import team07.airbnb.reservation.ReservationRoom;
+import team07.airbnb.reservation.calculation.ReservationReport;
 import team07.airbnb.user.HostProfile;
 import team07.airbnb.user.User;
 
@@ -55,8 +55,8 @@ public class Room {
 
     private int roomPricePerDay;
 
-    public ReservationCalculator toCalculator() {
-        return ReservationCalculator.of(this.roomPricePerDay);
+    public ReservationReport toReservationReport(Period period) {
+        return new ReservationReport(this.roomPricePerDay, period);
     }
 
     public Long getId() {
