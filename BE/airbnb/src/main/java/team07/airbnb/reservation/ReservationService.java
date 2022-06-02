@@ -39,10 +39,7 @@ public class ReservationService {
 
         Room roomInfo = roomService.getRoom(request.getRoomId());
         this.reservationCalculator.add(roomInfo.toReservationReport(period));
-
-        if (reservationCalculator.isNotSame(request.getTotalPrice(), period)) {
-            throw new RuntimeException("요청 예약 금액이 유효하지 않습니다.");
-        }
+        this.reservationCalculator.isValid(request.getTotalPrice());
 
         User guestInfo = userService.get(request.getGuestId());
         reservationRepository.save(Reservation.builder()
@@ -73,7 +70,7 @@ public class ReservationService {
             period.startAt(),
             period.endAt());
 
-        if (reservationed.isPresent()) {
+        if (reservationed.isPresent() && reservationed.get().isAvailableRoom()) {
             throw new RuntimeException("방을 예약하려는 날짜에 이미 예약이 차있습니다.");
         }
     }
@@ -84,7 +81,7 @@ public class ReservationService {
             period.startAt(), period.endAt(),
             period.startAt(),  period.endAt());
 
-        if (reservationed.isPresent()) {
+        if (reservationed.isPresent() && reservationed.get().isAvailableRoom()) {
             throw new RuntimeException("일부 날짜는 예약 할 수 없습니다.");
         }
     }
