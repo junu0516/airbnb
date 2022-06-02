@@ -8,12 +8,12 @@ import java.util.Optional;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 	Optional<Reservation> findFirstByRoomIdAndStartAtBetweenOrEndAtBetween(
-		@Param("roomId") Long roomId,
+		@Param("room") Long room,
 		@Param("checkInA") LocalDate checkInA, @Param("checkOutA") LocalDate checkOutA,
 		@Param("checkInB") LocalDate checkInB, @Param("checkOutB")LocalDate checkOutB);
 
 	Optional<Reservation> findFirstByRoomIdAndStartAtLessThanEqualAndEndAtGreaterThanEqual(
-		@Param("roomId") Long roomId,
+		@Param("room") Long room,
 		@Param("dayA") LocalDate oneDayA,
 		@Param("dayB") LocalDate oneDayB);
 }
