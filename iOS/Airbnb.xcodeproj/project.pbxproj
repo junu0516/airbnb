@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0EC21F4C5D33C39B97587978 /* Pods_Airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC1E133B9F1D8CF1859B8D0 /* Pods_Airbnb.framework */; };
 		33D6A8E53BA7E69CBCB5293A /* Pods_Airbnb_AirbnbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C1C869B0BC716E37E2003A /* Pods_Airbnb_AirbnbUITests.framework */; };
+		98113AB328488A42007412E2 /* RoomListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98113AB228488A42007412E2 /* RoomListUseCase.swift */; };
 		982F76552844B5A800DF8523 /* ConfigProperty.plist in Resources */ = {isa = PBXBuildFile; fileRef = 982F76542844B5A800DF8523 /* ConfigProperty.plist */; };
 		982F76592844BE5900DF8523 /* RoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F76582844BE5900DF8523 /* RoomDetailViewController.swift */; };
 		982F765C2844C33F00DF8523 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F765B2844C33F00DF8523 /* NetworkHandler.swift */; };
@@ -85,6 +86,7 @@
 		3CC1E133B9F1D8CF1859B8D0 /* Pods_Airbnb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E47D54C555F8528176E246 /* Pods-AirbnbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirbnbTests.release.xcconfig"; path = "Target Support Files/Pods-AirbnbTests/Pods-AirbnbTests.release.xcconfig"; sourceTree = "<group>"; };
 		961C633AEAC04338E9FA3D24 /* Pods-AirbnbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirbnbTests.debug.xcconfig"; path = "Target Support Files/Pods-AirbnbTests/Pods-AirbnbTests.debug.xcconfig"; sourceTree = "<group>"; };
+		98113AB228488A42007412E2 /* RoomListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListUseCase.swift; sourceTree = "<group>"; };
 		982F76542844B5A800DF8523 /* ConfigProperty.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ConfigProperty.plist; sourceTree = "<group>"; };
 		982F76582844BE5900DF8523 /* RoomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailViewController.swift; sourceTree = "<group>"; };
 		982F765B2844C33F00DF8523 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				986B0059283F86C2008E3EEB /* RoomListViewController.swift */,
+				98113AB228488A42007412E2 /* RoomListUseCase.swift */,
 			);
 			path = RoomList;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 			files = (
 				98B98E1B2847E23400F76D11 /* RoundButton.swift in Sources */,
 				98F11306283F27C000009232 /* Observable.swift in Sources */,
+				98113AB328488A42007412E2 /* RoomListUseCase.swift in Sources */,
 				B509353B283F68C50017C8E0 /* RoomSearchViewController.swift in Sources */,
 				B55A638D2845AC5B00E08EE0 /* RoomSearchUseCase.swift in Sources */,
 				982F76592844BE5900DF8523 /* RoomDetailViewController.swift in Sources */,
