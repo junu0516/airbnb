@@ -95,7 +95,8 @@ extension RoomListViewController: UICollectionViewDelegate {
         }
         let detailUseCase = RoomDetailUseCase(roomId: selectedRoomId, repository: RoomDetailRepository())
         let viewController = RoomDetailViewController(useCase: detailUseCase)
-        self.navigationController?.pushViewController(viewController, animated: true)
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: false)
     }
 }
 
