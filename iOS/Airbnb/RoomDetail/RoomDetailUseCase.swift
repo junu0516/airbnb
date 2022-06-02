@@ -14,7 +14,7 @@ class RoomDetailUseCase {
         self.roomId = roomId
     }
   
-    func initialize() {
+    func initializeData() {
         repository.fetch(roomId: roomId) { [weak self] responseData in
             self?.roomDetail.value = responseData
             
