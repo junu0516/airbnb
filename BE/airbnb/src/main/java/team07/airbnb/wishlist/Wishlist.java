@@ -9,11 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import team07.airbnb.room.Room;
 import team07.airbnb.user.User;
 
+@Getter
 @Entity
 @EqualsAndHashCode(of = "wishlistId")
 @NoArgsConstructor
@@ -36,6 +38,18 @@ public class Wishlist {
 
     public Long guestId() {
         return user.getUserId();
+    }
+
+    public Long roomId() {
+        return room.getId();
+    }
+
+    public boolean isContainsRequestUser(User requestUser) {
+        return this.user.equals(requestUser);
+    }
+
+    public boolean isContainsRequestRoom(Room requestRoom) {
+        return this.room.equals(requestRoom);
     }
 
 }
