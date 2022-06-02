@@ -32,6 +32,7 @@
 		989934A82844F5A700317A84 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989934A72844F5A700317A84 /* ContentType.swift */; };
 		989934AA2844F5C100317A84 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989934A92844F5C100317A84 /* HttpMethod.swift */; };
 		989934AC2844F69500317A84 /* RoomDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989934AB2844F69500317A84 /* RoomDetailUseCase.swift */; };
+		98B2756F2848F11D003BE859 /* Margins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B2756E2848F11D003BE859 /* Margins.swift */; };
 		98B98E112847C94300F76D11 /* RoomDetailDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B98E102847C94300F76D11 /* RoomDetailDescriptionView.swift */; };
 		98B98E132847CA3100F76D11 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B98E122847CA3100F76D11 /* UIView+Extension.swift */; };
 		98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B98E142847CAB800F76D11 /* RoomDetailHostProfileView.swift */; };
@@ -110,6 +111,7 @@
 		989934A72844F5A700317A84 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		989934A92844F5C100317A84 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		989934AB2844F69500317A84 /* RoomDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailUseCase.swift; sourceTree = "<group>"; };
+		98B2756E2848F11D003BE859 /* Margins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margins.swift; sourceTree = "<group>"; };
 		98B98E102847C94300F76D11 /* RoomDetailDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailDescriptionView.swift; sourceTree = "<group>"; };
 		98B98E122847CA3100F76D11 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		98B98E142847CAB800F76D11 /* RoomDetailHostProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailHostProfileView.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				98B98E1A2847E23400F76D11 /* RoundButton.swift */,
 				B55A63932847070200E08EE0 /* JsonHandler.swift */,
 				B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */,
+				98B2756E2848F11D003BE859 /* Margins.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				989934A22844E98600317A84 /* RoomDetailRepository.swift in Sources */,
 				98B98E172847CAEE00F76D11 /* RoomDetailTitleView.swift in Sources */,
 				B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */,
+				98B2756F2848F11D003BE859 /* Margins.swift in Sources */,
 				989934A62844F56A00317A84 /* EndPoint.swift in Sources */,
 				989934A82844F5A700317A84 /* ContentType.swift in Sources */,
 				98593DFE283CC75C00B28960 /* AppDelegate.swift in Sources */,

@@ -43,7 +43,7 @@ final class RoomDetailHostProfileView: UIView {
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: DetailViewMargins.top, left: DetailViewMargins.side, bottom: DetailViewMargins.bottom, right: DetailViewMargins.side)
+        stackView.layoutMargins = UIEdgeInsets(top: Margins.top, left: Margins.side, bottom: Margins.bottom, right: Margins.side)
         addSubview(stackView)
         
         NSLayoutConstraint.activate([
