@@ -11,7 +11,6 @@ import team07.airbnb.wishlist.Wishlist;
 @Getter
 @AllArgsConstructor
 public class RoomDetailResponse {
-
     private Long roomId;
     private List<String> images;
     @JsonProperty("isWished")
@@ -19,7 +18,7 @@ public class RoomDetailResponse {
     private String title;
     private double averageOfStar;
     private int numberOfReviews;
-    private Address address;
+    private String address;
     private String hostName;
     private String profileOfHost; //이미지링크
     private int maxNumberOfPeople;
@@ -37,7 +36,7 @@ public class RoomDetailResponse {
             room.getRoomName(),
             4.8, // 수정필요
             127, //수정필요
-            room.getAddress(),
+            room.getAddress().divisions(),
             room.hostProfile().getNickname(),
             room.hostProfile().getProfileImage(),
             room.getMaxNumberOfGuest(),
@@ -52,6 +51,4 @@ public class RoomDetailResponse {
         return wishlists.stream()
             .anyMatch(wishlist -> wishlist.guestId() == userId);
     }
-
-
 }
