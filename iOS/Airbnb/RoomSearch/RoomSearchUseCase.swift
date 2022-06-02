@@ -1,5 +1,14 @@
 import Foundation
 
+struct RoomSearchUseCase {
+    
+    private var searchCondition = Observable<SearchCondition>(SearchCondition())
+    
+    init(searchCondition: SearchCondition) {
+        self.searchCondition.value = searchCondition
+    }    
+}
+
 struct SearchCondition {
     private let positionTitle: String
     private let longitude: Double
@@ -16,14 +25,4 @@ struct SearchCondition {
         self.longitude = logntitude
         self.latitude = latitude
     }
-}
-
-struct ConditionSettingUseCase {
-    
-    private var searchCondition = Observable<SearchCondition>(SearchCondition())
-    
-    init(searchCondition: SearchCondition) {
-        self.searchCondition.value = searchCondition
-    }
-    
 }

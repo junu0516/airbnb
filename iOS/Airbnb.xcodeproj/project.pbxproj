@@ -40,11 +40,11 @@
 		98F11306283F27C000009232 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F11305283F27C000009232 /* Observable.swift */; };
 		B5093530283DCB490017C8E0 /* PositionSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B509352F283DCB490017C8E0 /* PositionSearchViewController.swift */; };
 		B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093538283E12D70017C8E0 /* RoomPositionCategory.swift */; };
-		B509353B283F68C50017C8E0 /* ConditionSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B509353A283F68C50017C8E0 /* ConditionSettingViewController.swift */; };
+		B509353B283F68C50017C8E0 /* RoomSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B509353A283F68C50017C8E0 /* RoomSearchViewController.swift */; };
 		B5093544283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */; };
 		B5093546283FD50D0017C8E0 /* ConditionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093545283FD50D0017C8E0 /* ConditionCategory.swift */; };
 		B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */; };
-		B55A638D2845AC5B00E08EE0 /* ConditionSettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638C2845AC5B00E08EE0 /* ConditionSettingUseCase.swift */; };
+		B55A638D2845AC5B00E08EE0 /* RoomSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638C2845AC5B00E08EE0 /* RoomSearchUseCase.swift */; };
 		B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */; };
 		B55A6392284706B100E08EE0 /* RoomPositionMapUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */; };
 		B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A63932847070200E08EE0 /* JsonHandler.swift */; };
@@ -120,11 +120,11 @@
 		98F11305283F27C000009232 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B509352F283DCB490017C8E0 /* PositionSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionSearchViewController.swift; sourceTree = "<group>"; };
 		B5093538283E12D70017C8E0 /* RoomPositionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionCategory.swift; sourceTree = "<group>"; };
-		B509353A283F68C50017C8E0 /* ConditionSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingViewController.swift; sourceTree = "<group>"; };
+		B509353A283F68C50017C8E0 /* RoomSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSearchViewController.swift; sourceTree = "<group>"; };
 		B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewCell.swift; sourceTree = "<group>"; };
 		B5093545283FD50D0017C8E0 /* ConditionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCategory.swift; sourceTree = "<group>"; };
 		B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewDataSource.swift; sourceTree = "<group>"; };
-		B55A638C2845AC5B00E08EE0 /* ConditionSettingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingUseCase.swift; sourceTree = "<group>"; };
+		B55A638C2845AC5B00E08EE0 /* RoomSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSearchUseCase.swift; sourceTree = "<group>"; };
 		B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapRepository.swift; sourceTree = "<group>"; };
 		B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapUseCase.swift; sourceTree = "<group>"; };
 		B55A63932847070200E08EE0 /* JsonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHandler.swift; sourceTree = "<group>"; };
@@ -186,6 +186,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		98113AB128487E63007412E2 /* RoomSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B509353A283F68C50017C8E0 /* RoomSearchViewController.swift */,
+				B55A638C2845AC5B00E08EE0 /* RoomSearchUseCase.swift */,
+			);
+			path = RoomSearch;
+			sourceTree = "<group>";
+		};
 		982F76562844BD5700DF8523 /* RoomDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,11 +209,9 @@
 		982F76572844BDAA00DF8523 /* ExtraSearch */ = {
 			isa = PBXGroup;
 			children = (
-				B509353A283F68C50017C8E0 /* ConditionSettingViewController.swift */,
 				B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */,
 				B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */,
 				B5093545283FD50D0017C8E0 /* ConditionCategory.swift */,
-				B55A638C2845AC5B00E08EE0 /* ConditionSettingUseCase.swift */,
 			);
 			path = ExtraSearch;
 			sourceTree = "<group>";
@@ -247,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				B55BF3CF28488A34009634F8 /* Reservation */,
+				98113AB128487E63007412E2 /* RoomSearch */,
 				B55A638E284705E900E08EE0 /* RoomPositionMap */,
 				982F765A2844C30E00DF8523 /* Server */,
 				982F76572844BDAA00DF8523 /* ExtraSearch */,
@@ -689,8 +697,8 @@
 			files = (
 				98B98E1B2847E23400F76D11 /* RoundButton.swift in Sources */,
 				98F11306283F27C000009232 /* Observable.swift in Sources */,
-				B509353B283F68C50017C8E0 /* ConditionSettingViewController.swift in Sources */,
-				B55A638D2845AC5B00E08EE0 /* ConditionSettingUseCase.swift in Sources */,
+				B509353B283F68C50017C8E0 /* RoomSearchViewController.swift in Sources */,
+				B55A638D2845AC5B00E08EE0 /* RoomSearchUseCase.swift in Sources */,
 				982F76592844BE5900DF8523 /* RoomDetailViewController.swift in Sources */,
 				B5093546283FD50D0017C8E0 /* ConditionCategory.swift in Sources */,
 				98F11303283F11B700009232 /* PositionSearchUseCase.swift in Sources */,
