@@ -1,6 +1,6 @@
 import UIKit
 
-final class ConditionSettingTableViewCell: UITableViewCell {
+final class SearchFilterTableViewCell: UITableViewCell {
     
     static let identifier: String = "ConditionSettingTableViewCell"
     

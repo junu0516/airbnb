@@ -53,11 +53,10 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.roomPositionMapUseCase?.initialize()
+        self.roomPositionMapUseCase?.initializeData()
         self.view.backgroundColor = .systemBackground
         
-        addComponentViews()
-        setComponentLayout()
+        setUpViews()
         bindView()
         configureMap()
     }
@@ -71,24 +70,26 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
         }
     }
     
-    private func addComponentViews() {
+    private func setUpViews() {
+        
         view.addSubview(mapBackgroundView)
-        mapBackgroundView.addSubview(mapView)
-        mapView.addSubview(roomPositionInfoCollectionView)
-    }
-    
-    private func setComponentLayout() {
         NSLayoutConstraint.activate([
             mapBackgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             mapBackgroundView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapBackgroundView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            mapBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
+            mapBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        mapBackgroundView.addSubview(mapView)
+        NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: mapBackgroundView.topAnchor),
             mapView.bottomAnchor.constraint(equalTo: mapBackgroundView.bottomAnchor),
             mapView.leadingAnchor.constraint(equalTo: mapBackgroundView.leadingAnchor),
-            mapView.trailingAnchor.constraint(equalTo: mapBackgroundView.trailingAnchor),
-            
+            mapView.trailingAnchor.constraint(equalTo: mapBackgroundView.trailingAnchor)
+        ])
+        
+        mapView.addSubview(roomPositionInfoCollectionView)
+        NSLayoutConstraint.activate([
             roomPositionInfoCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             roomPositionInfoCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             roomPositionInfoCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),

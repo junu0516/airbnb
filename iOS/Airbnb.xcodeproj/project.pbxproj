@@ -44,11 +44,11 @@
 		98F11306283F27C000009232 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F11305283F27C000009232 /* Observable.swift */; };
 		B5093530283DCB490017C8E0 /* PositionSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B509352F283DCB490017C8E0 /* PositionSearchViewController.swift */; };
 		B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093538283E12D70017C8E0 /* RoomPositionCategory.swift */; };
-		B509353B283F68C50017C8E0 /* RoomSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B509353A283F68C50017C8E0 /* RoomSearchViewController.swift */; };
-		B5093544283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */; };
-		B5093546283FD50D0017C8E0 /* ConditionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093545283FD50D0017C8E0 /* ConditionCategory.swift */; };
-		B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */; };
-		B55A638D2845AC5B00E08EE0 /* RoomSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638C2845AC5B00E08EE0 /* RoomSearchUseCase.swift */; };
+		B509353B283F68C50017C8E0 /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B509353A283F68C50017C8E0 /* SearchFilterViewController.swift */; };
+		B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093543283FD3F90017C8E0 /* SearchFilterTableViewCell.swift */; };
+		B5093546283FD50D0017C8E0 /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093545283FD50D0017C8E0 /* FilterCategory.swift */; };
+		B5093548283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093547283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift */; };
+		B55A638D2845AC5B00E08EE0 /* SearchFilterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638C2845AC5B00E08EE0 /* SearchFilterUseCase.swift */; };
 		B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */; };
 		B55A6392284706B100E08EE0 /* RoomPositionMapUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */; };
 		B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A63932847070200E08EE0 /* JsonHandler.swift */; };
@@ -123,11 +123,11 @@
 		98F11305283F27C000009232 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B509352F283DCB490017C8E0 /* PositionSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionSearchViewController.swift; sourceTree = "<group>"; };
 		B5093538283E12D70017C8E0 /* RoomPositionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionCategory.swift; sourceTree = "<group>"; };
-		B509353A283F68C50017C8E0 /* RoomSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSearchViewController.swift; sourceTree = "<group>"; };
-		B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewCell.swift; sourceTree = "<group>"; };
-		B5093545283FD50D0017C8E0 /* ConditionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCategory.swift; sourceTree = "<group>"; };
-		B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSettingTableViewDataSource.swift; sourceTree = "<group>"; };
-		B55A638C2845AC5B00E08EE0 /* RoomSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSearchUseCase.swift; sourceTree = "<group>"; };
+		B509353A283F68C50017C8E0 /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
+		B5093543283FD3F90017C8E0 /* SearchFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTableViewCell.swift; sourceTree = "<group>"; };
+		B5093545283FD50D0017C8E0 /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
+		B5093547283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTableViewDataSource.swift; sourceTree = "<group>"; };
+		B55A638C2845AC5B00E08EE0 /* SearchFilterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterUseCase.swift; sourceTree = "<group>"; };
 		B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapRepository.swift; sourceTree = "<group>"; };
 		B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapUseCase.swift; sourceTree = "<group>"; };
 		B55A63932847070200E08EE0 /* JsonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHandler.swift; sourceTree = "<group>"; };
@@ -184,15 +184,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		98113AB128487E63007412E2 /* RoomSearch */ = {
-			isa = PBXGroup;
-			children = (
-				B509353A283F68C50017C8E0 /* RoomSearchViewController.swift */,
-				B55A638C2845AC5B00E08EE0 /* RoomSearchUseCase.swift */,
-			);
-			path = RoomSearch;
-			sourceTree = "<group>";
-		};
 		98113AB4284893E7007412E2 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,23 +204,21 @@
 			path = RoomDetail;
 			sourceTree = "<group>";
 		};
-		982F76572844BDAA00DF8523 /* ExtraSearch */ = {
+		982F76572844BDAA00DF8523 /* SearchFilter */ = {
 			isa = PBXGroup;
 			children = (
-				B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */,
-				B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */,
-				B5093545283FD50D0017C8E0 /* ConditionCategory.swift */,
+				B55BF3D92848F89D009634F8 /* View */,
+				B509353A283F68C50017C8E0 /* SearchFilterViewController.swift */,
+				B55A638C2845AC5B00E08EE0 /* SearchFilterUseCase.swift */,
 			);
-			path = ExtraSearch;
+			path = SearchFilter;
 			sourceTree = "<group>";
 		};
 		982F765A2844C30E00DF8523 /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				B55BF3D72848F67D009634F8 /* Resource */,
 				982F765B2844C33F00DF8523 /* NetworkHandler.swift */,
-				989934A52844F56A00317A84 /* EndPoint.swift */,
-				989934A72844F5A700317A84 /* ContentType.swift */,
-				989934A92844F5C100317A84 /* HttpMethod.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -260,10 +249,9 @@
 		98593DFC283CC75C00B28960 /* Airbnb */ = {
 			isa = PBXGroup;
 			children = (
-				98113AB128487E63007412E2 /* RoomSearch */,
 				B55A638E284705E900E08EE0 /* RoomPositionMap */,
 				982F765A2844C30E00DF8523 /* Server */,
-				982F76572844BDAA00DF8523 /* ExtraSearch */,
+				982F76572844BDAA00DF8523 /* SearchFilter */,
 				982F76562844BD5700DF8523 /* RoomDetail */,
 				B576AE0E28406ECA00B21D80 /* Home */,
 				B576AE0D28406EAB00B21D80 /* Supportings */,
@@ -345,13 +333,41 @@
 		B55A638E284705E900E08EE0 /* RoomPositionMap */ = {
 			isa = PBXGroup;
 			children = (
+				B55BF3DA2848F8BA009634F8 /* View */,
 				B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */,
 				B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */,
 				B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */,
+			);
+			path = RoomPositionMap;
+			sourceTree = "<group>";
+		};
+		B55BF3D72848F67D009634F8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				989934A52844F56A00317A84 /* EndPoint.swift */,
+				989934A72844F5A700317A84 /* ContentType.swift */,
+				989934A92844F5C100317A84 /* HttpMethod.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		B55BF3D92848F89D009634F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5093543283FD3F90017C8E0 /* SearchFilterTableViewCell.swift */,
+				B5093547283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift */,
+				B5093545283FD50D0017C8E0 /* FilterCategory.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B55BF3DA2848F8BA009634F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				B55A639928471E7100E08EE0 /* RoomPositionMapCollectionViewCell.swift */,
 				B55A639D2847C89E00E08EE0 /* CustomGoogleMapMarker.swift */,
 			);
-			path = RoomPositionMap;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B576AE0B28406E6600B21D80 /* PositionSearch */ = {
@@ -687,10 +703,10 @@
 				98B98E1B2847E23400F76D11 /* RoundButton.swift in Sources */,
 				98F11306283F27C000009232 /* Observable.swift in Sources */,
 				98113AB328488A42007412E2 /* RoomListUseCase.swift in Sources */,
-				B509353B283F68C50017C8E0 /* RoomSearchViewController.swift in Sources */,
-				B55A638D2845AC5B00E08EE0 /* RoomSearchUseCase.swift in Sources */,
+				B509353B283F68C50017C8E0 /* SearchFilterViewController.swift in Sources */,
+				B55A638D2845AC5B00E08EE0 /* SearchFilterUseCase.swift in Sources */,
 				982F76592844BE5900DF8523 /* RoomDetailViewController.swift in Sources */,
-				B5093546283FD50D0017C8E0 /* ConditionCategory.swift in Sources */,
+				B5093546283FD50D0017C8E0 /* FilterCategory.swift in Sources */,
 				98F11303283F11B700009232 /* PositionSearchUseCase.swift in Sources */,
 				98113AB6284893F8007412E2 /* SearchResultRoomsHeaderView.swift in Sources */,
 				986B005A283F86C2008E3EEB /* RoomListViewController.swift in Sources */,
@@ -699,7 +715,7 @@
 				B55A639C28477E9600E08EE0 /* CustomCollectionViewDataSource.swift in Sources */,
 				B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */,
 				B55A639828470EC400E08EE0 /* RoomPositionInfo.swift in Sources */,
-				B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */,
+				B5093548283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift in Sources */,
 				98B98E192847CB5800F76D11 /* RoomDetailReservateView.swift in Sources */,
 				B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */,
 				B55A639E2847C89E00E08EE0 /* CustomGoogleMapMarker.swift in Sources */,
@@ -720,7 +736,7 @@
 				98B98E112847C94300F76D11 /* RoomDetailDescriptionView.swift in Sources */,
 				989934AA2844F5C100317A84 /* HttpMethod.swift in Sources */,
 				989934A42844F23300317A84 /* RoomDetail.swift in Sources */,
-				B5093544283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift in Sources */,
+				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,

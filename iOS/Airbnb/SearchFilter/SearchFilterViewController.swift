@@ -1,8 +1,8 @@
 import UIKit
 
-final class RoomSearchViewController: UIViewController {
+final class SearchFilterViewController: UIViewController {
     
-    private var useCase: RoomSearchUseCase?
+    private var useCase: SearchFilterUseCase?
     
     private lazy var dummyView: UIView = {
         let view = UIView()
@@ -19,18 +19,18 @@ final class RoomSearchViewController: UIViewController {
         tableView.isScrollEnabled = false
         tableView.isUserInteractionEnabled = false
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(ConditionSettingTableViewCell.self, forCellReuseIdentifier: ConditionSettingTableViewCell.identifier)
+        tableView.register(SearchFilterTableViewCell.self, forCellReuseIdentifier: SearchFilterTableViewCell.identifier)
         return tableView
     }()
     
-    typealias CELL = ConditionSettingTableViewCell
-    typealias DataSource = ConditionSettingTableViewDataSource
+    typealias CELL = SearchFilterTableViewCell
+    typealias DataSource = SearchFilterTableViewDataSource
     private let conditionSettingTableViewDataSource: DataSource<CELL,String> = DataSource(cellIdentifier: CELL.identifier,
-                                                                                          items: ConditionCategory.allCases.map { $0.rawValue }) { cell, value in
+                                                                                          items: FilterCategory.allCases.map { $0.rawValue }) { cell, value in
         cell.updateLabelText(conditionTitle: value, conditionValue: "")
     }
     
-    convenience init(useCase: RoomSearchUseCase) {
+    convenience init(useCase: SearchFilterUseCase) {
         self.init()
         self.useCase = useCase
     }
@@ -83,9 +83,9 @@ final class RoomSearchViewController: UIViewController {
     }
 }
 
-extension RoomSearchViewController: UITableViewDelegate {
+extension SearchFilterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height/CGFloat(ConditionCategory.allCases.count)
+        return tableView.frame.height/CGFloat(FilterCategory.allCases.count)
     }
 }
