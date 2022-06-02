@@ -54,6 +54,9 @@ final class RoomDetailViewController: UIViewController {
         
         self.useCase.image.bind { [weak self] imageData in
             self?.imageView.image = UIImage(data: imageData)
+        }
+        
+        self.useCase.profileImage.bind { [weak self] imageData in
             self?.hostProfileView.updateImageView(data: imageData)
         }
     }
