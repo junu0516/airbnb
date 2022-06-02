@@ -2,18 +2,43 @@ import Foundation
 
 typealias UniqueID = Int
 
+//{
+//  "roomId": 1,
+//  "images": [
+//    "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/1-%EC%A7%84%EB%B6%80%EB%A9%B4-%EC%9D%80%EC%A7%801.PNG",
+//    "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/1-%EC%A7%84%EB%B6%80%EB%A9%B4-%EC%9D%80%EC%A7%802.PNG",
+//    "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/1-%EC%A7%84%EB%B6%80%EB%A9%B4-%EC%9D%80%EC%A7%803.PNG",
+//    "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/1-%EC%A7%84%EB%B6%80%EB%A9%B4-%EC%9D%80%EC%A7%804.PNG"
+//  ],
+//  "title": "Euji님이 호스팅하는 집 전체",
+//  "averageOfStar": 4.8,
+//  "numberOfReviews": 127,
+//  "address": {},
+//  "hostName": "zzangmin",
+//  "profileOfHost": "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%EC%A7%B1%EA%B5%AC-%ED%94%84%EB%A1%9C%ED%95%84.PNG",
+//  "maxNumberOfPeople": 6,
+//  "roomType": "RESIDENCE",
+//  "bedCount": 3,
+//  "bathroomCount": 2,
+//  "description": "계곡 옆 시냇물 소리와 함께 조용한곳에서 프라이빗하게 힐링하다 가실수 잇는 숙소입니다!",
+//  "priceForOneDay": 340000,
+//  "wished": true,
+//  "isWished": true
+//}
+
 struct RoomDetail: Codable {
     let roomId: UniqueID
     let images: [String] // url
     let isWished: Bool
+    let wished: Bool
     let title: String
     let averageOfStar: Float
     let numberOfReviews: Int
-    let address: String
+//    let address: String?
     let hostName: String
     let profileOfHost: String // url
     let maxNumberOfPeople: Int
-    let styleOfRoom: String // enum
+    let roomType: String // enum
     let bedCount: Int
     let bathroomCount: Int
     let roomDescription: String // room
@@ -23,14 +48,15 @@ struct RoomDetail: Codable {
         roomId = 0
         images = []
         isWished = false
+        wished = false
         title = ""
         averageOfStar = 0.0
         numberOfReviews = 0
-        address = ""
+//        address = ""
         hostName = ""
         profileOfHost = ""
         maxNumberOfPeople = 0
-        styleOfRoom = "원룸"
+        roomType = "원룸"
         bedCount = 0
         bathroomCount = 0
         roomDescription = ""
@@ -43,14 +69,15 @@ struct RoomDetail: Codable {
         self.roomId = try container.decode(UniqueID.self, forKey: .roomId)
         self.images = try container.decode([String].self, forKey: .images)
         self.isWished = try container.decode(Bool.self, forKey: .isWished)
+        self.wished = try container.decode(Bool.self, forKey: .wished)
         self.title = try container.decode(String.self, forKey: .title)
-        self.averageOfStar = Float(try container.decode(String.self, forKey: .averageOfStar)) ?? 0.0
+        self.averageOfStar = try container.decode(Float.self, forKey: .averageOfStar)
         self.numberOfReviews = try container.decode(Int.self, forKey: .numberOfReviews)
-        self.address = try container.decode(String.self, forKey: .address)
+//        self.address = (try? container.decode(String.self, forKey: .address)) ?? ""
         self.hostName = try container.decode(String.self, forKey: .hostName)
         self.profileOfHost = try container.decode(String.self, forKey: .profileOfHost)
         self.maxNumberOfPeople = try container.decode(Int.self, forKey: .maxNumberOfPeople)
-        self.styleOfRoom = try container.decode(String.self, forKey: .styleOfRoom)
+        self.roomType = try container.decode(String.self, forKey: .roomType)
         self.bedCount = try container.decode(Int.self, forKey: .bedCount)
         self.bathroomCount = try container.decode(Int.self, forKey: .bathroomCount)
         self.priceForOneDay = try container.decode(Int.self, forKey: .priceForOneDay)
@@ -61,14 +88,15 @@ struct RoomDetail: Codable {
         case roomId
         case images
         case isWished
+        case wished
         case title
         case averageOfStar
         case numberOfReviews
-        case address
+//        case address
         case hostName
         case profileOfHost
         case maxNumberOfPeople
-        case styleOfRoom
+        case roomType
         case bedCount
         case bathroomCount
         case priceForOneDay

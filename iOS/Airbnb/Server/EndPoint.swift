@@ -3,17 +3,17 @@ import Foundation
 enum EndPoint {
     case roomDetail(roomId: UniqueID)
     case list
-    case randomImage
+    case image(url: String)
     
-    static let origin: String = "https://68ba057f-eb57-4bad-be9b-d220ac63ca31.mock.pstmn.io"
+    static let origin: String = "http://13.125.155.123:8080"
     var path: String {
         switch self {
         case .roomDetail(let roomId):
-            return "\(EndPoint.origin)/airbnb/room/\(roomId)"
+            return "\(EndPoint.origin)/airbnb/room/1"
         case .list:
             return "\(EndPoint.origin)/airbnb/search/rooms"
-        case .randomImage:
-            return "https://placeimg.com/640/480/any"
+        case .image(let url):
+            return url
         }
     }
 }
