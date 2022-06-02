@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class WishlistController {
-
     private final WishlistService wishlistService;
 
     @PostMapping("/airbnb/wishlist")
@@ -32,6 +31,4 @@ public class WishlistController {
         Long userId = 1L; // 추후 유저 연동 필요
         return wishlistService.findAll(userId);
     }
-
-
 }

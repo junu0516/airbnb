@@ -17,7 +17,6 @@ import team07.airbnb.user.UserRepository;
 @RequiredArgsConstructor
 @Transactional
 public class WishlistService {
-
     private final WishlistRepository wishlistRepository;
     private final UserRepository userRepository;
     private final RoomRepository roomRepository;
@@ -32,8 +31,6 @@ public class WishlistService {
 
         wishlistRepository.save(new Wishlist(user, room));
     }
-
-
 
     public void deleteOne(WishlistDeleteRequest request) {
         Wishlist wishlist = wishlistRepository.findById(request.getWishlistId())
@@ -50,7 +47,6 @@ public class WishlistService {
         if (!wishlist.isContainsRequestRoom(room)) {
             throw new IllegalArgumentException("wishlist에 해당하는 roomId와 요청 roomId가 일치하지 않습니다. 잘못된 요청");
         }
-
         wishlistRepository.delete(wishlist);
     }
 
@@ -72,7 +68,6 @@ public class WishlistService {
                     120
                 ));
         }
-
         return response;
     }
 }

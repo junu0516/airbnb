@@ -51,5 +51,4 @@ public class Wishlist {
     public boolean isContainsRequestRoom(Room requestRoom) {
         return this.room.equals(requestRoom);
     }
-
 }
