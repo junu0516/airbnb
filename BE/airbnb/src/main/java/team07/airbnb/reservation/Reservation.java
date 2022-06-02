@@ -1,6 +1,7 @@
 package team07.airbnb.reservation;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -60,5 +61,9 @@ public class Reservation {
         ReservationRoom reservationRoom = this.room.getReservationRoom();
         reservationRoom.applyGuest(Period.of(startAt, endAt), this.numberOfGuest, this.totalPrice);
         return reservationRoom;
+    }
+
+    public boolean isAvailableRoom() {
+        return Objects.isNull(this.room);
     }
 }
