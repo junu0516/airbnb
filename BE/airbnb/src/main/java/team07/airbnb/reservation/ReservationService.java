@@ -42,13 +42,14 @@ public class ReservationService {
         }
 
         User guestInfo = userService.get(request.getGuestId());
-        reservationRepository.save(Reservation.of(
-            roomInfo,
-            guestInfo,
-            period.startAt(),
-            period.endAt(),
-            request.getGuestAmount(),
-            request.getTotalPrice()));
+        reservationRepository.save(Reservation.builder()
+                .room(roomInfo)
+                .user(guestInfo)
+                .startAt(period.startAt())
+                .endAt(period.endAt())
+                .numberOfGuest(request.getGuestAmount())
+                .totalPrice(request.getTotalPrice())
+            .build());
     }
 
     @Transactional(readOnly = true)
@@ -59,31 +60,29 @@ public class ReservationService {
     }
 
     private void isValidDate(ReservationRequestDto request, Period period) {
-        isWithin(request.getRoomId(), period);
         isAlreadyReservationRoom(request.getRoomId(), period);
+        isFewDaysAlreadyReservationRoom(request.getRoomId(), period);
     }
 
-    private void isWithin(Long roomId, Period period) {
+    private void isAlreadyReservationRoom(Long roomId, Period period) {
         Optional<Reservation> reservationed = reservationRepository.findFirstByRoomIdAndStartAtLessThanEqualAndEndAtGreaterThanEqual(
             roomId,
             period.startAt(),
             period.endAt());
 
         if (reservationed.isPresent()) {
-            throw new RuntimeException("make no reservation");
+            throw new RuntimeException("방을 예약하려는 날짜에 이미 예약이 차있습니다.");
         }
     }
 
-    private void isAlreadyReservationRoom(Long roomId, Period period) {
+    private void isFewDaysAlreadyReservationRoom(Long roomId, Period period) {
         Optional<Reservation> reservationed = reservationRepository.findFirstByRoomIdAndStartAtBetweenOrEndAtBetween(
             roomId,
             period.startAt(), period.endAt(),
             period.startAt(),  period.endAt());
 
         if (reservationed.isPresent()) {
-            throw new RuntimeException("방을 예약하려는 날짜에 이미 예약이 차있습니다.");
+            throw new RuntimeException("일부 날짜는 예약 할 수 없습니다.");
         }
     }
-
-
 }
