@@ -1,7 +1,6 @@
 package team07.airbnb.reservation;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -119,7 +118,7 @@ class ReservationRepositoryTest {
 			.mapToObj(startAt -> {
 				int endAt = startAt + days;
 				int totalPrice = 340000 * (endAt - startAt + 1);
-				return Reservation.of(room, user, LocalDate.of(2022, 5, startAt), LocalDate.of(2022, 5, endAt), 3,
+				return new Reservation(room, user, LocalDate.of(2022, 5, startAt), LocalDate.of(2022, 5, endAt), 3,
 					totalPrice);
 			}).collect(Collectors.toList());
 	}
