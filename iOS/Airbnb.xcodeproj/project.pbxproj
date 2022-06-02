@@ -29,6 +29,12 @@
 		989934A82844F5A700317A84 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989934A72844F5A700317A84 /* ContentType.swift */; };
 		989934AA2844F5C100317A84 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989934A92844F5C100317A84 /* HttpMethod.swift */; };
 		989934AC2844F69500317A84 /* RoomDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989934AB2844F69500317A84 /* RoomDetailUseCase.swift */; };
+		98B98E112847C94300F76D11 /* RoomDetailDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B98E102847C94300F76D11 /* RoomDetailDescriptionView.swift */; };
+		98B98E132847CA3100F76D11 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B98E122847CA3100F76D11 /* UIView+Extension.swift */; };
+		98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B98E142847CAB800F76D11 /* RoomDetailHostProfileView.swift */; };
+		98B98E172847CAEE00F76D11 /* RoomDetailTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B98E162847CAEE00F76D11 /* RoomDetailTitleView.swift */; };
+		98B98E192847CB5800F76D11 /* RoomDetailReservateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B98E182847CB5800F76D11 /* RoomDetailReservateView.swift */; };
+		98B98E1B2847E23400F76D11 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B98E1A2847E23400F76D11 /* RoundButton.swift */; };
 		98E0C687283DF8DA00C5BDF9 /* RoomPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0C686283DF8DA00C5BDF9 /* RoomPosition.swift */; };
 		98F11303283F11B700009232 /* PositionSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F11302283F11B700009232 /* PositionSearchUseCase.swift */; };
 		98F11306283F27C000009232 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F11305283F27C000009232 /* Observable.swift */; };
@@ -98,6 +104,12 @@
 		989934A72844F5A700317A84 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		989934A92844F5C100317A84 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		989934AB2844F69500317A84 /* RoomDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailUseCase.swift; sourceTree = "<group>"; };
+		98B98E102847C94300F76D11 /* RoomDetailDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailDescriptionView.swift; sourceTree = "<group>"; };
+		98B98E122847CA3100F76D11 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		98B98E142847CAB800F76D11 /* RoomDetailHostProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailHostProfileView.swift; sourceTree = "<group>"; };
+		98B98E162847CAEE00F76D11 /* RoomDetailTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailTitleView.swift; sourceTree = "<group>"; };
+		98B98E182847CB5800F76D11 /* RoomDetailReservateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailReservateView.swift; sourceTree = "<group>"; };
+		98B98E1A2847E23400F76D11 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		98E0C686283DF8DA00C5BDF9 /* RoomPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPosition.swift; sourceTree = "<group>"; };
 		98F11302283F11B700009232 /* PositionSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionSearchUseCase.swift; sourceTree = "<group>"; };
 		98F11305283F27C000009232 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -167,6 +179,7 @@
 		982F76562844BD5700DF8523 /* RoomDetail */ = {
 			isa = PBXGroup;
 			children = (
+				98B98E0F2847C90600F76D11 /* View */,
 				989934A12844E98600317A84 /* RoomDetailRepository.swift */,
 				982F76582844BE5900DF8523 /* RoomDetailViewController.swift */,
 				989934AB2844F69500317A84 /* RoomDetailUseCase.swift */,
@@ -259,6 +272,17 @@
 			path = AirbnbUITests;
 			sourceTree = "<group>";
 		};
+		98B98E0F2847C90600F76D11 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				98B98E102847C94300F76D11 /* RoomDetailDescriptionView.swift */,
+				98B98E142847CAB800F76D11 /* RoomDetailHostProfileView.swift */,
+				98B98E162847CAEE00F76D11 /* RoomDetailTitleView.swift */,
+				98B98E182847CB5800F76D11 /* RoomDetailReservateView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		98E0C688283DFAB000C5BDF9 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				98F11305283F27C000009232 /* Observable.swift */,
+				98B98E122847CA3100F76D11 /* UIView+Extension.swift */,
+				98B98E1A2847E23400F76D11 /* RoundButton.swift */,
 				B55A63932847070200E08EE0 /* JsonHandler.swift */,
 				B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */,
 			);
@@ -630,6 +656,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B98E1B2847E23400F76D11 /* RoundButton.swift in Sources */,
 				98F11306283F27C000009232 /* Observable.swift in Sources */,
 				B509353B283F68C50017C8E0 /* ConditionSettingViewController.swift in Sources */,
 				B55A638D2845AC5B00E08EE0 /* ConditionSettingUseCase.swift in Sources */,
@@ -643,12 +670,15 @@
 				B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */,
 				B55A639828470EC400E08EE0 /* RoomPositionInfo.swift in Sources */,
 				B5093548283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift in Sources */,
+				98B98E192847CB5800F76D11 /* RoomDetailReservateView.swift in Sources */,
 				B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */,
-				B55A639E2847C89E00E08EE0 /* CustomGoogleMapMarker.swift in Sources */,
+				B55A639E2847C89E00E08EE0 /* CustomGoogleMapMarker.swift in Sources */
 				989934AC2844F69500317A84 /* RoomDetailUseCase.swift in Sources */,
 				98593E02283CC75C00B28960 /* HomeViewController.swift in Sources */,
+				98B98E132847CA3100F76D11 /* UIView+Extension.swift in Sources */,
 				983A6005283F6CF600DDB517 /* PositionSearchFactory.swift in Sources */,
-				989934A22844E98600317A84 /* RoomDetailRepository.swift in Sources */,
+				989934A22844E98600317A84 /* RoomDetailRepository.swift in Sources */
+				98B98E172847CAEE00F76D11 /* RoomDetailTitleView.swift in Sources */,
 				B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */,
 				989934A62844F56A00317A84 /* EndPoint.swift in Sources */,
 				989934A82844F5A700317A84 /* ContentType.swift in Sources */,
@@ -656,9 +686,12 @@
 				B55A639A28471E7100E08EE0 /* RoomPositionMapCollectionViewCell.swift in Sources */,
 				98593E00283CC75C00B28960 /* SceneDelegate.swift in Sources */,
 				B5093530283DCB490017C8E0 /* PositionSearchViewController.swift in Sources */,
+				98B98E112847C94300F76D11 /* RoomDetailDescriptionView.swift in Sources */,
 				989934AA2844F5C100317A84 /* HttpMethod.swift in Sources */,
 				989934A42844F23300317A84 /* RoomDetail.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift in Sources */,
+				98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */,
+				B570BC53283FF97C008BBC79 /* MapViewController.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				B5E098E928406B8D00A69BDF /* PrivateStorage.swift in Sources */,
 				982F765C2844C33F00DF8523 /* NetworkHandler.swift in Sources */,
