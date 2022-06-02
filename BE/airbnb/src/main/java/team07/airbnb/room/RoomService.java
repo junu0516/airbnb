@@ -15,7 +15,6 @@ import team07.airbnb.wishlist.WishlistRepository;
 @RequiredArgsConstructor
 @Transactional
 public class RoomService {
-
     private final RoomRepository roomRepository;
     private final ImageRepository imageRepository;
     private final WishlistRepository wishlistRepository;
@@ -34,7 +33,6 @@ public class RoomService {
     @Transactional(readOnly = true)
     public Room getRoom(Long roomId) {
         return roomRepository.findById(roomId)
-            .orElseThrow(() -> new RuntimeException("no entity"));
+            .orElseThrow(() -> new EmptyResultDataAccessException("no exist of room entity", 1));
     }
-
 }
