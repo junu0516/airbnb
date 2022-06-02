@@ -10,7 +10,7 @@ public class WeeklyDiscountPolicy {
 	public static final BigDecimal NONE_DISCOUNTED_AMOUNT = BigDecimal.ZERO;
 	private static final BigDecimal weeklyDiscountRate = new BigDecimal("0.04");
 
-	BigDecimal getDiscounted(ReservationReport reservationReport) {
+	public BigDecimal getDiscounted(ReservationReport reservationReport) {
 		if (reservationReport.appliedPeriod(discountConditionDays)) {
 			return reservationReport.getPriceOfRoom().multiply(weeklyDiscountRate);
 		}
