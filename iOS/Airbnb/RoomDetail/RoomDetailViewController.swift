@@ -17,7 +17,7 @@ final class RoomDetailViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupViews()
-        useCase.initialize()
+        useCase.initializeData()
         bindView()
         
         shareButton.addTarget(self, action: #selector(touchedShareButton), for: .touchUpInside)
