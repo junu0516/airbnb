@@ -2,7 +2,6 @@ package team07.airbnb.room;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
-import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import team07.airbnb.address.Address;
@@ -50,7 +49,8 @@ public class RoomDetailResponse {
     }
 
     private static boolean isUserWishRoom(List<Wishlist> wishlists, Long userId) {
-        return wishlists.stream().map(i -> i.guestId() == userId).findAny().get();
+        return wishlists.stream()
+            .anyMatch(wishlist -> wishlist.guestId() == userId);
     }
 
 
