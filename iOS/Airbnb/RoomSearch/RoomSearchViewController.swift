@@ -1,8 +1,8 @@
 import UIKit
 
-final class ConditionSettingViewController: UIViewController {
+final class RoomSearchViewController: UIViewController {
     
-    private var useCase: ConditionSettingUseCase?
+    private var useCase: RoomSearchUseCase?
     
     private lazy var dummyView: UIView = {
         let view = UIView()
@@ -30,9 +30,9 @@ final class ConditionSettingViewController: UIViewController {
         cell.updateLabelText(conditionTitle: value, conditionValue: "")
     }
     
-    convenience init(conditionSettingModel model: ConditionSettingUseCase) {
+    convenience init(useCase: RoomSearchUseCase) {
         self.init()
-        self.useCase = model
+        self.useCase = useCase
     }
         
     override func viewDidLoad() {
@@ -80,7 +80,7 @@ final class ConditionSettingViewController: UIViewController {
     }
 }
 
-extension ConditionSettingViewController: UITableViewDelegate {
+extension RoomSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height/CGFloat(ConditionCategory.allCases.count)

@@ -57,9 +57,8 @@ extension PositionSearchViewController: UITableViewDataSource {
 extension PositionSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.model.searchPositionInfo(index: indexPath.row) { searchCondition in
-            let model = ConditionSettingUseCase(searchCondition: searchCondition)
-            self.navigationController?.pushViewController(ConditionSettingViewController(conditionSettingModel: model), animated: true)
-            
+            let useCase = RoomSearchUseCase(searchCondition: searchCondition)
+            self.navigationController?.pushViewController(RoomSearchViewController(useCase:  useCase), animated: true)
         }
     }
 }
