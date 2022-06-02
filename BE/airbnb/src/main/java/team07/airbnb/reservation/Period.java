@@ -12,7 +12,7 @@ public class Period {
 		this.endAt = endAt;
 	}
 
-	static Period of(LocalDate startAt, LocalDate endAt) {
+	public static Period of(LocalDate startAt, LocalDate endAt) {
 		return new Period(startAt, endAt);
 	}
 
