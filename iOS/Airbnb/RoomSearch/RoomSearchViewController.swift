@@ -74,9 +74,12 @@ final class RoomSearchViewController: UIViewController {
         ])
     }
     
-    //추후 검색 결과 리스트 보여주는 화면으로 넘어가는 로직으로 대체해야 함
     @objc private func pushNextViewController() {
-        self.navigationController?.pushViewController(RoomListViewController(), animated: true)
+        useCase?.getRoomList { [weak self] roomList in
+            let usecase = RoomListUseCase(roomList: roomList)
+            let viewController = RoomListViewController(useCase: usecase)
+            self?.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 

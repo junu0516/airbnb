@@ -3,6 +3,8 @@ import UIKit
 
 class RoomListViewController: UIViewController {
 
+    private var useCase: RoomListUseCase?
+    
     private let dummy = ["cozy house", "private room", "party room"]
     
     private lazy var collectionView: UICollectionView = {
@@ -34,6 +36,11 @@ class RoomListViewController: UIViewController {
     }()
     
     private let headerView = SearchResultRoomsHeaderView()
+    
+    convenience init(useCase: RoomListUseCase) {
+        self.init()
+        self.useCase = useCase
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
