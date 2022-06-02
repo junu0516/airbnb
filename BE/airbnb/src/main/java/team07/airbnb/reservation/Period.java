@@ -16,7 +16,7 @@ public class Period {
 		return new Period(startAt, endAt);
 	}
 
-	boolean isLonger(int range) {
+	public boolean isLonger(int range) {
 		long between = ChronoUnit.DAYS.between(this.startAt, this.endAt);
 		return between >= range;
 	}
