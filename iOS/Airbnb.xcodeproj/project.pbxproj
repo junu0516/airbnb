@@ -216,6 +216,15 @@
 			path = RoomSearch;
 			sourceTree = "<group>";
 		};
+		98113AB4284893E7007412E2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				98113AB5284893F7007412E2 /* SearchResultRoomsHeaderView.swift */,
+				98113AB728489428007412E2 /* SearchResultRoomCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		982F76562844BD5700DF8523 /* RoomDetail */ = {
 			isa = PBXGroup;
 			children = (
