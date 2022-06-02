@@ -1,9 +1,15 @@
 import UIKit
 
+<<<<<<<< HEAD:iOS/Airbnb/SearchFilter/SearchFilterViewController.swift
 final class SearchFilterViewController: UIViewController {
     
     private var useCase: SearchFilterUseCase?
-        
+========
+final class RoomSearchViewController: UIViewController {
+    
+    private var useCase: RoomSearchUseCase?
+>>>>>>>> 4bfd503d ([junu0516/airbnb#31] Ref: ConditionSetting -> RoomSearch 로 네이밍 변경):iOS/Airbnb/RoomSearch/RoomSearchViewController.swift
+    
     private lazy var dummyView: UIView = {
         let view = UIView()
         view.backgroundColor = .lightGray
@@ -24,13 +30,17 @@ final class SearchFilterViewController: UIViewController {
     }()
     
     typealias CELL = SearchFilterTableViewCell
-    typealias DataSource = CustomTableDataSource
+    typealias DataSource = SearchFilterTableViewDataSource
     private let conditionSettingTableViewDataSource: DataSource<CELL,String> = DataSource(cellIdentifier: CELL.identifier,
                                                                                           items: FilterCategory.allCases.map { $0.rawValue }) { cell, value in
         cell.updateLabelText(conditionTitle: value, conditionValue: "")
     }
     
+<<<<<<<< HEAD:iOS/Airbnb/SearchFilter/SearchFilterViewController.swift
     convenience init(useCase: SearchFilterUseCase) {
+========
+    convenience init(useCase: RoomSearchUseCase) {
+>>>>>>>> 4bfd503d ([junu0516/airbnb#31] Ref: ConditionSetting -> RoomSearch 로 네이밍 변경):iOS/Airbnb/RoomSearch/RoomSearchViewController.swift
         self.init()
         self.useCase = useCase
     }
@@ -83,7 +93,12 @@ final class SearchFilterViewController: UIViewController {
     }
 }
 
+<<<<<<<< HEAD:iOS/Airbnb/SearchFilter/SearchFilterViewController.swift
 extension SearchFilterViewController: UITableViewDelegate {
+========
+extension RoomSearchViewController: UITableViewDelegate {
+>>>>>>>> 4bfd503d ([junu0516/airbnb#31] Ref: ConditionSetting -> RoomSearch 로 네이밍 변경):iOS/Airbnb/RoomSearch/RoomSearchViewController.swift
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height/CGFloat(FilterCategory.allCases.count)
     }
