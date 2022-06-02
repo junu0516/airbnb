@@ -25,11 +25,11 @@ class RoomListViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: self.view.frame.size.width, height: 200)
+        layout.itemSize = CGSize(width: self.view.frame.size.width, height: 340)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(SearchResultRoomCell.self, forCellWithReuseIdentifier: "SearchResultRoomCell")
-        collectionView.backgroundColor = .orange
+        collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -85,7 +85,12 @@ extension RoomListViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultRoomCell", for: indexPath) as? SearchResultRoomCell else {
             return UICollectionViewCell()
         }
-        cell.updateViews(title: room.roomName)
+        
+        RoomDetailRepository().fetchImage(imageUrl: room.thumbnailImage) { imageData in
+            cell.updateImageView(imageData: imageData)
+        }
+        
+        cell.updateViews(title: room.roomName, numberOfReviews: room.numberOfReviews, averageOfStar: room.averageOfStar, pricePerDay: room.pricePerDay, totalPrice: room.totalPrice)
         return cell
     }
 }
