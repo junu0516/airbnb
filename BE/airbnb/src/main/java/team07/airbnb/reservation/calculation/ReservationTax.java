@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class ReservationTax {
 	private static final BigDecimal taxRate = new BigDecimal("0.1");
 
-	public BigDecimal apply(BigDecimal totalPrice) {
+	BigDecimal apply(BigDecimal totalPrice) {
 		return totalPrice.multiply(this.taxRate);
 	}
 }

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class RoomCleaningFee {
 	private static final BigDecimal ratioOfCleaningFee = new BigDecimal("0.02");
 
-	public BigDecimal apply(BigDecimal totalPrice) {
+	BigDecimal apply(BigDecimal totalPrice) {
 		return totalPrice.multiply(this.ratioOfCleaningFee);
 	}
 }
