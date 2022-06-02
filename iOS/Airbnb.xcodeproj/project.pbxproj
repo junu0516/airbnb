@@ -228,6 +228,13 @@
 				98113AB728489428007412E2 /* SearchResultRoomCell.swift */,
 			);
 			path = View;
+		98113AB128487E63007412E2 /* RoomSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B509353A283F68C50017C8E0 /* RoomSearchViewController.swift */,
+				B55A638C2845AC5B00E08EE0 /* RoomSearchUseCase.swift */,
+			);
+			path = RoomSearch;
 			sourceTree = "<group>";
 		};
 		98113AB4284893E7007412E2 /* View */ = {
@@ -256,6 +263,9 @@
 				B55BF3D92848F89D009634F8 /* View */,
 				B509353A283F68C50017C8E0 /* SearchFilterViewController.swift */,
 				B55A638C2845AC5B00E08EE0 /* SearchFilterUseCase.swift */,
+				B5093543283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift */,
+				B5093547283FEA200017C8E0 /* ConditionSettingTableViewDataSource.swift */,
+				B5093545283FD50D0017C8E0 /* ConditionCategory.swift */,
 			);
 			path = SearchFilter;
 			sourceTree = "<group>";
