@@ -1,6 +1,6 @@
 import UIKit
 
-final class ConditionSettingTableViewDataSource<CELL: UITableViewCell, T>: NSObject, UITableViewDataSource {
+final class SearchFilterTableViewDataSource<CELL: UITableViewCell, T>: NSObject, UITableViewDataSource {
     
     private var cellIdentifier : String
     private var items : [T]

@@ -2,10 +2,11 @@ import Foundation
 import Alamofire
 import OSLog
 
+protocol NetworkHandlable {
+    func request(endPoint: EndPoint, method: HttpMethod, contentType: ContentType, body: Data?, completion: @escaping (Result<Data, Error>) -> Void)
+}
 
-
-
-struct NetworkHandler {
+struct NetworkHandler: NetworkHandlable {
     
     private let logger = Logger()
     

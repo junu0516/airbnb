@@ -1,8 +1,8 @@
 import UIKit
 
-final class ConditionSettingViewController: UIViewController {
+final class SearchFilterViewController: UIViewController {
     
-    private var useCase: ConditionSettingUseCase?
+    private var useCase: SearchFilterUseCase?
     
     private lazy var dummyView: UIView = {
         let view = UIView()
@@ -19,20 +19,20 @@ final class ConditionSettingViewController: UIViewController {
         tableView.isScrollEnabled = false
         tableView.isUserInteractionEnabled = false
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(ConditionSettingTableViewCell.self, forCellReuseIdentifier: ConditionSettingTableViewCell.identifier)
+        tableView.register(SearchFilterTableViewCell.self, forCellReuseIdentifier: SearchFilterTableViewCell.identifier)
         return tableView
     }()
     
-    typealias CELL = ConditionSettingTableViewCell
-    typealias DataSource = ConditionSettingTableViewDataSource
+    typealias CELL = SearchFilterTableViewCell
+    typealias DataSource = SearchFilterTableViewDataSource
     private let conditionSettingTableViewDataSource: DataSource<CELL,String> = DataSource(cellIdentifier: CELL.identifier,
-                                                                                          items: ConditionCategory.allCases.map { $0.rawValue }) { cell, value in
+                                                                                          items: FilterCategory.allCases.map { $0.rawValue }) { cell, value in
         cell.updateLabelText(conditionTitle: value, conditionValue: "")
     }
     
-    convenience init(conditionSettingModel model: ConditionSettingUseCase) {
+    convenience init(useCase: SearchFilterUseCase) {
         self.init()
-        self.useCase = model
+        self.useCase = useCase
     }
         
     override func viewDidLoad() {
@@ -74,15 +74,18 @@ final class ConditionSettingViewController: UIViewController {
         ])
     }
     
-    //추후 검색 결과 리스트 보여주는 화면으로 넘어가는 로직으로 대체해야 함
     @objc private func pushNextViewController() {
-        self.navigationController?.pushViewController(RoomListViewController(), animated: true)
+        useCase?.getRoomList { [weak self] roomList in
+            let usecase = RoomListUseCase(roomList: roomList)
+            let viewController = RoomListViewController(useCase: usecase)
+            self?.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 
-extension ConditionSettingViewController: UITableViewDelegate {
+extension SearchFilterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height/CGFloat(ConditionCategory.allCases.count)
+        return tableView.frame.height/CGFloat(FilterCategory.allCases.count)
     }
 }
