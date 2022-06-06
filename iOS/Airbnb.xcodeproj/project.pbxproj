@@ -50,7 +50,7 @@
 		B509353B283F68C50017C8E0 /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B509353A283F68C50017C8E0 /* SearchFilterViewController.swift */; };
 		B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093543283FD3F90017C8E0 /* SearchFilterTableViewCell.swift */; };
 		B5093546283FD50D0017C8E0 /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093545283FD50D0017C8E0 /* FilterCategory.swift */; };
-		B5093548283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093547283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift */; };
+		B5093548283FEA200017C8E0 /* CustomTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093547283FEA200017C8E0 /* CustomTableDataSource.swift */; };
 		B55A638D2845AC5B00E08EE0 /* SearchFilterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638C2845AC5B00E08EE0 /* SearchFilterUseCase.swift */; };
 		B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */; };
 		B55A6392284706B100E08EE0 /* RoomPositionMapUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */; };
@@ -144,7 +144,7 @@
 		B509353A283F68C50017C8E0 /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
 		B5093543283FD3F90017C8E0 /* SearchFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTableViewCell.swift; sourceTree = "<group>"; };
 		B5093545283FD50D0017C8E0 /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
-		B5093547283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTableViewDataSource.swift; sourceTree = "<group>"; };
+		B5093547283FEA200017C8E0 /* CustomTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableDataSource.swift; sourceTree = "<group>"; };
 		B55A638C2845AC5B00E08EE0 /* SearchFilterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterUseCase.swift; sourceTree = "<group>"; };
 		B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapRepository.swift; sourceTree = "<group>"; };
 		B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapUseCase.swift; sourceTree = "<group>"; };
@@ -350,6 +350,7 @@
 				98B98E1A2847E23400F76D11 /* RoundButton.swift */,
 				B55A63932847070200E08EE0 /* JsonHandler.swift */,
 				B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */,
+				B5093547283FEA200017C8E0 /* CustomTableDataSource.swift */,
 				98B2756E2848F11D003BE859 /* Margins.swift */,
 				9874AA08284DA49A006D5D60 /* UIColor+Extension.swift */,
 				980C6CB2284FB48E0098D50C /* CodableLayoutView.swift */,
@@ -415,7 +416,6 @@
 			isa = PBXGroup;
 			children = (
 				B5093543283FD3F90017C8E0 /* SearchFilterTableViewCell.swift */,
-				B5093547283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift */,
 				B5093545283FD50D0017C8E0 /* FilterCategory.swift */,
 			);
 			path = View;
@@ -805,7 +805,7 @@
 				B56F5A8F284E0D0E00458C44 /* ReservationPriceTableViewCell.swift in Sources */,
 				B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */,
 				B55A639828470EC400E08EE0 /* RoomPositionInfo.swift in Sources */,
-				B5093548283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift in Sources */,
+				B5093548283FEA200017C8E0 /* CustomTableDataSource.swift in Sources */,
 				98B98E192847CB5800F76D11 /* RoomDetailReservateView.swift in Sources */,
 				B56F5A91284E0D0E00458C44 /* ReservationPriceView.swift in Sources */,
 				B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */,
