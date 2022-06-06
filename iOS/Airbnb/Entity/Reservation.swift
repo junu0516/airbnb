@@ -30,23 +30,23 @@ struct Reservation {
     }
     //총 금액의 2%
     var cleaningPrice: Int {
-        return Int(Double(priceForWholeDates)*0.2)
+        return Int(Double(priceForWholeDates)*0.02)
     }
     //4% 주 단위 요금 할인(7일 이상일 경우 적용)
     var discountedPricePerWeek: Int{
         let interval = checkOutDate.getDateInterval(from: checkInDate)
-        return interval >= 7 ? Int(Double(priceForWholeDates)*0.4) : 0
+        return interval >= 7 ? -Int(Double(priceForWholeDates)*0.04) : 0
     }
     //총 금액의 7%
     var fee: Int {
-        return Int(Double(priceForWholeDates)*0.7)
+        return Int(Double(priceForWholeDates)*0.07)
     }
     //수수료의 10%
     var tax: Int {
         return Int(Double(fee)*0.1)
     }
     var totalPrice: Int {
-        return priceForWholeDates-discountedPricePerWeek+cleaningPrice+fee+tax
+        return priceForWholeDates+discountedPricePerWeek+cleaningPrice+fee+tax
     }
     
     init() {
