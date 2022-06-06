@@ -64,7 +64,7 @@ struct Reservation {
     
     func generatePriceArray() -> [ReservationPrice] {
         return [
-            .init(title: .originalPrice(price: "\(priceForOneDay)", dates: "\(getDateInterval())"), value: priceForWholeDates),
+            .init(title: .originalPrice(price: "\(priceForOneDay.toDecimalString() ?? "")", dates: "\(getDateInterval())"), value: priceForWholeDates),
             .init(title: .weeklyDiscount, value: discountedPricePerWeek),
             .init(title: .cleaningCost, value: cleaningPrice),
             .init(title: .serviceFee, value: fee),

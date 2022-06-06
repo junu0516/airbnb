@@ -77,7 +77,7 @@ final class ReservationViewController: UIViewController {
                                              checkOut: reservation.checkOutDate,
                                              guestsCount: reservation.guestsCount)
             self?.viewModel?.reservationPrices.value = reservation.generatePriceArray()
-            self?.totalPriceValueLabel.text = "\(reservation.totalPrice)"
+            self?.totalPriceValueLabel.text = "₩\(reservation.totalPrice.toDecimalString() ?? "")"
         }
         
         self.viewModel?.reservationPrices.bind { [weak self] items in

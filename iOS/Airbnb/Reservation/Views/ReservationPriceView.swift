@@ -19,7 +19,8 @@ final class ReservationPriceView: UIView {
     typealias DataSource = SearchFilterTableViewDataSource
     let priceTableViewDataSource: DataSource<CELL,ReservationPrice> = DataSource(cellIdentifier: CELL.identifier,
                                                                                items: []) { cell, item in
-        cell.updateLabelText(priceTitle: item.title.stringLiteral, priceValue: "\(item.value)")
+        cell.updateLabelText(priceTitle: item.title.stringLiteral,
+                             priceValue: "₩\(item.value.toDecimalString() ?? "")")
     }
     
     override init(frame: CGRect) {
