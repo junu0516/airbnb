@@ -14,11 +14,16 @@ class RoomDetailCarouselImagesView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func start(with images: [UIImage?]) {
-        self.images = images
-        collectionView.reloadData()
+    func loadImage(index: Int, imageData: Data) {
+        self.images[index] = UIImage(data: imageData)
+        collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
     }
     
+    func start(with imageCount: Int) {
+        self.images = (0..<imageCount).map{ _ in UIImage() }
+        collectionView.reloadData()
+    }
+
     private func setupViews() {
         addSubview(collectionView)
         NSLayoutConstraint.activate([

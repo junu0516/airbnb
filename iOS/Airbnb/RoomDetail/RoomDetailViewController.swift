@@ -42,15 +42,14 @@ final class RoomDetailViewController: UIViewController {
             self?.titleView.updateViews(title: data.title, averageOfStar: data.averageOfStar, numberOfReviews: data.numberOfReviews, address: "")
             self?.hostProfileView.updateViews(hostName: data.hostName, maxNumberOfPeople: data.maxNumberOfPeople, styleOfRoom: data.roomType, bedCount: data.bedCount, bathroomCount: data.bathroomCount)
             self?.reservateView.updateViews(priceForOneDay: data.priceForOneDay)
+            self?.carouselImageView.start(with: data.images.count)
         }
         
-        self.useCase.image.bind { [weak self] imageData in
-            // TODO: 이미지 여러장 불러오는 API를 완료했을때 .start 메서드 호출
-            self?.imageView.start(with: [
-                UIImage(data: imageData),
-                UIImage(data: imageData),
-                UIImage(data: imageData)
-            ])
+        self.useCase.didSuccessResponseImage = { [weak self] (imageData, index) in
+            if imageData.isEmpty {
+                return
+            }
+            self?.carouselImageView.loadImage(index: index, imageData: imageData)
         }
         
         self.useCase.profileImage.bind { [weak self] imageData in
@@ -95,7 +94,7 @@ final class RoomDetailViewController: UIViewController {
     private let hostProfileView = RoomDetailHostProfileView()
     private let reservateView = RoomDetailReservateView()
     private let descriptionView = RoomDetailDescriptionView()
-    private let imageView = RoomDetailCarouselImagesView()
+    private let carouselImageView = RoomDetailCarouselImagesView()
     
     private func setupViews() {
         let bottomViewHeight: CGFloat = 80
@@ -110,7 +109,7 @@ final class RoomDetailViewController: UIViewController {
         ])
         
         contentScrollView.addSubview(contentInnerStackView)
-        contentInnerStackView.addArrangedSubview(imageView)
+        contentInnerStackView.addArrangedSubview(carouselImageView)
         contentInnerStackView.addArrangedSubview(titleView)
         contentInnerStackView.addArrangedSubview(hostProfileView)
         contentInnerStackView.addArrangedSubview(descriptionView)
@@ -120,8 +119,8 @@ final class RoomDetailViewController: UIViewController {
             contentInnerStackView.trailingAnchor.constraint(equalTo: contentScrollView.contentLayoutGuide.trailingAnchor),
             contentInnerStackView.bottomAnchor.constraint(equalTo: contentScrollView.contentLayoutGuide.bottomAnchor),
             
-            imageView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 0.8)
+            carouselImageView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            carouselImageView.heightAnchor.constraint(equalTo: carouselImageView.widthAnchor, multiplier: 0.8)
 
         ])
 
