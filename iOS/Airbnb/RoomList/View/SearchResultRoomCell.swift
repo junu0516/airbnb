@@ -17,15 +17,16 @@ final class SearchResultRoomCell: UICollectionViewCell {
     func updateViews(title: String, numberOfReviews: Int, averageOfStar: Float, pricePerDay: Int, totalPrice: Int) {
         self.titleLabel.text = title
         self.reviewLabel.text = "\(averageOfStar) (후기 \(numberOfReviews)개)"
-        self.priceOneDayLabel.text = "₩ \(pricePerDay) /박"
-        self.totalPriceLabel.text = "총액 \(totalPrice)₩"
+        self.priceOneDayLabel.text = "₩\(pricePerDay) /박"
+        self.totalPriceLabel.text = "총액 ₩\(totalPrice)"
     }
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
-        label.font = .systemFont(ofSize: 22)
+        label.font = .systemFont(ofSize: 20)
         label.numberOfLines = 1
+        label.textColor = .airbnbGray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -41,6 +42,7 @@ final class SearchResultRoomCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "0.0(후기 0개)"
         label.font = .systemFont(ofSize: 15, weight: .light)
+        label.textColor = .airbnbGray3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -49,6 +51,7 @@ final class SearchResultRoomCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "₩ 0 /박"
         label.font = .boldSystemFont(ofSize: 18)
+        label.textColor = .airbnbGray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -57,6 +60,7 @@ final class SearchResultRoomCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "총액 ₩"
         label.font = .systemFont(ofSize: 15, weight: .light)
+        label.textColor = .airbnbGray3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -66,6 +70,7 @@ final class SearchResultRoomCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .leading
+        stackView.spacing = Margins.betweenLines
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(stackView)
@@ -81,5 +86,8 @@ final class SearchResultRoomCell: UICollectionViewCell {
         let thumbnailImageAutolayout = thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 0.7)
         thumbnailImageAutolayout.priority = .defaultLow
         thumbnailImageAutolayout.isActive = true
+
+        thumbnailImageView.clipsToBounds = true
+        thumbnailImageView.layer.cornerRadius = 10
     }
 }

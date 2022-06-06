@@ -23,10 +23,11 @@ class RoomListViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: Margins.top, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: self.view.frame.size.width, height: 340)
-        
+        layout.itemSize = CGSize(width: self.view.frame.size.width - (Margins.side * 2), height: 360)
+        layout.minimumLineSpacing = Margins.bottom
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(SearchResultRoomCell.self, forCellWithReuseIdentifier: "SearchResultRoomCell")
         collectionView.backgroundColor = .white
@@ -54,25 +55,29 @@ class RoomListViewController: UIViewController {
         view.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
 
+        let safeAreaLayoutGuide = self.view.safeAreaLayoutGuide
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Margins.top),
+            headerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: Margins.side),
+            headerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -Margins.side),
             
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
         
         view.addSubview(mapButton)
         NSLayoutConstraint.activate([
             mapButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            mapButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -60)
+            mapButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -60)
         ])
     }
 }
+
+
+
 
 // MARK: - UICollectionViewDataSource
 extension RoomListViewController: UICollectionViewDataSource {
@@ -106,3 +111,9 @@ extension RoomListViewController: UICollectionViewDelegate {
         self.present(viewController, animated: false)
     }
 }
+
+//extension RoomListViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: <#T##Int#>, height: <#T##Int#>)
+//    }
+//}
