@@ -40,7 +40,14 @@ class RoomListViewController: UIViewController {
     private lazy var mapButton: UIButton = {
         let button = UIButton()
         button.setTitle("지도", for: .normal)
-        button.backgroundColor = .brown
+        button.setImage(UIImage(systemName: "map"), for: .normal)
+        button.backgroundColor = .airbnbGray1
+        button.tintColor = .white
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 20
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addAction(UIAction(handler: { [weak self] _ in
             let repository = RoomPositionMapRepository(networkHandler: NetworkHandler(), jsonHandler: JsonHandler())
