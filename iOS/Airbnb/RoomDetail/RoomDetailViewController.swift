@@ -133,6 +133,7 @@ final class RoomDetailViewController: UIViewController {
 
         reservateView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(reservateView)
+        reservateView.delegate = self
         NSLayoutConstraint.activate([
             reservateView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             reservateView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -159,5 +160,13 @@ final class RoomDetailViewController: UIViewController {
             shareButton.widthAnchor.constraint(equalToConstant: 44),
             shareButton.heightAnchor.constraint(equalTo: shareButton.widthAnchor)
         ])
+    }
+}
+
+extension RoomDetailViewController: RoomDetailReservateViewDelegate {
+    @objc func touchedRservationButton() {
+        let reservationViewController = ReservationViewController(title: "")
+        reservationViewController.modalPresentationStyle = .overCurrentContext
+        present(ReservationViewController(title: ""), animated: true)
     }
 }
