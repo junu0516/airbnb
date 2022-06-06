@@ -68,7 +68,7 @@
 		B56F5A91284E0D0E00458C44 /* ReservationPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A8A284E0D0E00458C44 /* ReservationPriceView.swift */; };
 		B56F5A92284E0D0E00458C44 /* ReservationConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A8B284E0D0E00458C44 /* ReservationConditionView.swift */; };
 		B56F5A94284E0D4000458C44 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A93284E0D4000458C44 /* Reservation.swift */; };
-		B56F5A96284E21B000458C44 /* String+Enxtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A95284E21B000458C44 /* String+Enxtension.swift */; };
+		B56F5A96284E21B000458C44 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A95284E21B000458C44 /* DateComponents+Extension.swift */; };
 		B56F5A98284E3AF500458C44 /* ReservationPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A97284E3AF500458C44 /* ReservationPrice.swift */; };
 		B56F5A9A284E3E7C00458C44 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A99284E3E7C00458C44 /* Int+Extension.swift */; };
 		B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */; };
@@ -162,7 +162,7 @@
 		B56F5A8A284E0D0E00458C44 /* ReservationPriceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationPriceView.swift; sourceTree = "<group>"; };
 		B56F5A8B284E0D0E00458C44 /* ReservationConditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationConditionView.swift; sourceTree = "<group>"; };
 		B56F5A93284E0D4000458C44 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
-		B56F5A95284E21B000458C44 /* String+Enxtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Enxtension.swift"; sourceTree = "<group>"; };
+		B56F5A95284E21B000458C44 /* DateComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+Extension.swift"; sourceTree = "<group>"; };
 		B56F5A97284E3AF500458C44 /* ReservationPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPrice.swift; sourceTree = "<group>"; };
 		B56F5A99284E3E7C00458C44 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +354,7 @@
 				9874AA08284DA49A006D5D60 /* UIColor+Extension.swift */,
 				980C6CB2284FB48E0098D50C /* CodableLayoutView.swift */,
 				B56F5A95284E21B000458C44 /* String+Enxtension.swift */,
+				B56F5A95284E21B000458C44 /* DateComponents+Extension.swift */,
 				B56F5A99284E3E7C00458C44 /* Int+Extension.swift */,
 			);
 			path = Common;
@@ -822,7 +823,7 @@
 				989934A62844F56A00317A84 /* EndPoint.swift in Sources */,
 				989934A82844F5A700317A84 /* ContentType.swift in Sources */,
 				98593DFE283CC75C00B28960 /* AppDelegate.swift in Sources */,
-				B56F5A96284E21B000458C44 /* String+Enxtension.swift in Sources */,
+				B56F5A96284E21B000458C44 /* DateComponents+Extension.swift in Sources */,
 				B55A639A28471E7100E08EE0 /* RoomPositionMapCollectionViewCell.swift in Sources */,
 				98593E00283CC75C00B28960 /* SceneDelegate.swift in Sources */,
 				B5093530283DCB490017C8E0 /* PositionSearchViewController.swift in Sources */,
