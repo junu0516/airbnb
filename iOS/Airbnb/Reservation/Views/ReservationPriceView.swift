@@ -16,7 +16,7 @@ final class ReservationPriceView: UIView {
     }()
     
     typealias CELL = ReservationPriceTableViewCell
-    typealias DataSource = SearchFilterTableViewDataSource
+    typealias DataSource = CustomTableDataSource
     let priceTableViewDataSource: DataSource<CELL,ReservationPrice> = DataSource(cellIdentifier: CELL.identifier,
                                                                                items: []) { cell, item in
         cell.updateLabelText(priceTitle: item.title.stringLiteral,
