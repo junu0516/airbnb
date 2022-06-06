@@ -3,6 +3,7 @@ import Foundation
 final class ReservationViewModel {
     
     private (set)var reservation = Observable<Reservation>(Reservation())
+    private (set)var reservationPrices = Observable<[ReservationPrice]>([])
     private let repository: ReservationRepository
     
     init(reservationRepository repository: ReservationRepository) {

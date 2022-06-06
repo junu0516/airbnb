@@ -19,6 +19,10 @@ final class ReservationViewController: UIViewController {
         button.backgroundColor = .systemIndigo
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 10
+        
+        button.addAction(UIAction(handler: { [weak self] _ in
+            self?.viewModel?.sendReservationRequest()
+        }), for: .touchDown)
         return button
     }()
     
@@ -69,7 +73,16 @@ final class ReservationViewController: UIViewController {
     
     private func bindView() {
         self.viewModel?.reservation.bind { [weak self] reservation in
-            self?.conditionView.updateValues(checkIn: reservation.checkInDate, checkOut: reservation.checkOutDate, guestsCount: reservation.guestsCount)
+            self?.conditionView.updateValues(checkIn: reservation.checkInDate,
+                                             checkOut: reservation.checkOutDate,
+                                             guestsCount: reservation.guestsCount)
+            self?.viewModel?.reservationPrices.value = reservation.generatePriceArray()
+            self?.totalPriceValueLabel.text = "\(reservation.totalPrice)"
+        }
+        
+        self.viewModel?.reservationPrices.bind { [weak self] items in
+            self?.pricesView.priceTableViewDataSource.updateNewItems(items: items)
+            self?.pricesView.priceTableView.reloadData()
         }
     }
     
