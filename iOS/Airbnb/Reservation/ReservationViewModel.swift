@@ -11,7 +11,7 @@ final class ReservationViewModel {
     }
     
     func sendReservationRequest() {
-        repository.sendPostRequest(requestBody: Data()) {
+        repository.sendPostRequest(bodyObj: reservation.value) {
             DispatchQueue.main.async {
                print("예약 요청")
             }

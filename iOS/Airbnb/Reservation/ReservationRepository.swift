@@ -12,11 +12,11 @@ final class ReservationRepository {
         self.jsonHandler = jsonHandler
     }
     
-    func sendPostRequest(requestBody: Data, completion: @escaping () -> Void) {
+    func sendPostRequest<T: Encodable>(bodyObj: T, completion: @escaping () -> Void) {
         networkHandler.request(endPoint: .mockList,
                                method: .post,
                                contentType: .json,
-                               body: requestBody) { result in
+                               body: jsonHandler.convertObjectToJson(from: bodyObj)) { result in
             switch result {
             case .success(let data):
                 print(data)
