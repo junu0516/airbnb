@@ -21,7 +21,6 @@ final class RoomDetailViewController: UIViewController {
         bindView()
         
         shareButton.addTarget(self, action: #selector(touchedShareButton), for: .touchUpInside)
-        
         closeButton.addTarget(self, action: #selector(touchedCloseButton), for: .touchUpInside)
         wishButton.addTarget(self, action: #selector(touchedWishButton), for: .touchUpInside)
     }
@@ -35,7 +34,14 @@ final class RoomDetailViewController: UIViewController {
     }
     
     @objc func touchedShareButton() {
-        print("touchedShareButton")
+        // TODO: - 공유할 실제 url 로 바꾸기
+        guard let objectToShare: URL = URL(string: "http://www.google.com") else {
+            return
+        }
+        let shareObject: [AnyObject] = [objectToShare as AnyObject]
+        let activityViewController = UIActivityViewController(activityItems: shareObject, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true)
     }
     
     private func bindView() {
@@ -43,10 +49,14 @@ final class RoomDetailViewController: UIViewController {
             self?.titleView.updateViews(title: data.title, averageOfStar: data.averageOfStar, numberOfReviews: data.numberOfReviews, address: "")
             self?.hostProfileView.updateViews(hostName: data.hostName, maxNumberOfPeople: data.maxNumberOfPeople, styleOfRoom: data.roomType, bedCount: data.bedCount, bathroomCount: data.bathroomCount)
             self?.reservateView.updateViews(priceForOneDay: data.priceForOneDay)
+            self?.carouselImageView.start(with: data.images.count)
         }
         
-        self.useCase.image.bind { [weak self] imageData in
-            self?.imageView.image = UIImage(data: imageData)
+        self.useCase.didSuccessResponseImage = { [weak self] (imageData, index) in
+            if imageData.isEmpty {
+                return
+            }
+            self?.carouselImageView.loadImage(index: index, imageData: imageData)
         }
         
         self.useCase.profileImage.bind { [weak self] imageData in
@@ -87,17 +97,11 @@ final class RoomDetailViewController: UIViewController {
         return stackView
     }()
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .gray
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
     private let titleView = RoomDetailTitleView()
     private let hostProfileView = RoomDetailHostProfileView()
     private let reservateView = RoomDetailReservateView()
     private let descriptionView = RoomDetailDescriptionView()
+    private let carouselImageView = RoomDetailCarouselImagesView()
     
     private func setupViews() {
         let bottomViewHeight: CGFloat = 80
@@ -112,7 +116,7 @@ final class RoomDetailViewController: UIViewController {
         ])
         
         contentScrollView.addSubview(contentInnerStackView)
-        contentInnerStackView.addArrangedSubview(imageView)
+        contentInnerStackView.addArrangedSubview(carouselImageView)
         contentInnerStackView.addArrangedSubview(titleView)
         contentInnerStackView.addArrangedSubview(hostProfileView)
         contentInnerStackView.addArrangedSubview(descriptionView)
@@ -122,8 +126,8 @@ final class RoomDetailViewController: UIViewController {
             contentInnerStackView.trailingAnchor.constraint(equalTo: contentScrollView.contentLayoutGuide.trailingAnchor),
             contentInnerStackView.bottomAnchor.constraint(equalTo: contentScrollView.contentLayoutGuide.bottomAnchor),
             
-            imageView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 0.8)
+            carouselImageView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            carouselImageView.heightAnchor.constraint(equalTo: carouselImageView.widthAnchor, multiplier: 0.8)
 
         ])
 
