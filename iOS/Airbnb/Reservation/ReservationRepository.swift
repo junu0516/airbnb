@@ -13,7 +13,7 @@ final class ReservationRepository {
     }
     
     func sendPostRequest<T: Encodable>(bodyObj: T, completion: @escaping () -> Void) {
-        networkHandler.request(endPoint: .mockList,
+        networkHandler.request(endPoint: .reservation,
                                method: .post,
                                contentType: .json,
                                body: jsonHandler.convertObjectToJson(from: bodyObj)) { result in
