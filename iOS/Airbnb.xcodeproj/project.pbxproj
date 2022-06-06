@@ -792,7 +792,7 @@
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				B55BF3D42848906F009634F8 /* ReservationConditionView.swift in Sources */,
 				98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */,
-				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
+				B55BF3D128488A43009634F8 /* ReservationViewController.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				98113AB828489428007412E2 /* SearchResultRoomCell.swift in Sources */,
 				B5E098E928406B8D00A69BDF /* PrivateStorage.swift in Sources */,
