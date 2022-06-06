@@ -55,13 +55,6 @@ struct Reservation {
         self.priceForOneDay = 70358
     }
 
-    private func getDateInterval() -> Int {
-        guard let startDate = self.checkInDate.toDate(format: "MM월 dd일"),
-              let endDate = self.checkOutDate.toDate(format: "MM월 dd일") else { return 0 }
-        let interval = endDate.timeIntervalSinceReferenceDate-startDate.timeIntervalSinceReferenceDate
-        return Int(interval/86400)
-    }
-    
     func generatePriceArray() -> [ReservationPrice] {
         return [
             .init(title: .originalPrice(price: "\(priceForOneDay.toDecimalString() ?? "")", dates: "\(getDateInterval())"), value: priceForWholeDates),
