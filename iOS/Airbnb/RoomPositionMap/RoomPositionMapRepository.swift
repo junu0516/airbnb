@@ -13,7 +13,7 @@ struct RoomPositionMapRepository {
     }
     
     func fetch(completion: @escaping (RoomPositionInfoList) -> Void) {
-        networkHandler.request(endPoint: .list,
+        networkHandler.request(endPoint: .mockList,
                                method: .get,
                                contentType: .json,
                                body: nil) { result in
