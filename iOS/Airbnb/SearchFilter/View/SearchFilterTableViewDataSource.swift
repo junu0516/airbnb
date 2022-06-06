@@ -12,6 +12,10 @@ final class SearchFilterTableViewDataSource<CELL: UITableViewCell, T>: NSObject,
         self.configureCell = configureCell
     }
     
+    func updateNewItems(items: [T]) {
+        self.items = items
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
