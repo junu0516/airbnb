@@ -21,7 +21,6 @@ final class RoomDetailViewController: UIViewController {
         bindView()
         
         shareButton.addTarget(self, action: #selector(touchedShareButton), for: .touchUpInside)
-        
         closeButton.addTarget(self, action: #selector(touchedCloseButton), for: .touchUpInside)
         wishButton.addTarget(self, action: #selector(touchedWishButton), for: .touchUpInside)
     }
@@ -46,7 +45,12 @@ final class RoomDetailViewController: UIViewController {
         }
         
         self.useCase.image.bind { [weak self] imageData in
-            self?.imageView.image = UIImage(data: imageData)
+            // TODO: 이미지 여러장 불러오는 API를 완료했을때 .start 메서드 호출
+            self?.imageView.start(with: [
+                UIImage(data: imageData),
+                UIImage(data: imageData),
+                UIImage(data: imageData)
+            ])
         }
         
         self.useCase.profileImage.bind { [weak self] imageData in
@@ -87,17 +91,11 @@ final class RoomDetailViewController: UIViewController {
         return stackView
     }()
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .gray
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
     private let titleView = RoomDetailTitleView()
     private let hostProfileView = RoomDetailHostProfileView()
     private let reservateView = RoomDetailReservateView()
     private let descriptionView = RoomDetailDescriptionView()
+    private let imageView = RoomDetailCarouselImagesView()
     
     private func setupViews() {
         let bottomViewHeight: CGFloat = 80

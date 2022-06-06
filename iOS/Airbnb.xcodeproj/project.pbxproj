@@ -28,6 +28,7 @@
 		986B005A283F86C2008E3EEB /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986B0059283F86C2008E3EEB /* RoomListViewController.swift */; };
 		9874AA07284DA2CF006D5D60 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9874AA06284DA2CF006D5D60 /* ImageAssets.xcassets */; };
 		9874AA09284DA49A006D5D60 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9874AA08284DA49A006D5D60 /* UIColor+Extension.swift */; };
+		9874AA0B284DD058006D5D60 /* RoomDetailCarouselImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9874AA0A284DD058006D5D60 /* RoomDetailCarouselImagesView.swift */; };
 		989934A22844E98600317A84 /* RoomDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989934A12844E98600317A84 /* RoomDetailRepository.swift */; };
 		989934A42844F23300317A84 /* RoomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989934A32844F23300317A84 /* RoomDetail.swift */; };
 		989934A62844F56A00317A84 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989934A52844F56A00317A84 /* EndPoint.swift */; };
@@ -109,6 +110,7 @@
 		986B0059283F86C2008E3EEB /* RoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
 		9874AA06284DA2CF006D5D60 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
 		9874AA08284DA49A006D5D60 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9874AA0A284DD058006D5D60 /* RoomDetailCarouselImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailCarouselImagesView.swift; sourceTree = "<group>"; };
 		989934A12844E98600317A84 /* RoomDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailRepository.swift; sourceTree = "<group>"; };
 		989934A32844F23300317A84 /* RoomDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetail.swift; sourceTree = "<group>"; };
 		989934A52844F56A00317A84 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				98B98E142847CAB800F76D11 /* RoomDetailHostProfileView.swift */,
 				98B98E162847CAEE00F76D11 /* RoomDetailTitleView.swift */,
 				98B98E182847CB5800F76D11 /* RoomDetailReservateView.swift */,
+				9874AA0A284DD058006D5D60 /* RoomDetailCarouselImagesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				98113AB6284893F8007412E2 /* SearchResultRoomsHeaderView.swift in Sources */,
 				986B005A283F86C2008E3EEB /* RoomListViewController.swift in Sources */,
 				B55A6392284706B100E08EE0 /* RoomPositionMapUseCase.swift in Sources */,
+				9874AA0B284DD058006D5D60 /* RoomDetailCarouselImagesView.swift in Sources */,
 				98E0C687283DF8DA00C5BDF9 /* RoomPosition.swift in Sources */,
 				B55A639C28477E9600E08EE0 /* CustomCollectionViewDataSource.swift in Sources */,
 				B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */,
