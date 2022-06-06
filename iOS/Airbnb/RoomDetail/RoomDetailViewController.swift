@@ -34,7 +34,14 @@ final class RoomDetailViewController: UIViewController {
     }
     
     @objc func touchedShareButton() {
-        print("touchedShareButton")
+        // TODO: - 공유할 실제 url 로 바꾸기
+        guard let objectToShare: URL = URL(string: "http://www.google.com") else {
+            return
+        }
+        let shareObject: [AnyObject] = [objectToShare as AnyObject]
+        let activityViewController = UIActivityViewController(activityItems: shareObject, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true)
     }
     
     private func bindView() {
