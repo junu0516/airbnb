@@ -21,7 +21,7 @@ struct Reservation {
     let roomId: Int = 0
     let checkInDate: String
     let checkOutDate : String
-    let guestsCount: String
+    let guestsCount: Int
     let priceForOneDay: Int
     
     //1박당 가격 * 숙박일수
@@ -51,7 +51,7 @@ struct Reservation {
     init() {
         self.checkInDate = "5월 17일"
         self.checkOutDate = "6월 4일"
-        self.guestsCount = "게스트 3명"
+        self.guestsCount = 3
         self.priceForOneDay = 70358
     }
 
