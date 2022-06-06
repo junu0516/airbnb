@@ -19,14 +19,14 @@ import Foundation
 struct Reservation {
 
     let roomId: Int = 0
-    let checkInDate: String
-    let checkOutDate : String
+    let checkInDate: DateComponents
+    let checkOutDate : DateComponents
     let guestsCount: Int
     let priceForOneDay: Int
-    
+
     //1박당 가격 * 숙박일수
     var priceForWholeDates: Int {
-        return priceForOneDay*getDateInterval()
+        return priceForOneDay*(checkOutDate.getDateInterval(from: checkInDate))
     }
     //총 금액의 2%
     var cleaningPrice: Int {
@@ -34,7 +34,8 @@ struct Reservation {
     }
     //4% 주 단위 요금 할인(7일 이상일 경우 적용)
     var discountedPricePerWeek: Int{
-        return getDateInterval() >= 7 ? Int(Double(priceForWholeDates)*0.4) : 0
+        let interval = checkOutDate.getDateInterval(from: checkInDate)
+        return interval >= 7 ? Int(Double(priceForWholeDates)*0.4) : 0
     }
     //총 금액의 7%
     var fee: Int {
@@ -49,15 +50,16 @@ struct Reservation {
     }
     
     init() {
-        self.checkInDate = "5월 17일"
-        self.checkOutDate = "6월 4일"
+        self.checkInDate = DateComponents(year: 2022, month: 5, day: 17)
+        self.checkOutDate = DateComponents(year: 2022, month: 6, day: 4)
         self.guestsCount = 3
         self.priceForOneDay = 70358
     }
 
     func generatePriceArray() -> [ReservationPrice] {
+        let dates = checkOutDate.getDateInterval(from: checkInDate)
         return [
-            .init(title: .originalPrice(price: "\(priceForOneDay.toDecimalString() ?? "")", dates: "\(getDateInterval())"), value: priceForWholeDates),
+            .init(title: .originalPrice(price: "\(priceForOneDay.toDecimalString() ?? "")", dates: "\(dates)"), value: priceForWholeDates),
             .init(title: .weeklyDiscount, value: discountedPricePerWeek),
             .init(title: .cleaningCost, value: cleaningPrice),
             .init(title: .serviceFee, value: fee),
@@ -84,8 +86,14 @@ extension Reservation: Encodable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.checkInDate.toDate(format: "yyyy-MM-dd"), forKey: .checkIn)
-        try container.encode(self.checkOutDate.toDate(format: "yyyy-MM-dd"), forKey: .checkOut)
+        let calendar = Calendar(identifier: .gregorian)
+        let startDate = calendar.date(from: checkInDate) ?? Date()
+        let endDate = calendar.date(from: checkOutDate) ?? Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        try container.encode(formatter.string(from: startDate), forKey: .checkIn)
+        try container.encode(formatter.string(from: endDate), forKey: .checkOut)
         try container.encode(self.cleaningPrice, forKey: .cleaningPrice)
         try container.encode(self.discountedPricePerWeek, forKey: .discountedPricePerWeek)
         try container.encode(self.fee, forKey: .fee)

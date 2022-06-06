@@ -23,9 +23,9 @@ final class ReservationConditionView: UIView {
     }
     
     func updateValues(checkIn: String, checkOut: String, guestsCount: String) {
-        checkInLabel.updateValueString(value: "5월 17일")
-        checkOutLabel.updateValueString(value: "6월 4일")
-        guestsCountLabel.updateValueString(value: "게스트 3명")
+        checkInLabel.updateValueString(value: checkIn)
+        checkOutLabel.updateValueString(value: checkOut)
+        guestsCountLabel.updateValueString(value: guestsCount)
     }
     
     private func setUpViews() {
