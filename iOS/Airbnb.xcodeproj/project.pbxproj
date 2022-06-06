@@ -59,12 +59,15 @@
 		B55A639A28471E7100E08EE0 /* RoomPositionMapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A639928471E7100E08EE0 /* RoomPositionMapCollectionViewCell.swift */; };
 		B55A639C28477E9600E08EE0 /* CustomCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */; };
 		B55A639E2847C89E00E08EE0 /* CustomGoogleMapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A639D2847C89E00E08EE0 /* CustomGoogleMapMarker.swift */; };
-		B55BF3D128488A43009634F8 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55BF3D028488A43009634F8 /* ReservationViewController.swift */; };
-		B55BF3D42848906F009634F8 /* ReservationConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55BF3D32848906F009634F8 /* ReservationConditionView.swift */; };
-		B55BF3D6284892C4009634F8 /* ConditionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55BF3D5284892C4009634F8 /* ConditionLabel.swift */; };
-		B56F5AA328503A3900458C44 /* ConfigProperty.plist in Resources */ = {isa = PBXBuildFile; fileRef = B56F5AA228503A3900458C44 /* ConfigProperty.plist */; };
-		B56FE195284DB341004CBE7A /* ReservationPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56FE194284DB341004CBE7A /* ReservationPriceView.swift */; };
-		B56FE197284DB5B9004CBE7A /* ReservationPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56FE196284DB5B9004CBE7A /* ReservationPriceTableViewCell.swift */; };
+		B56F5A82284E0CB700458C44 /* ConfigProperty.plist in Resources */ = {isa = PBXBuildFile; fileRef = B56F5A81284E0CB700458C44 /* ConfigProperty.plist */; };
+		B56F5A8C284E0D0E00458C44 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A84284E0D0E00458C44 /* ReservationViewController.swift */; };
+		B56F5A8D284E0D0E00458C44 /* ReservationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A85284E0D0E00458C44 /* ReservationRepository.swift */; };
+		B56F5A8E284E0D0E00458C44 /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A86284E0D0E00458C44 /* ReservationViewModel.swift */; };
+		B56F5A8F284E0D0E00458C44 /* ReservationPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A88284E0D0E00458C44 /* ReservationPriceTableViewCell.swift */; };
+		B56F5A90284E0D0E00458C44 /* ConditionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A89284E0D0E00458C44 /* ConditionLabel.swift */; };
+		B56F5A91284E0D0E00458C44 /* ReservationPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A8A284E0D0E00458C44 /* ReservationPriceView.swift */; };
+		B56F5A92284E0D0E00458C44 /* ReservationConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A8B284E0D0E00458C44 /* ReservationConditionView.swift */; };
+		B56F5A94284E0D4000458C44 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A93284E0D4000458C44 /* Reservation.swift */; };
 		B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */; };
 		B5E098E928406B8D00A69BDF /* PrivateStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E098E828406B8D00A69BDF /* PrivateStorage.swift */; };
 		B8F22F16D6A74B2E79A1AB68 /* Pods_AirbnbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA6B6A2DF8511623B1A7059 /* Pods_AirbnbTests.framework */; };
@@ -147,12 +150,15 @@
 		B55A639928471E7100E08EE0 /* RoomPositionMapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapCollectionViewCell.swift; sourceTree = "<group>"; };
 		B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		B55A639D2847C89E00E08EE0 /* CustomGoogleMapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGoogleMapMarker.swift; sourceTree = "<group>"; };
-		B55BF3D028488A43009634F8 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
-		B55BF3D32848906F009634F8 /* ReservationConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationConditionView.swift; sourceTree = "<group>"; };
-		B55BF3D5284892C4009634F8 /* ConditionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionLabel.swift; sourceTree = "<group>"; };
-		B56F5AA228503A3900458C44 /* ConfigProperty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ConfigProperty.plist; path = Airbnb/ConfigProperty.plist; sourceTree = "<group>"; };
-		B56FE194284DB341004CBE7A /* ReservationPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPriceView.swift; sourceTree = "<group>"; };
-		B56FE196284DB5B9004CBE7A /* ReservationPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPriceTableViewCell.swift; sourceTree = "<group>"; };
+		B56F5A81284E0CB700458C44 /* ConfigProperty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ConfigProperty.plist; path = Airbnb/ConfigProperty.plist; sourceTree = "<group>"; };
+		B56F5A84284E0D0E00458C44 /* ReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
+		B56F5A85284E0D0E00458C44 /* ReservationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationRepository.swift; sourceTree = "<group>"; };
+		B56F5A86284E0D0E00458C44 /* ReservationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
+		B56F5A88284E0D0E00458C44 /* ReservationPriceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationPriceTableViewCell.swift; sourceTree = "<group>"; };
+		B56F5A89284E0D0E00458C44 /* ConditionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionLabel.swift; sourceTree = "<group>"; };
+		B56F5A8A284E0D0E00458C44 /* ReservationPriceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationPriceView.swift; sourceTree = "<group>"; };
+		B56F5A8B284E0D0E00458C44 /* ReservationConditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationConditionView.swift; sourceTree = "<group>"; };
+		B56F5A93284E0D4000458C44 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapViewController.swift; sourceTree = "<group>"; };
 		B5E098E828406B8D00A69BDF /* PrivateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStorage.swift; sourceTree = "<group>"; };
 		B8C1C869B0BC716E37E2003A /* Pods_Airbnb_AirbnbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb_AirbnbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,7 +250,7 @@
 		98593DF1283CC75C00B28960 = {
 			isa = PBXGroup;
 			children = (
-				B56F5AA228503A3900458C44 /* ConfigProperty.plist */,
+				B56F5A81284E0CB700458C44 /* ConfigProperty.plist */,
 				98593DFC283CC75C00B28960 /* Airbnb */,
 				98593E13283CC75D00B28960 /* AirbnbTests */,
 				98593E1D283CC75D00B28960 /* AirbnbUITests */,
@@ -267,7 +273,7 @@
 		98593DFC283CC75C00B28960 /* Airbnb */ = {
 			isa = PBXGroup;
 			children = (
-				B55BF3CF28488A34009634F8 /* Reservation */,
+				B56F5A83284E0D0E00458C44 /* Reservation */,
 				B55A638E284705E900E08EE0 /* RoomPositionMap */,
 				982F765A2844C30E00DF8523 /* Server */,
 				982F76572844BDAA00DF8523 /* SearchFilter */,
@@ -320,6 +326,7 @@
 		98E0C688283DFAB000C5BDF9 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				B56F5A93284E0D4000458C44 /* Reservation.swift */,
 				98E0C686283DF8DA00C5BDF9 /* RoomPosition.swift */,
 				B5093538283E12D70017C8E0 /* RoomPositionCategory.swift */,
 				989934A32844F23300317A84 /* RoomDetail.swift */,
@@ -411,6 +418,28 @@
 				B55A639D2847C89E00E08EE0 /* CustomGoogleMapMarker.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B56F5A83284E0D0E00458C44 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				B56F5A84284E0D0E00458C44 /* ReservationViewController.swift */,
+				B56F5A85284E0D0E00458C44 /* ReservationRepository.swift */,
+				B56F5A86284E0D0E00458C44 /* ReservationViewModel.swift */,
+				B56F5A87284E0D0E00458C44 /* Views */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		B56F5A87284E0D0E00458C44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B56F5A88284E0D0E00458C44 /* ReservationPriceTableViewCell.swift */,
+				B56F5A89284E0D0E00458C44 /* ConditionLabel.swift */,
+				B56F5A8A284E0D0E00458C44 /* ReservationPriceView.swift */,
+				B56F5A8B284E0D0E00458C44 /* ReservationConditionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B576AE0B28406E6600B21D80 /* PositionSearch */ = {
@@ -565,6 +594,7 @@
 				98593E0A283CC75D00B28960 /* LaunchScreen.storyboard in Resources */,
 				B56F5AA328503A3900458C44 /* ConfigProperty.plist in Resources */,
 				9874AA07284DA2CF006D5D60 /* ImageAssets.xcassets in Resources */,
+				B56F5A82284E0CB700458C44 /* ConfigProperty.plist in Resources */,
 				98593E07283CC75D00B28960 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -753,6 +783,7 @@
 				980C6CB3284FB48E0098D50C /* CodableLayoutView.swift in Sources */,
 				982F76592844BE5900DF8523 /* RoomDetailViewController.swift in Sources */,
 				B5093546283FD50D0017C8E0 /* FilterCategory.swift in Sources */,
+				B56F5A8E284E0D0E00458C44 /* ReservationViewModel.swift in Sources */,
 				98F11303283F11B700009232 /* PositionSearchUseCase.swift in Sources */,
 				98113AB6284893F8007412E2 /* SearchResultRoomsHeaderView.swift in Sources */,
 				986B005A283F86C2008E3EEB /* RoomListViewController.swift in Sources */,
@@ -760,11 +791,12 @@
 				9874AA0B284DD058006D5D60 /* RoomDetailCarouselImagesView.swift in Sources */,
 				98E0C687283DF8DA00C5BDF9 /* RoomPosition.swift in Sources */,
 				B55A639C28477E9600E08EE0 /* CustomCollectionViewDataSource.swift in Sources */,
+				B56F5A8F284E0D0E00458C44 /* ReservationPriceTableViewCell.swift in Sources */,
 				B5093539283E12D70017C8E0 /* RoomPositionCategory.swift in Sources */,
 				B55A639828470EC400E08EE0 /* RoomPositionInfo.swift in Sources */,
 				B5093548283FEA200017C8E0 /* SearchFilterTableViewDataSource.swift in Sources */,
 				98B98E192847CB5800F76D11 /* RoomDetailReservateView.swift in Sources */,
-				B56FE195284DB341004CBE7A /* ReservationPriceView.swift in Sources */,
+				B56F5A91284E0D0E00458C44 /* ReservationPriceView.swift in Sources */,
 				B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */,
 				B55A639E2847C89E00E08EE0 /* CustomGoogleMapMarker.swift in Sources */,
 				989934AC2844F69500317A84 /* RoomDetailUseCase.swift in Sources */,
@@ -774,6 +806,7 @@
 				989934A22844E98600317A84 /* RoomDetailRepository.swift in Sources */,
 				98B98E172847CAEE00F76D11 /* RoomDetailTitleView.swift in Sources */,
 				B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */,
+				B56F5A92284E0D0E00458C44 /* ReservationConditionView.swift in Sources */,
 				98B2756F2848F11D003BE859 /* Margins.swift in Sources */,
 				989934A62844F56A00317A84 /* EndPoint.swift in Sources */,
 				989934A82844F5A700317A84 /* ContentType.swift in Sources */,
@@ -782,15 +815,11 @@
 				98593E00283CC75C00B28960 /* SceneDelegate.swift in Sources */,
 				B5093530283DCB490017C8E0 /* PositionSearchViewController.swift in Sources */,
 				98B98E112847C94300F76D11 /* RoomDetailDescriptionView.swift in Sources */,
-				B55BF3D6284892C4009634F8 /* ConditionLabel.swift in Sources */,
 				989934AA2844F5C100317A84 /* HttpMethod.swift in Sources */,
-				B56FE197284DB5B9004CBE7A /* ReservationPriceTableViewCell.swift in Sources */,
 				989934A42844F23300317A84 /* RoomDetail.swift in Sources */,
-				B55BF3D42848906F009634F8 /* ReservationConditionView.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */,
-				B55BF3D128488A43009634F8 /* ReservationViewController.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
@@ -800,8 +829,12 @@
 				B55BF3D128488A43009634F8 /* ReservationViewController.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				98113AB828489428007412E2 /* SearchResultRoomCell.swift in Sources */,
+				B56F5A94284E0D4000458C44 /* Reservation.swift in Sources */,
+				B56F5A8D284E0D0E00458C44 /* ReservationRepository.swift in Sources */,
 				B5E098E928406B8D00A69BDF /* PrivateStorage.swift in Sources */,
 				982F765C2844C33F00DF8523 /* NetworkHandler.swift in Sources */,
+				B56F5A8C284E0D0E00458C44 /* ReservationViewController.swift in Sources */,
+				B56F5A90284E0D0E00458C44 /* ConditionLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
