@@ -24,7 +24,7 @@ final class ReservationPriceView: UIView {
     }()
     
     typealias CELL = ReservationPriceTableViewCell
-    typealias DataSource = ConditionSettingTableViewDataSource
+    typealias DataSource = SearchFilterTableViewDataSource
     private let priceTableViewDataSource: DataSource<CELL,String> = DataSource(cellIdentifier: CELL.identifier,
                                                                                           items: ReservationPrices.allCases.map { $0.rawValue }) { cell, value in
         cell.updateLabelText(priceTitle: value, priceValue: "₩10,000")
