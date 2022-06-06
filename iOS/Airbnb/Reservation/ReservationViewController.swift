@@ -54,16 +54,26 @@ final class ReservationViewController: UIViewController {
         return label
     }()
     
-    init(title: String) {
-        super.init(nibName: nil, bundle: nil)
-    }
+    private var viewModel: ReservationViewModel?
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    convenience init(reservationViewModel viewModel: ReservationViewModel) {
+        self.init()
+        self.viewModel = viewModel
     }
-    
+        
     override func viewDidLoad() {
         self.view.backgroundColor = .systemBackground
+        setUpViews()
+        bindView()
+    }
+    
+    private func bindView() {
+        self.viewModel?.reservation.bind { [weak self] reservation in
+            self?.conditionView.updateValues(checkIn: reservation.checkInDate, checkOut: reservation.checkOutDate, guestsCount: reservation.guestsCount)
+        }
+    }
+    
+    private func setUpViews() {
         
         self.view.addSubview(priceLabel)
         NSLayoutConstraint.activate([
@@ -107,7 +117,7 @@ final class ReservationViewController: UIViewController {
             pricesView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -25),
             pricesView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.35)
         ])
-
+        
         self.view.addSubview(totalPriceLabel)
         self.view.addSubview(totalPriceValueLabel)
         NSLayoutConstraint.activate([

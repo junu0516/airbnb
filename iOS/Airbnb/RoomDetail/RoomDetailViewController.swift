@@ -165,8 +165,11 @@ final class RoomDetailViewController: UIViewController {
 
 extension RoomDetailViewController: RoomDetailReservateViewDelegate {
     @objc func touchedRservationButton() {
-        let reservationViewController = ReservationViewController(title: "")
-        reservationViewController.modalPresentationStyle = .overCurrentContext
-        present(ReservationViewController(title: ""), animated: true)
+        let repository = ReservationRepository(networkHandler: NetworkHandler(), jsonHandler: JsonHandler())
+        let viewModel = ReservationViewModel(reservationRepository: repository)
+        let reservationViewController = ReservationViewController(reservationViewModel: viewModel)
+        reservationViewController.modalPresentationStyle = .popover
+        
+        present(reservationViewController, animated: true)
     }
 }
