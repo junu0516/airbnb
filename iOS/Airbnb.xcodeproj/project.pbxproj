@@ -834,7 +834,7 @@
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				B56F5AA1284F28F100458C44 /* MockNetworkHandler.swift in Sources */,
 				98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */,
-				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
+				B55BF3D128488A43009634F8 /* ReservationViewController.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
