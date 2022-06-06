@@ -13,7 +13,6 @@ final class ReservationConditionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpViews()
-        updateValues(checkIn: "", checkOut: "", guestsCount: "")
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 15
         self.layer.borderColor = UIColor.lightGray.cgColor
