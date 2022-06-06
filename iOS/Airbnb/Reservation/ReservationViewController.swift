@@ -73,8 +73,8 @@ final class ReservationViewController: UIViewController {
     
     private func bindView() {
         self.viewModel?.reservation.bind { [weak self] reservation in
-            self?.conditionView.updateValues(checkIn: reservation.checkInDate.toMonthAndDayString(),
-                                             checkOut: reservation.checkOutDate.toMonthAndDayString(),
+            self?.conditionView.updateValues(checkIn: reservation.checkInDate.toFormattedString(format: "M월 d일"),
+                                             checkOut: reservation.checkOutDate.toFormattedString(format: "M월 d일"),
                                              guestsCount: "게스트 \(reservation.guestsCount)명")
             self?.viewModel?.reservationPrices.value = reservation.generatePriceArray()
             self?.totalPriceValueLabel.text = "₩\(reservation.totalPrice.toDecimalString() ?? "")"

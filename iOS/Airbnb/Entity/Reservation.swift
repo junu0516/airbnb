@@ -86,14 +86,8 @@ extension Reservation: Encodable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        let calendar = Calendar(identifier: .gregorian)
-        let startDate = calendar.date(from: checkInDate) ?? Date()
-        let endDate = calendar.date(from: checkOutDate) ?? Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        
-        try container.encode(formatter.string(from: startDate), forKey: .checkIn)
-        try container.encode(formatter.string(from: endDate), forKey: .checkOut)
+        try container.encode(self.checkInDate.toFormattedString(format: "yyyy-MM-dd"), forKey: .checkIn)
+        try container.encode(self.checkOutDate.toFormattedString(format: "yyyy-MM-dd"), forKey: .checkOut)
         try container.encode(self.cleaningPrice, forKey: .cleaningPrice)
         try container.encode(self.discountedPricePerWeek, forKey: .discountedPricePerWeek)
         try container.encode(self.fee, forKey: .fee)

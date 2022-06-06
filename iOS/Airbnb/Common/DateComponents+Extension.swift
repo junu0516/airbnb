@@ -2,10 +2,14 @@ import Foundation
 
 extension DateComponents {
     
-    func toMonthAndDayString() -> String {
-        return "\(self.month ?? 0)월 \(self.day ?? 0)일"
+    func toFormattedString(format: String) -> String {
+        let calendar = Calendar(identifier: .gregorian)
+        let date = calendar.date(from: self) ?? Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: date)
     }
-    
+
     func getDateInterval(from: DateComponents) -> Int {
         let calendar = Calendar(identifier: .gregorian)
         guard let startDate = calendar.date(from: from),
