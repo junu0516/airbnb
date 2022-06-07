@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0EC21F4C5D33C39B97587978 /* Pods_Airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC1E133B9F1D8CF1859B8D0 /* Pods_Airbnb.framework */; };
 		33D6A8E53BA7E69CBCB5293A /* Pods_Airbnb_AirbnbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C1C869B0BC716E37E2003A /* Pods_Airbnb_AirbnbUITests.framework */; };
+		980C6CB3284FB48E0098D50C /* CodableLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C6CB2284FB48E0098D50C /* CodableLayoutView.swift */; };
 		98113AB328488A42007412E2 /* RoomListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98113AB228488A42007412E2 /* RoomListUseCase.swift */; };
 		98113AB6284893F8007412E2 /* SearchResultRoomsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98113AB5284893F7007412E2 /* SearchResultRoomsHeaderView.swift */; };
 		98113AB828489428007412E2 /* SearchResultRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98113AB728489428007412E2 /* SearchResultRoomCell.swift */; };
@@ -92,6 +93,7 @@
 		3CC1E133B9F1D8CF1859B8D0 /* Pods_Airbnb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E47D54C555F8528176E246 /* Pods-AirbnbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirbnbTests.release.xcconfig"; path = "Target Support Files/Pods-AirbnbTests/Pods-AirbnbTests.release.xcconfig"; sourceTree = "<group>"; };
 		961C633AEAC04338E9FA3D24 /* Pods-AirbnbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirbnbTests.debug.xcconfig"; path = "Target Support Files/Pods-AirbnbTests/Pods-AirbnbTests.debug.xcconfig"; sourceTree = "<group>"; };
+		980C6CB2284FB48E0098D50C /* CodableLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableLayoutView.swift; sourceTree = "<group>"; };
 		98113AB228488A42007412E2 /* RoomListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListUseCase.swift; sourceTree = "<group>"; };
 		98113AB5284893F7007412E2 /* SearchResultRoomsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRoomsHeaderView.swift; sourceTree = "<group>"; };
 		98113AB728489428007412E2 /* SearchResultRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRoomCell.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */,
 				98B2756E2848F11D003BE859 /* Margins.swift */,
 				9874AA08284DA49A006D5D60 /* UIColor+Extension.swift */,
+				980C6CB2284FB48E0098D50C /* CodableLayoutView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				9874AA09284DA49A006D5D60 /* UIColor+Extension.swift in Sources */,
 				B509353B283F68C50017C8E0 /* SearchFilterViewController.swift in Sources */,
 				B55A638D2845AC5B00E08EE0 /* SearchFilterUseCase.swift in Sources */,
+				980C6CB3284FB48E0098D50C /* CodableLayoutView.swift in Sources */,
 				982F76592844BE5900DF8523 /* RoomDetailViewController.swift in Sources */,
 				B5093546283FD50D0017C8E0 /* FilterCategory.swift in Sources */,
 				98F11303283F11B700009232 /* PositionSearchUseCase.swift in Sources */,
