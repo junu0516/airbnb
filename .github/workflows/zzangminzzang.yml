@@ -56,4 +56,4 @@ jobs:
             docker pull team07-airbnb:backend-${GITHUB_SHA::7}
             docker tag team07-airbnb:backend-${GITHUB_SHA::7} airbnb:backend-${GITHUB_SHA::7}
             docker stop server
-            docker run -d --rm --name server -p 8080:8080 airbnb:backend-${GITHUB_SHA::7}
+            docker run -d --rm -e profile=$profile -e MYSQL_DATABASE_USERNAME=$MYSQL_DATABASE_USERNAME -e MYSQL_DATABASE_URL=$MYSQL_DATABASE_URL -e MYSQL_DATABASE_PASSWORD=$MYSQL_DATABASE_PASSWORD -e github_client_id=$github_client_id -e github_secret_key=$github_secret_key -e jwt_secret=$jwt_secret -e jwt_expire_length=$jwt_expire_length --name server -p 8080:8080 airbnb:backend-${GITHUB_SHA::7}
