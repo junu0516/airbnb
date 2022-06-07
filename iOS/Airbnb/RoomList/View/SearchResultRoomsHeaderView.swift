@@ -10,6 +10,10 @@ final class SearchResultRoomsHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateView(with roomCount: Int) {
+        self.roomCountLabel.text = "\(roomCount)개 이상의 숙소"
+    }
+    
     private func setupViews() {
         let stackView = UIStackView(arrangedSubviews: [detailDescriptionLabel, roomCountLabel])
         stackView.axis = .vertical
