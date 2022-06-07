@@ -1,6 +1,7 @@
 import UIKit
 
 final class SearchResultRoomCell: UICollectionViewCell {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -20,6 +21,12 @@ final class SearchResultRoomCell: UICollectionViewCell {
         self.priceOneDayLabel.text = "₩\(pricePerDay) /박"
         self.totalPriceLabel.text = "총액 ₩\(totalPrice)"
     }
+
+    private let thumbnailImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .systemGray6
+        return imageView
+    }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -27,15 +34,7 @@ final class SearchResultRoomCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 20)
         label.numberOfLines = 1
         label.textColor = .airbnbGray1
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-    
-    private let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray6
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
     }()
     
     private let reviewLabel: UILabel = {
@@ -43,7 +42,6 @@ final class SearchResultRoomCell: UICollectionViewCell {
         label.text = "0.0(후기 0개)"
         label.font = .systemFont(ofSize: 15, weight: .light)
         label.textColor = .airbnbGray3
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -52,7 +50,6 @@ final class SearchResultRoomCell: UICollectionViewCell {
         label.text = "₩ 0 /박"
         label.font = .boldSystemFont(ofSize: 18)
         label.textColor = .airbnbGray1
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -61,7 +58,6 @@ final class SearchResultRoomCell: UICollectionViewCell {
         label.text = "총액 ₩"
         label.font = .systemFont(ofSize: 15, weight: .light)
         label.textColor = .airbnbGray3
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -71,22 +67,23 @@ final class SearchResultRoomCell: UICollectionViewCell {
         stackView.distribution = .fill
         stackView.alignment = .leading
         stackView.spacing = Margins.betweenLines
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(stackView)
+        @CodableLayoutView(view: stackView) var layoutStackView
+        @CodableLayoutView(view: thumbnailImageView) var layoutThumbnailImageView
+        
+        self.addSubview(layoutStackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            thumbnailImageView.widthAnchor.constraint(equalTo: self.widthAnchor)
+            layoutStackView.topAnchor.constraint(equalTo: topAnchor),
+            layoutStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            layoutStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            layoutStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            layoutThumbnailImageView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
         
-        let thumbnailImageAutolayout = thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 0.7)
+        let thumbnailImageAutolayout = layoutThumbnailImageView.heightAnchor.constraint(equalTo: layoutThumbnailImageView.widthAnchor, multiplier: 0.7)
         thumbnailImageAutolayout.priority = .defaultLow
         thumbnailImageAutolayout.isActive = true
-        thumbnailImageView.clipsToBounds = true
-        thumbnailImageView.layer.cornerRadius = 10
+        layoutThumbnailImageView.clipsToBounds = true
+        layoutThumbnailImageView.layer.cornerRadius = 10
     }
 }
