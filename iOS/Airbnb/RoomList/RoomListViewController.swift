@@ -19,7 +19,9 @@ class RoomListViewController: UIViewController {
     }
     
     // MARK: - Views
-    private let headerView = SearchResultRoomsHeaderView()
+    @CodableLayoutView(view: SearchResultRoomsHeaderView())
+    private var headerView: SearchResultRoomsHeaderView
+    
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -58,10 +60,8 @@ class RoomListViewController: UIViewController {
     
     // MARK: - private functions
     private func setupViews() {
-        view.addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-
         let safeAreaLayoutGuide = self.view.safeAreaLayoutGuide
+        view.addSubview(headerView)
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Margins.top),
@@ -81,8 +81,6 @@ class RoomListViewController: UIViewController {
         ])
     }
 }
-
-
 
 
 // MARK: - UICollectionViewDataSource
