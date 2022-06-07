@@ -49,13 +49,6 @@ struct Reservation {
         return priceForWholeDates+discountedPricePerWeek+cleaningPrice+fee+tax
     }
     
-    init() {
-        self.checkInDate = DateComponents(year: 2022, month: 5, day: 17)
-        self.checkOutDate = DateComponents(year: 2022, month: 6, day: 4)
-        self.guestsCount = 3
-        self.priceForOneDay = 70358
-    }
-    
     init(checkInDate: DateComponents, checkOutDate: DateComponents, guestsCount: Int, priceForOneDay: Int) {
         self.checkInDate = checkInDate
         self.checkOutDate = checkOutDate
