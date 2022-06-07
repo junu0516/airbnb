@@ -18,7 +18,7 @@ import Foundation
 
 struct Reservation {
 
-    let roomId: Int = 0
+    let roomId: Int = 1
     let checkInDate: DateComponents
     let checkOutDate : DateComponents
     let guestsCount: Int
@@ -62,17 +62,6 @@ struct Reservation {
         self.guestsCount = guestsCount
         self.priceForOneDay = priceForOneDay
     }
-
-    func generatePriceArray() -> [ReservationPrice] {
-        let dates = checkOutDate.getDateInterval(from: checkInDate)
-        return [
-            .init(title: .originalPrice(price: "\(priceForOneDay.toDecimalString() ?? "")", dates: "\(dates)"), value: priceForWholeDates),
-            .init(title: .weeklyDiscount, value: discountedPricePerWeek),
-            .init(title: .cleaningCost, value: cleaningPrice),
-            .init(title: .serviceFee, value: fee),
-            .init(title: .accomodationFee, value: tax)
-        ]
-    }
 }
 
 extension Reservation: Encodable {
@@ -103,6 +92,7 @@ extension Reservation: Encodable {
         try container.encode(self.priceForOneDay, forKey: .priceForOneDay)
         try container.encode(self.tax, forKey: .tax)
         try container.encode(self.totalPrice, forKey: .totalPrice)
+        try container.encode(self.roomId, forKey: .roomId)
     }
 }
 

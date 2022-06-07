@@ -76,7 +76,7 @@ final class ReservationViewController: UIViewController {
             self?.conditionView.updateValues(checkIn: reservation.checkInDate.toFormattedString(format: "M월 d일"),
                                              checkOut: reservation.checkOutDate.toFormattedString(format: "M월 d일"),
                                              guestsCount: "게스트 \(reservation.guestsCount)명")
-            self?.viewModel?.reservationPrices.value = reservation.generatePriceArray()
+            self?.viewModel?.reservationPrices.value = self?.viewModel?.generateReservationPrices() ?? []
             self?.totalPriceValueLabel.text = "₩\(reservation.totalPrice.toDecimalString() ?? "")"
         }
         
