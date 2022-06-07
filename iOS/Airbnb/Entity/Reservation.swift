@@ -55,6 +55,13 @@ struct Reservation {
         self.guestsCount = 3
         self.priceForOneDay = 70358
     }
+    
+    init(checkInDate: DateComponents, checkOutDate: DateComponents, guestsCount: Int, priceForOneDay: Int) {
+        self.checkInDate = checkInDate
+        self.checkOutDate = checkOutDate
+        self.guestsCount = guestsCount
+        self.priceForOneDay = priceForOneDay
+    }
 
     func generatePriceArray() -> [ReservationPrice] {
         let dates = checkOutDate.getDateInterval(from: checkInDate)
