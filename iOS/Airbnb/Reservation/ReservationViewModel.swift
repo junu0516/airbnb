@@ -2,12 +2,12 @@ import Foundation
 
 struct ReservationViewModel {
     
-    private (set)var reservation = Observable<Reservation>(Reservation())
+    private (set)var reservation: Observable<Reservation>
     private (set)var reservationPrices = Observable<[ReservationPrice]>([])
-    //alert message
     private let repository: ReservationRepository
     
-    init(reservationRepository repository: ReservationRepository) {
+    init(reservationRepository repository: ReservationRepository, reservation: Reservation) {
+        self.reservation = Observable<Reservation>(reservation)
         self.repository = repository
     }
     
