@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0EC21F4C5D33C39B97587978 /* Pods_Airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC1E133B9F1D8CF1859B8D0 /* Pods_Airbnb.framework */; };
 		33D6A8E53BA7E69CBCB5293A /* Pods_Airbnb_AirbnbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C1C869B0BC716E37E2003A /* Pods_Airbnb_AirbnbUITests.framework */; };
+		980C6CB3284FB48E0098D50C /* CodableLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C6CB2284FB48E0098D50C /* CodableLayoutView.swift */; };
 		98113AB328488A42007412E2 /* RoomListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98113AB228488A42007412E2 /* RoomListUseCase.swift */; };
 		98113AB6284893F8007412E2 /* SearchResultRoomsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98113AB5284893F7007412E2 /* SearchResultRoomsHeaderView.swift */; };
 		98113AB828489428007412E2 /* SearchResultRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98113AB728489428007412E2 /* SearchResultRoomCell.swift */; };
@@ -92,6 +93,7 @@
 		3CC1E133B9F1D8CF1859B8D0 /* Pods_Airbnb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E47D54C555F8528176E246 /* Pods-AirbnbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirbnbTests.release.xcconfig"; path = "Target Support Files/Pods-AirbnbTests/Pods-AirbnbTests.release.xcconfig"; sourceTree = "<group>"; };
 		961C633AEAC04338E9FA3D24 /* Pods-AirbnbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirbnbTests.debug.xcconfig"; path = "Target Support Files/Pods-AirbnbTests/Pods-AirbnbTests.debug.xcconfig"; sourceTree = "<group>"; };
+		980C6CB2284FB48E0098D50C /* CodableLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableLayoutView.swift; sourceTree = "<group>"; };
 		98113AB228488A42007412E2 /* RoomListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListUseCase.swift; sourceTree = "<group>"; };
 		98113AB5284893F7007412E2 /* SearchResultRoomsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRoomsHeaderView.swift; sourceTree = "<group>"; };
 		98113AB728489428007412E2 /* SearchResultRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRoomCell.swift; sourceTree = "<group>"; };
@@ -266,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				B55BF3CF28488A34009634F8 /* Reservation */,
-				98113AB128487E63007412E2 /* RoomSearch */,
 				B55A638E284705E900E08EE0 /* RoomPositionMap */,
 				982F765A2844C30E00DF8523 /* Server */,
 				982F76572844BDAA00DF8523 /* SearchFilter */,
@@ -337,6 +338,7 @@
 				B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */,
 				98B2756E2848F11D003BE859 /* Margins.swift */,
 				9874AA08284DA49A006D5D60 /* UIColor+Extension.swift */,
+				980C6CB2284FB48E0098D50C /* CodableLayoutView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -360,6 +362,26 @@
 				B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */,
 			);
 			path = RoomPositionMap;
+			sourceTree = "<group>";
+		};
+		B55BF3CF28488A34009634F8 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				B55BF3D228489045009634F8 /* Views */,
+				B55BF3D028488A43009634F8 /* ReservationViewController.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		B55BF3D228489045009634F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B56FE196284DB5B9004CBE7A /* ReservationPriceTableViewCell.swift */,
+				B55BF3D5284892C4009634F8 /* ConditionLabel.swift */,
+				B55BF3D32848906F009634F8 /* ReservationConditionView.swift */,
+				B56FE194284DB341004CBE7A /* ReservationPriceView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B55BF3D72848F67D009634F8 /* Resource */ = {
@@ -389,26 +411,6 @@
 				B55A639D2847C89E00E08EE0 /* CustomGoogleMapMarker.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B55BF3CF28488A34009634F8 /* Reservation */ = {
-			isa = PBXGroup;
-			children = (
-				B55BF3D228489045009634F8 /* Views */,
-				B55BF3D028488A43009634F8 /* ReservationViewController.swift */,
-			);
-			path = Reservation;
-			sourceTree = "<group>";
-		};
-		B55BF3D228489045009634F8 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B56FE196284DB5B9004CBE7A /* ReservationPriceTableViewCell.swift */,
-				B55BF3D5284892C4009634F8 /* ConditionLabel.swift */,
-				B55BF3D32848906F009634F8 /* ReservationConditionView.swift */,
-				B56FE194284DB341004CBE7A /* ReservationPriceView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		B576AE0B28406E6600B21D80 /* PositionSearch */ = {
@@ -748,6 +750,7 @@
 				9874AA09284DA49A006D5D60 /* UIColor+Extension.swift in Sources */,
 				B509353B283F68C50017C8E0 /* SearchFilterViewController.swift in Sources */,
 				B55A638D2845AC5B00E08EE0 /* SearchFilterUseCase.swift in Sources */,
+				980C6CB3284FB48E0098D50C /* CodableLayoutView.swift in Sources */,
 				982F76592844BE5900DF8523 /* RoomDetailViewController.swift in Sources */,
 				B5093546283FD50D0017C8E0 /* FilterCategory.swift in Sources */,
 				98F11303283F11B700009232 /* PositionSearchUseCase.swift in Sources */,
@@ -784,7 +787,7 @@
 				B56FE197284DB5B9004CBE7A /* ReservationPriceTableViewCell.swift in Sources */,
 				989934A42844F23300317A84 /* RoomDetail.swift in Sources */,
 				B55BF3D42848906F009634F8 /* ReservationConditionView.swift in Sources */,
-				B5093544283FD3F90017C8E0 /* ConditionSettingTableViewCell.swift in Sources */,
+				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */,
 				B55BF3D128488A43009634F8 /* ReservationViewController.swift in Sources */,
