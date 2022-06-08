@@ -391,6 +391,26 @@
 			path = RoomPositionMap;
 			sourceTree = "<group>";
 		};
+		B55BF3CF28488A34009634F8 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				B55BF3D228489045009634F8 /* Views */,
+				B55BF3D028488A43009634F8 /* ReservationViewController.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		B55BF3D228489045009634F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B56FE196284DB5B9004CBE7A /* ReservationPriceTableViewCell.swift */,
+				B55BF3D5284892C4009634F8 /* ConditionLabel.swift */,
+				B55BF3D32848906F009634F8 /* ReservationConditionView.swift */,
+				B56FE194284DB341004CBE7A /* ReservationPriceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B55BF3D72848F67D009634F8 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
