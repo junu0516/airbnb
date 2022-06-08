@@ -1,6 +1,6 @@
 import Foundation
 
-struct ReservationViewModel {
+struct ReservationUseCase {
     
     private (set)var reservation: Observable<Reservation>
     private (set)var reservationPrices = Observable<[ReservationPrice]>([])
