@@ -13,6 +13,8 @@ import java.util.HashMap;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@RequestMapping("/airbnb/search")
+@RestController
 public class SearchApiController {
 	private final SearchService searchService;
 

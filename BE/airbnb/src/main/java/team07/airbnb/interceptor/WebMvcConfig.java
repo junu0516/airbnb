@@ -11,9 +11,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     private final RequestLogInterceptor requestLogInterceptor;
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(requestLogInterceptor)
-                .addPathPatterns("/airbnb/**");
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(requestLogInterceptor)
+//                .addPathPatterns("/airbnb/**");
+//    }
 }
