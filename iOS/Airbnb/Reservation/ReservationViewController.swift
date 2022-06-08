@@ -84,6 +84,22 @@ final class ReservationViewController: UIViewController {
             self?.pricesView.priceTableViewDataSource.updateNewItems(items: items)
             self?.pricesView.priceTableView.reloadData()
         }
+        
+        self.useCase?.reservationResultFlag?.bind { [weak self] reservationResult in
+            switch reservationResult {
+            case true:
+                self?.showAlert(title: "예약 요청 결과", message: "예약 요청에 성공했습니다.")
+            case false:
+                self?.showAlert(title: "예약 요청 결과", message: "예약 요청에 실패했습니다.")
+            }
+        }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let closeAction = UIAlertAction(title: "확인", style: .destructive)
+        alert.addAction(closeAction)
+        present(alert, animated: true)
     }
     
     private func setUpViews() {
