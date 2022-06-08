@@ -1,0 +1,23 @@
+{
+  "roomId": 1,
+  "images": [
+    "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/1-%EC%A7%84%EB%B6%80%EB%A9%B4-%EC%9D%80%EC%A7%801.PNG",
+    "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/1-%EC%A7%84%EB%B6%80%EB%A9%B4-%EC%9D%80%EC%A7%802.PNG",
+    "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/1-%EC%A7%84%EB%B6%80%EB%A9%B4-%EC%9D%80%EC%A7%803.PNG",
+    "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/1-%EC%A7%84%EB%B6%80%EB%A9%B4-%EC%9D%80%EC%A7%804.PNG"
+  ],
+  "title": "Euji님이 호스팅하는 집 전체",
+  "averageOfStar": 4.8,
+  "numberOfReviews": 127,
+  "address": "안양시 경기도 한국",
+  "hostName": "zzangmin",
+  "profileOfHost": "https://sally-airbnb.s3.ap-northeast-2.amazonaws.com/%ED%98%B8%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%AF%B8%EC%A7%80/%EC%A7%B1%EA%B5%AC-%ED%94%84%EB%A1%9C%ED%95%84.PNG",
+  "maxNumberOfPeople": 6,
+  "roomType": "RESIDENCE",
+  "bedCount": 3,
+  "bathroomCount": 2,
+  "description": "계곡 옆 시냇물 소리와 함께 조용한곳에서 프라이빗하게 힐링하다 가실수 잇는 숙소입니다!",
+  "priceForOneDay": 340000,
+  "wished": true,
+  "isWished": true
+}
