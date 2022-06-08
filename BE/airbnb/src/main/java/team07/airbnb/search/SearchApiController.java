@@ -12,6 +12,7 @@ import java.util.HashMap;
 
 import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class SearchApiController {
 	private final SearchService searchService;
 
