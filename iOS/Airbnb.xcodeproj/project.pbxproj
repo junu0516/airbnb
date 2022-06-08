@@ -14,7 +14,7 @@
 		98113AB6284893F8007412E2 /* SearchResultRoomsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98113AB5284893F7007412E2 /* SearchResultRoomsHeaderView.swift */; };
 		98113AB828489428007412E2 /* SearchResultRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98113AB728489428007412E2 /* SearchResultRoomCell.swift */; };
 		982F76592844BE5900DF8523 /* RoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F76582844BE5900DF8523 /* RoomDetailViewController.swift */; };
-		982F765C2844C33F00DF8523 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F765B2844C33F00DF8523 /* NetworkHandler.swift */; };
+		982F765C2844C33F00DF8523 /* NetworkServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F765B2844C33F00DF8523 /* NetworkServiceManager.swift */; };
 		983A6003283F468D00DDB517 /* PositionSearchModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983A6002283F468D00DDB517 /* PositionSearchModelTest.swift */; };
 		983A6005283F6CF600DDB517 /* PositionSearchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983A6004283F6CF600DDB517 /* PositionSearchFactory.swift */; };
 		98593DFE283CC75C00B28960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98593DFD283CC75C00B28960 /* AppDelegate.swift */; };
@@ -107,7 +107,7 @@
 		98113AB5284893F7007412E2 /* SearchResultRoomsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRoomsHeaderView.swift; sourceTree = "<group>"; };
 		98113AB728489428007412E2 /* SearchResultRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRoomCell.swift; sourceTree = "<group>"; };
 		982F76582844BE5900DF8523 /* RoomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailViewController.swift; sourceTree = "<group>"; };
-		982F765B2844C33F00DF8523 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		982F765B2844C33F00DF8523 /* NetworkServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceManager.swift; sourceTree = "<group>"; };
 		983A6002283F468D00DDB517 /* PositionSearchModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionSearchModelTest.swift; sourceTree = "<group>"; };
 		983A6004283F6CF600DDB517 /* PositionSearchFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionSearchFactory.swift; sourceTree = "<group>"; };
 		98593DFA283CC75C00B28960 /* Airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,7 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				B55BF3D72848F67D009634F8 /* Resource */,
-				982F765B2844C33F00DF8523 /* NetworkHandler.swift */,
+				982F765B2844C33F00DF8523 /* NetworkServiceManager.swift */,
 				B56F5AA0284F28F100458C44 /* MockNetworkHandler.swift */,
 			);
 			path = Server;
@@ -842,7 +842,7 @@
 				B56F5A94284E0D4000458C44 /* Reservation.swift in Sources */,
 				B56F5A8D284E0D0E00458C44 /* ReservationRepository.swift in Sources */,
 				B5E098E928406B8D00A69BDF /* PrivateStorage.swift in Sources */,
-				982F765C2844C33F00DF8523 /* NetworkHandler.swift in Sources */,
+				982F765C2844C33F00DF8523 /* NetworkServiceManager.swift in Sources */,
 				B56F5A8C284E0D0E00458C44 /* ReservationViewController.swift in Sources */,
 				B56F5A90284E0D0E00458C44 /* ConditionLabel.swift in Sources */,
 			);
