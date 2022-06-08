@@ -40,26 +40,19 @@ class ReservationUseCaseTest: XCTestCase {
     
     //예약 성공을 가정하고 테스트
     func test_sending_reservation_request_success() throws {
-        
-        //최초에는 reservationResultFlag의 값이 nil이어야 함
-        XCTAssertNil(useCase.reservationResultFlag?.value)
-        
         networkManager.shouldFail = false
         useCase.sendReservationRequest()
+        
         XCTAssertNotNil(useCase.reservationResultFlag?.value)
         XCTAssertEqual(useCase.reservationResultFlag?.value, true)
     }
     
     //예약 실패를 가정하고 테스트
     func test_sending_reservation_request_failure() throws {
-        
-        //최초에는 reservationResultFlag의 값이 nil이어야 함
-        XCTAssertNil(useCase.reservationResultFlag?.value)
-        
-        //예약 실패를 가정하고 테스트
         networkManager.shouldFail = true
         useCase.sendReservationRequest()
-        XCTAssertNotNil(useCase.reservationResultFlag?.value)        
+        
+        XCTAssertNotNil(useCase.reservationResultFlag?.value)
         XCTAssertEqual(useCase.reservationResultFlag?.value, false)
     }
     
