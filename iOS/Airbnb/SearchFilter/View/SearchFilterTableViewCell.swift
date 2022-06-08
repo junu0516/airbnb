@@ -23,8 +23,7 @@ final class SearchFilterTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addComponentViews()
-        setComponentLayouts()
+        setUpViews()
     }
     
     required init?(coder: NSCoder) {
@@ -35,13 +34,11 @@ final class SearchFilterTableViewCell: UITableViewCell {
         self.titleLabel.text = title
         self.valueLabel.text = value
     }
-    
-    private func addComponentViews() {
+    private func setUpViews() {
+
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(valueLabel)
-    }
-    
-    private func setComponentLayouts() {
+
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
