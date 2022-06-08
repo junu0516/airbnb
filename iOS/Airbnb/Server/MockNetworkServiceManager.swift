@@ -2,6 +2,17 @@ import Foundation
 
 final class MockNetworkServiceManager: NetworkService {
     
+    enum MockData {
+        case roomList
+        
+        var fileName: String {
+            switch self {
+            case .roomList:
+                return "roomList"
+            }
+        }
+    }
+    
     //Mock 객체 내부에서 사용할 사용자 정의 에러 열거형
     enum TestError: Error, CustomStringConvertible {
         case mockDataNotLoaded
@@ -22,8 +33,10 @@ final class MockNetworkServiceManager: NetworkService {
     var mockResponseData: Data?
     
     //필요 시 로컬에 미리 저장된 json 데이터를 가지고옴
-    func loadMockData() {
-        self.mockResponseData = Data()
+    func loadMockData(mockData: MockData) {
+        guard let path = Bundle.main.url(forResource: mockData.fileName, withExtension: "json") else { return }
+        guard let data: Data = try? Data(contentsOf: path) else { return }
+        self.mockResponseData = data
     }
     
     func request(endPoint: EndPoint,
