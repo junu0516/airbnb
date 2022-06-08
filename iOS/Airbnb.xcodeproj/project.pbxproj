@@ -171,6 +171,7 @@
 		B56F5A9C284F15A700458C44 /* ReservationModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModelTest.swift; sourceTree = "<group>"; };
 		B56F5A9E284F27F300458C44 /* ReservationViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewModelTest.swift; sourceTree = "<group>"; };
 		B56F5AA0284F28F100458C44 /* MockNetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkHandler.swift; sourceTree = "<group>"; };
+		B56F5AA42850433300458C44 /* Mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Mock.json; path = Airbnb/Mock.json; sourceTree = "<group>"; };
 		B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapViewController.swift; sourceTree = "<group>"; };
 		B5E098E828406B8D00A69BDF /* PrivateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStorage.swift; sourceTree = "<group>"; };
 		B8C1C869B0BC716E37E2003A /* Pods_Airbnb_AirbnbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb_AirbnbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,7 +264,8 @@
 		98593DF1283CC75C00B28960 = {
 			isa = PBXGroup;
 			children = (
-				B56F5A81284E0CB700458C44 /* ConfigProperty.plist */,
+				B56F5AA42850433300458C44 /* Mock.json */,
+				B56F5AA228503A3900458C44 /* ConfigProperty.plist */,
 				98593DFC283CC75C00B28960 /* Airbnb */,
 				98593E13283CC75D00B28960 /* AirbnbTests */,
 				98593E1D283CC75D00B28960 /* AirbnbUITests */,
@@ -598,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98593E0A283CC75D00B28960 /* LaunchScreen.storyboard in Resources */,
+				B56F5AA52850433300458C44 /* Mock.json in Resources */,
 				9874AA07284DA2CF006D5D60 /* ImageAssets.xcassets in Resources */,
 				B56F5A82284E0CB700458C44 /* ConfigProperty.plist in Resources */,
 				98593E07283CC75D00B28960 /* Assets.xcassets in Resources */,
