@@ -47,9 +47,7 @@ class ReservationUseCaseTest: XCTestCase {
         networkManager.shouldFail = false
         useCase.sendReservationRequest()
         XCTAssertNotNil(useCase.reservationResultFlag?.value)
-        
-        let result = try XCTUnwrap(useCase.reservationResultFlag?.value)
-        XCTAssertEqual(result, true)
+        XCTAssertEqual(useCase.reservationResultFlag?.value, true)
     }
     
     //예약 실패를 가정하고 테스트
@@ -61,9 +59,7 @@ class ReservationUseCaseTest: XCTestCase {
         //예약 실패를 가정하고 테스트
         networkManager.shouldFail = true
         useCase.sendReservationRequest()
-        XCTAssertNotNil(useCase.reservationResultFlag?.value)
-        
-        let result = try XCTUnwrap(useCase.reservationResultFlag?.value)
+        XCTAssertNotNil(useCase.reservationResultFlag?.value)        
         XCTAssertEqual(useCase.reservationResultFlag?.value, false)
     }
     
