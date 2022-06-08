@@ -21,7 +21,7 @@ final class ReservationViewController: UIViewController {
         button.layer.cornerRadius = 10
         
         button.addAction(UIAction(handler: { [weak self] _ in
-            self?.viewModel?.sendReservationRequest()
+            self?.useCase?.sendReservationRequest()
         }), for: .touchDown)
         return button
     }()
@@ -58,11 +58,11 @@ final class ReservationViewController: UIViewController {
         return label
     }()
     
-    private var viewModel: ReservationViewModel?
+    private var useCase: ReservationUseCase?
     
-    convenience init(reservationViewModel viewModel: ReservationViewModel) {
+    convenience init(reservationUseCase useCase: ReservationUseCase) {
         self.init()
-        self.viewModel = viewModel
+        self.useCase = useCase
     }
         
     override func viewDidLoad() {
@@ -72,15 +72,15 @@ final class ReservationViewController: UIViewController {
     }
     
     private func bindView() {
-        self.viewModel?.reservation.bind { [weak self] reservation in
+        self.useCase?.reservation.bind { [weak self] reservation in
             self?.conditionView.updateValues(checkIn: reservation.checkInDate.toFormattedString(format: "M월 d일"),
                                              checkOut: reservation.checkOutDate.toFormattedString(format: "M월 d일"),
                                              guestsCount: "게스트 \(reservation.guestsCount)명")
-            self?.viewModel?.reservationPrices.value = self?.viewModel?.generateReservationPrices() ?? []
+            self?.useCase?.reservationPrices.value = self?.useCase?.generateReservationPrices() ?? []
             self?.totalPriceValueLabel.text = "₩\(reservation.totalPrice.toDecimalString() ?? "")"
         }
         
-        self.viewModel?.reservationPrices.bind { [weak self] items in
+        self.useCase?.reservationPrices.bind { [weak self] items in
             self?.pricesView.priceTableViewDataSource.updateNewItems(items: items)
             self?.pricesView.priceTableView.reloadData()
         }

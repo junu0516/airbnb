@@ -62,7 +62,7 @@
 		B56F5A82284E0CB700458C44 /* ConfigProperty.plist in Resources */ = {isa = PBXBuildFile; fileRef = B56F5A81284E0CB700458C44 /* ConfigProperty.plist */; };
 		B56F5A8C284E0D0E00458C44 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A84284E0D0E00458C44 /* ReservationViewController.swift */; };
 		B56F5A8D284E0D0E00458C44 /* ReservationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A85284E0D0E00458C44 /* ReservationRepository.swift */; };
-		B56F5A8E284E0D0E00458C44 /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A86284E0D0E00458C44 /* ReservationViewModel.swift */; };
+		B56F5A8E284E0D0E00458C44 /* ReservationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A86284E0D0E00458C44 /* ReservationUseCase.swift */; };
 		B56F5A8F284E0D0E00458C44 /* ReservationPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A88284E0D0E00458C44 /* ReservationPriceTableViewCell.swift */; };
 		B56F5A90284E0D0E00458C44 /* ConditionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A89284E0D0E00458C44 /* ConditionLabel.swift */; };
 		B56F5A91284E0D0E00458C44 /* ReservationPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A8A284E0D0E00458C44 /* ReservationPriceView.swift */; };
@@ -159,7 +159,7 @@
 		B56F5A81284E0CB700458C44 /* ConfigProperty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ConfigProperty.plist; path = Airbnb/ConfigProperty.plist; sourceTree = "<group>"; };
 		B56F5A84284E0D0E00458C44 /* ReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 		B56F5A85284E0D0E00458C44 /* ReservationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationRepository.swift; sourceTree = "<group>"; };
-		B56F5A86284E0D0E00458C44 /* ReservationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
+		B56F5A86284E0D0E00458C44 /* ReservationUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationUseCase.swift; sourceTree = "<group>"; };
 		B56F5A88284E0D0E00458C44 /* ReservationPriceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationPriceTableViewCell.swift; sourceTree = "<group>"; };
 		B56F5A89284E0D0E00458C44 /* ConditionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionLabel.swift; sourceTree = "<group>"; };
 		B56F5A8A284E0D0E00458C44 /* ReservationPriceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationPriceView.swift; sourceTree = "<group>"; };
@@ -362,7 +362,6 @@
 				98B2756E2848F11D003BE859 /* Margins.swift */,
 				9874AA08284DA49A006D5D60 /* UIColor+Extension.swift */,
 				980C6CB2284FB48E0098D50C /* CodableLayoutView.swift */,
-				B56F5A95284E21B000458C44 /* String+Enxtension.swift */,
 				B56F5A95284E21B000458C44 /* DateComponents+Extension.swift */,
 				B56F5A99284E3E7C00458C44 /* Int+Extension.swift */,
 			);
@@ -388,26 +387,6 @@
 				B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */,
 			);
 			path = RoomPositionMap;
-			sourceTree = "<group>";
-		};
-		B55BF3CF28488A34009634F8 /* Reservation */ = {
-			isa = PBXGroup;
-			children = (
-				B55BF3D228489045009634F8 /* Views */,
-				B55BF3D028488A43009634F8 /* ReservationViewController.swift */,
-			);
-			path = Reservation;
-			sourceTree = "<group>";
-		};
-		B55BF3D228489045009634F8 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B56FE196284DB5B9004CBE7A /* ReservationPriceTableViewCell.swift */,
-				B55BF3D5284892C4009634F8 /* ConditionLabel.swift */,
-				B55BF3D32848906F009634F8 /* ReservationConditionView.swift */,
-				B56FE194284DB341004CBE7A /* ReservationPriceView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		B55BF3D72848F67D009634F8 /* Resource */ = {
@@ -443,7 +422,7 @@
 			children = (
 				B56F5A84284E0D0E00458C44 /* ReservationViewController.swift */,
 				B56F5A85284E0D0E00458C44 /* ReservationRepository.swift */,
-				B56F5A86284E0D0E00458C44 /* ReservationViewModel.swift */,
+				B56F5A86284E0D0E00458C44 /* ReservationUseCase.swift */,
 				B56F5A87284E0D0E00458C44 /* Views */,
 			);
 			path = Reservation;
@@ -619,7 +598,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				98593E0A283CC75D00B28960 /* LaunchScreen.storyboard in Resources */,
-				B56F5AA328503A3900458C44 /* ConfigProperty.plist in Resources */,
 				9874AA07284DA2CF006D5D60 /* ImageAssets.xcassets in Resources */,
 				B56F5A82284E0CB700458C44 /* ConfigProperty.plist in Resources */,
 				98593E07283CC75D00B28960 /* Assets.xcassets in Resources */,
@@ -811,7 +789,7 @@
 				980C6CB3284FB48E0098D50C /* CodableLayoutView.swift in Sources */,
 				982F76592844BE5900DF8523 /* RoomDetailViewController.swift in Sources */,
 				B5093546283FD50D0017C8E0 /* FilterCategory.swift in Sources */,
-				B56F5A8E284E0D0E00458C44 /* ReservationViewModel.swift in Sources */,
+				B56F5A8E284E0D0E00458C44 /* ReservationUseCase.swift in Sources */,
 				98F11303283F11B700009232 /* PositionSearchUseCase.swift in Sources */,
 				98113AB6284893F8007412E2 /* SearchResultRoomsHeaderView.swift in Sources */,
 				986B005A283F86C2008E3EEB /* RoomListViewController.swift in Sources */,
@@ -854,10 +832,8 @@
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
-				B55BF3D42848906F009634F8 /* ReservationConditionView.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */,
-				B55BF3D128488A43009634F8 /* ReservationViewController.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				98113AB828489428007412E2 /* SearchResultRoomCell.swift in Sources */,
 				B56F5A94284E0D4000458C44 /* Reservation.swift in Sources */,
