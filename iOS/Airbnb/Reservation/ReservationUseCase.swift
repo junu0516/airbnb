@@ -1,10 +1,11 @@
 import Foundation
 
-struct ReservationUseCase {
+final class ReservationUseCase {
     
     private (set)var reservation: Observable<Reservation>
     private (set)var reservationPrices = Observable<[ReservationPrice]>([])
     private let repository: ReservationRepository
+    private (set)var reservationResultFlag: Observable<Bool>?
     
     init(reservationRepository repository: ReservationRepository, reservation: Reservation) {
         self.reservation = Observable<Reservation>(reservation)

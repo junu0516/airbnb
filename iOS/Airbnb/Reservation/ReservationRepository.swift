@@ -12,16 +12,16 @@ final class ReservationRepository {
         self.jsonHandler = jsonHandler
     }
     
-    func sendPostRequest<T: Encodable>(bodyObj: T, completion: @escaping () -> Void) {
+    func sendPostRequest<T: Encodable>(bodyObj: T, completion: @escaping (Bool) -> Void) {
         
-        guard let endPoint = EndPoint(path: .reservation, method: .post, headers: ["Content-Type": "\(ContentType.json)"]) else { return }
+        guard let endPoint = EndPoint(path: .reservation, method: .post, headers: ["content-type":"\(ContentType.json)"]) else { return }
         networkHandler.request(endPoint: endPoint,
                                body: jsonHandler.convertObjectToJson(from: bodyObj)) { result in
             switch result {
             case .success(let data):
-                print(data)
+                completion(true)
             case .failure(let error):
-                print(error)
+                completion(false)
             }
         }
     }
