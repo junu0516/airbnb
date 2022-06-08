@@ -12,6 +12,7 @@ import team07.airbnb.room.Room;
 import team07.airbnb.room.RoomRepository;
 import team07.airbnb.user.User;
 import team07.airbnb.user.UserRepository;
+import team07.airbnb.wishlist.WishlistsResponse.WishlistResponse;
 
 @Service
 @RequiredArgsConstructor
@@ -70,4 +71,15 @@ public class WishlistService {
         }
         return response;
     }
+
+    @Transactional(readOnly = true)
+    public WishlistsResponse findAll2(Long userId) {
+        List<Wishlist> findasdf = wishlistRepository.findWishlistWithRoomAndImageOrderEqualsOneByUserId(userId);
+        System.out.println("findasdf.size() = " + findasdf.size());
+        for (Wishlist wishlist : findasdf) {
+            System.out.println("wishlist asdf= " + wishlist.getRoom());
+        }
+        return null;
+    }
+
 }

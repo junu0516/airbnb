@@ -29,6 +29,6 @@ public class WishlistController {
     @GetMapping("/airbnb/wishlists")
     public WishlistsResponse showAll() {
         Long userId = 1L; // 추후 유저 연동 필요
-        return wishlistService.findAll(userId);
+        return wishlistService.findAll2(userId);
     }
 }
