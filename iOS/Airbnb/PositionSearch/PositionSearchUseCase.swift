@@ -48,16 +48,4 @@ class PositionSearchUseCase {
             self.updateSearchResults(predictions: predictions)
         }
     }
-    
-    func searchPositionInfo(index: Int, completion: @escaping (SearchCondition) -> Void) {
-        let positionTitle = self.filteredSamples[index].address
-        let placeId = self.filteredSamples[index].placeId
-        client.lookUpPlaceID(placeId) { result,error in
-            if error != nil { return }
-            if let coordinate = result?.coordinate {
-                let searchCondition = SearchCondition(positionTitle: positionTitle, logntitude: coordinate.longitude.magnitude, latitude: coordinate.latitude.magnitude)
-                completion(searchCondition)
-            }
-        }
-    }
 }
