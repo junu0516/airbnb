@@ -2,7 +2,7 @@ import UIKit
 
 class PositionSearchViewController: UIViewController {
     
-    private let model = PositionSearchUseCase(PositionSearchFactory(categoryCount: 9, dataCount: 9))
+    private let useCase = PositionSearchUseCase(PositionSearchFactory(categoryCount: 9, dataCount: 9))
     
     private lazy var searchContoller: UISearchController = {
         let searchController = UISearchController()
@@ -30,7 +30,7 @@ class PositionSearchViewController: UIViewController {
     }
     
     private func bindModel() {
-        model.isSearching.bind { [weak self] _ in
+        useCase.isSearching.bind { [weak self] _ in
             self?.tableView.reloadData()
         }
     }
@@ -44,12 +44,12 @@ class PositionSearchViewController: UIViewController {
 
 extension PositionSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.rowsCount()
+        return useCase.rowsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = model.titleText(in: indexPath.row)
+        cell.textLabel?.text = useCase.titleText(in: indexPath.row)
         return cell
     }
 }
@@ -57,19 +57,19 @@ extension PositionSearchViewController: UITableViewDataSource {
 extension PositionSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let useCase = SearchFilterUseCase(searchCondition: SearchCondition())
-        self.navigationController?.pushViewController(SearchFilterViewController(useCase:  useCase), animated: true)
+        self.navigationController?.pushViewController(SearchFilterViewController(useCase: useCase), animated: true)
     }
 }
 
 extension PositionSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
-        self.model.fetchPredctionList(searchText: searchText)
+        self.useCase.fetchPredctionList(searchText: searchText)
     }
 }
 
 extension PositionSearchViewController: UISearchControllerDelegate {
     func didDismissSearchController(_ searchController: UISearchController) {
-        model.setIsSearching(false)
+        self.useCase.setIsSearching(false)
     }
 }
