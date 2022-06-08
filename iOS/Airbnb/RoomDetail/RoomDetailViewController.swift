@@ -165,9 +165,9 @@ final class RoomDetailViewController: UIViewController {
 
 extension RoomDetailViewController: RoomDetailReservateViewDelegate {
     @objc func touchedRservationButton() {
-        let checkInDate = DateComponents(year: 2022, month:5, day: 17)
-        let checkOutDate = DateComponents(year: 2022, month:6, day: 4)
-        let reservation = Reservation(checkInDate: checkInDate, checkOutDate: checkOutDate, guestsCount: 3, priceForOneDay: 70358)
+        let checkInDate = DateComponents(year: 2022, month:5, day: 9)
+        let checkOutDate = DateComponents(year: 2022, month:5, day: 13)
+        let reservation = Reservation(checkInDate: checkInDate, checkOutDate: checkOutDate, guestsCount: 3, priceForOneDay: 340000)
         
         let repository = ReservationRepository(networkHandler: NetworkServiceManager(), jsonHandler: JsonHandler())
         let useCase = ReservationUseCase(reservationRepository: repository, reservation: reservation)
