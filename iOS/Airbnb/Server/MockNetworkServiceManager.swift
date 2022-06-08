@@ -33,7 +33,7 @@ final class MockNetworkServiceManager: NetworkService {
         switch shouldFail {
         case false:
             //성공한 응답가지고 클로저 호출
-            completion(.success(Data()))
+            completion(.success(mockResponseData ?? Data()))
         case true:
             //실패한 응답 가지고 클로저 호출
             completion(.failure(TestError.expectedError))

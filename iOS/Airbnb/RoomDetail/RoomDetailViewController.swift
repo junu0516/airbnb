@@ -169,7 +169,7 @@ extension RoomDetailViewController: RoomDetailReservateViewDelegate {
         let checkOutDate = DateComponents(year: 2022, month:5, day: 13)
         let reservation = Reservation(checkInDate: checkInDate, checkOutDate: checkOutDate, guestsCount: 3, priceForOneDay: 340000)
         
-        let repository = ReservationRepository(networkHandler: NetworkServiceManager(), jsonHandler: JsonHandler())
+        let repository = ReservationRepository(networkService: NetworkServiceManager(), jsonHandler: JsonHandler())
         let useCase = ReservationUseCase(reservationRepository: repository, reservation: reservation)
         let reservationViewController = ReservationViewController(reservationUseCase: useCase)
         reservationViewController.modalPresentationStyle = .popover

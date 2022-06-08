@@ -4,11 +4,11 @@ import OSLog
 final class ReservationRepository {
 
     private let logger = Logger()
-    private let networkHandler: NetworkService
+    private let networkService: NetworkService
     private let jsonHandler: JsonHandlable
     
-    init(networkHandler: NetworkService, jsonHandler: JsonHandlable) {
-        self.networkHandler = networkHandler
+    init(networkService: NetworkService, jsonHandler: JsonHandlable) {
+        self.networkService = networkService
         self.jsonHandler = jsonHandler
     }
     
