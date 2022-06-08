@@ -74,6 +74,7 @@
 		B56F5A9D284F15A700458C44 /* ReservationModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A9C284F15A700458C44 /* ReservationModelTest.swift */; };
 		B56F5A9F284F27F300458C44 /* ReservationUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5A9E284F27F300458C44 /* ReservationUseCaseTest.swift */; };
 		B56F5AA1284F28F100458C44 /* MockNetworkServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5AA0284F28F100458C44 /* MockNetworkServiceManager.swift */; };
+		B56F5AAA2850C79A00458C44 /* RoomPositionMapUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F5AA92850C79A00458C44 /* RoomPositionMapUseCaseTest.swift */; };
 		B56F5AAD285106E300458C44 /* roomList.json in Resources */ = {isa = PBXBuildFile; fileRef = B56F5AAC285106E200458C44 /* roomList.json */; };
 		B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */; };
 		B5E098E928406B8D00A69BDF /* PrivateStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E098E828406B8D00A69BDF /* PrivateStorage.swift */; };
@@ -173,6 +174,7 @@
 		B56F5A9E284F27F300458C44 /* ReservationUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationUseCaseTest.swift; sourceTree = "<group>"; };
 		B56F5AA0284F28F100458C44 /* MockNetworkServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkServiceManager.swift; sourceTree = "<group>"; };
 		B56F5AA42850433300458C44 /* Mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Mock.json; path = Airbnb/Mock.json; sourceTree = "<group>"; };
+		B56F5AA92850C79A00458C44 /* RoomPositionMapUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapUseCaseTest.swift; sourceTree = "<group>"; };
 		B56F5AAC285106E200458C44 /* roomList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roomList.json; sourceTree = "<group>"; };
 		B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapViewController.swift; sourceTree = "<group>"; };
 		B5E098E828406B8D00A69BDF /* PrivateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStorage.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		98593E13283CC75D00B28960 /* AirbnbTests */ = {
 			isa = PBXGroup;
 			children = (
+				B56F5AA82850C78500458C44 /* RoomPositionMap */,
 				B56F5A9B284F156D00458C44 /* Reservation */,
 				98593E14283CC75D00B28960 /* AirbnbTests.swift */,
 				983A6002283F468D00DDB517 /* PositionSearchModelTest.swift */,
@@ -459,6 +462,14 @@
 				B56F5A81284E0CB700458C44 /* ConfigProperty.plist */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		B56F5AA82850C78500458C44 /* RoomPositionMap */ = {
+			isa = PBXGroup;
+			children = (
+				B56F5AA92850C79A00458C44 /* RoomPositionMapUseCaseTest.swift */,
+			);
+			path = RoomPositionMap;
 			sourceTree = "<group>";
 		};
 		B56F5AAB285106AE00458C44 /* Resources */ = {
@@ -873,6 +884,7 @@
 				983A6003283F468D00DDB517 /* PositionSearchModelTest.swift in Sources */,
 				98593E15283CC75D00B28960 /* AirbnbTests.swift in Sources */,
 				B56F5A9D284F15A700458C44 /* ReservationModelTest.swift in Sources */,
+				B56F5AAA2850C79A00458C44 /* RoomPositionMapUseCaseTest.swift in Sources */,
 				B56F5A9F284F27F300458C44 /* ReservationUseCaseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

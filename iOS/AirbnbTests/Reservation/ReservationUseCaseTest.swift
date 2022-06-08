@@ -15,7 +15,7 @@ class ReservationUseCaseTest: XCTestCase {
         let reservation = Reservation(checkInDate: checkInDate, checkOutDate: checkOutDate, guestsCount: 3, priceForOneDay: 70358)
         
         self.networkManager = MockNetworkServiceManager()
-        self.repository = ReservationRepository(networkHandler: networkManager, jsonHandler: JsonHandler())
+        self.repository = ReservationRepository(networkService: networkManager, jsonHandler: JsonHandler())
         self.useCase = ReservationUseCase(reservationRepository: repository, reservation: reservation)
     }
     
