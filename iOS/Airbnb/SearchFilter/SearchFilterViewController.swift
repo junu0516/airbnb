@@ -13,7 +13,7 @@ final class SearchFilterViewController: UIViewController {
     
     private lazy var conditionSettingTableView: UITableView = {
         let tableView = UITableView()
-        tableView.dataSource = conditionSettingTableViewDataSource
+        tableView.dataSource = searchFilterDataSource
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isScrollEnabled = false
@@ -25,9 +25,10 @@ final class SearchFilterViewController: UIViewController {
     
     typealias CELL = SearchFilterTableViewCell
     typealias DataSource = CustomTableDataSource
-    private let conditionSettingTableViewDataSource: DataSource<CELL,String> = DataSource(cellIdentifier: CELL.identifier,
-                                                                                          items: FilterCategory.allCases.map { $0.rawValue }) { cell, value in
-        cell.updateLabelText(conditionTitle: value, conditionValue: "")
+    private lazy var searchFilterDataSource: DataSource<CELL,FilterCategory> = DataSource(cellIdentifier: CELL.identifier,
+                                                                                          items: FilterCategory.allCases) { cell, category in
+        cell.updateLabelText(conditionTitle: "\(category)",
+                             conditionValue: self.useCase?.getPositionValue(filterCategory: category) ?? "")
     }
     
     convenience init(useCase: SearchFilterUseCase) {

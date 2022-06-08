@@ -56,7 +56,8 @@ extension PositionSearchViewController: UITableViewDataSource {
 
 extension PositionSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let useCase = SearchFilterUseCase(searchCondition: SearchCondition())
+        let positionTitle = self.useCase.titleText(in: indexPath.row)
+        let useCase = SearchFilterUseCase(searchCondition: SearchCondition(positionTitle: positionTitle))
         self.navigationController?.pushViewController(SearchFilterViewController(useCase: useCase), animated: true)
     }
 }

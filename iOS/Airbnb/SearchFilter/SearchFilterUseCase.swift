@@ -12,23 +12,31 @@ struct SearchFilterUseCase {
         // TODO: repository 를 통해 실서버의 데이터 가져오기
         completion(RoomSearchResultFactory().roomList)
     }
+    
+    func getPositionValue(filterCategory category: FilterCategory) -> String {
+        return self.searchCondition.value.getMappedValue(filterCategory: category) ?? ""
+    }
 }
 
 struct SearchCondition {
-    private let positionTitle: String
-    private let longitude: Double
-    private let latitude: Double
+
+    let positionTitle: String
     
-    init() {
-        self.positionTitle = ""
-        self.longitude = 0
-        self.latitude = 0
+    init(positionTitle: String="") {
+        self.positionTitle = positionTitle
     }
     
-    init(positionTitle: String, logntitude: Double, latitude: Double) {
-        self.positionTitle = positionTitle
-        self.longitude = logntitude
-        self.latitude = latitude
+    func getMappedValue(filterCategory: FilterCategory) -> String {
+        switch filterCategory {
+        case .position:
+            return self.positionTitle
+        case .period:
+            return ""
+        case .price:
+            return ""
+        case .guestCount:
+            return ""
+        }
     }
 }
 
