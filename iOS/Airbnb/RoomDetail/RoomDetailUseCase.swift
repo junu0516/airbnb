@@ -2,7 +2,7 @@ import Foundation
 
 class RoomDetailUseCase {
     
-    private let repository: RoomDetailRepository
+    private let repository: RoomDetailRepositoryProtocol
     private let roomId: UniqueID
     private (set)var roomDetail: Observable<RoomDetail> = Observable<RoomDetail>(RoomDetail())
     private (set)var profileImage: Observable<Data> = Observable<Data>(Data())
@@ -11,7 +11,7 @@ class RoomDetailUseCase {
     let searchCondition: SearchCondition
     
     init(roomId: UniqueID,
-         repository: RoomDetailRepository,
+         repository: RoomDetailRepositoryProtocol,
          searchCondition: SearchCondition = SearchCondition()) {
         
         self.repository = repository
