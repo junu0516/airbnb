@@ -1,11 +1,22 @@
 import UIKit
 
+protocol RoomDetailReservateViewDelegate: AnyObject {
+    func touchedRservationButton()
+}
+
 final class RoomDetailReservateView: UIView {
+    
+    weak var delegate: RoomDetailReservateViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .systemGray6
         setupViews()
+        button.addTarget(self, action: #selector(touchedReservationButton), for: .touchDown)
+    }
+    
+    @objc func touchedReservationButton() {
+        delegate?.touchedRservationButton()
     }
     
     required init?(coder: NSCoder) {

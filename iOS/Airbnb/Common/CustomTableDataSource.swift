@@ -1,6 +1,6 @@
 import UIKit
 
-final class SearchFilterTableViewDataSource<CELL: UITableViewCell, T>: NSObject, UITableViewDataSource {
+final class CustomTableDataSource<CELL: UITableViewCell, T>: NSObject, UITableViewDataSource {
     
     private var cellIdentifier : String
     private var items : [T]
@@ -10,6 +10,10 @@ final class SearchFilterTableViewDataSource<CELL: UITableViewCell, T>: NSObject,
         self.cellIdentifier = cellIdentifier
         self.items =  items
         self.configureCell = configureCell
+    }
+    
+    func updateNewItems(items: [T]) {
+        self.items = items
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -1,6 +1,7 @@
 import UIKit
 
 final class SearchResultRoomCell: UICollectionViewCell {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -17,31 +18,30 @@ final class SearchResultRoomCell: UICollectionViewCell {
     func updateViews(title: String, numberOfReviews: Int, averageOfStar: Float, pricePerDay: Int, totalPrice: Int) {
         self.titleLabel.text = title
         self.reviewLabel.text = "\(averageOfStar) (후기 \(numberOfReviews)개)"
-        self.priceOneDayLabel.text = "₩ \(pricePerDay) /박"
-        self.totalPriceLabel.text = "총액 \(totalPrice)₩"
+        self.priceOneDayLabel.text = "₩\(pricePerDay) /박"
+        self.totalPriceLabel.text = "총액 ₩\(totalPrice)"
     }
+
+    private let thumbnailImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .systemGray6
+        return imageView
+    }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
-        label.font = .systemFont(ofSize: 22)
+        label.font = .systemFont(ofSize: 20)
         label.numberOfLines = 1
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .airbnbGray1
         return label
-    }()
-    
-    private let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray6
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
     }()
     
     private let reviewLabel: UILabel = {
         let label = UILabel()
         label.text = "0.0(후기 0개)"
         label.font = .systemFont(ofSize: 15, weight: .light)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .airbnbGray3
         return label
     }()
     
@@ -49,7 +49,7 @@ final class SearchResultRoomCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "₩ 0 /박"
         label.font = .boldSystemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .airbnbGray1
         return label
     }()
     
@@ -57,7 +57,7 @@ final class SearchResultRoomCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "총액 ₩"
         label.font = .systemFont(ofSize: 15, weight: .light)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .airbnbGray3
         return label
     }()
     
@@ -66,20 +66,24 @@ final class SearchResultRoomCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .leading
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = Margins.betweenLines
         
-        self.addSubview(stackView)
+        @CodableLayoutView(view: stackView) var layoutStackView
+        @CodableLayoutView(view: thumbnailImageView) var layoutThumbnailImageView
+        
+        self.addSubview(layoutStackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            thumbnailImageView.widthAnchor.constraint(equalTo: self.widthAnchor)
+            layoutStackView.topAnchor.constraint(equalTo: topAnchor),
+            layoutStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            layoutStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            layoutStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            layoutThumbnailImageView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
         
-        let thumbnailImageAutolayout = thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 0.7)
+        let thumbnailImageAutolayout = layoutThumbnailImageView.heightAnchor.constraint(equalTo: layoutThumbnailImageView.widthAnchor, multiplier: 0.7)
         thumbnailImageAutolayout.priority = .defaultLow
         thumbnailImageAutolayout.isActive = true
+        layoutThumbnailImageView.clipsToBounds = true
+        layoutThumbnailImageView.layer.cornerRadius = 10
     }
 }

@@ -1,9 +1,10 @@
 import Foundation
 
-enum ContentType {
+enum ContentType: CustomStringConvertible {
     case json
     case image
-    var value: String {
+    
+    var description: String {
         switch self {
         case .json:
             return "application/json"

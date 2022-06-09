@@ -10,9 +10,14 @@ final class SearchResultRoomsHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateView(with roomCount: Int) {
+        self.roomCountLabel.text = "\(roomCount)개 이상의 숙소"
+    }
+    
     private func setupViews() {
         let stackView = UIStackView(arrangedSubviews: [detailDescriptionLabel, roomCountLabel])
         stackView.axis = .vertical
+        stackView.spacing = Margins.betweenLines
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(stackView)
@@ -27,6 +32,7 @@ final class SearchResultRoomsHeaderView: UIView {
     private let detailDescriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "5월 25일 ~ 5월 28일 ・ 게스트 3명"
+        label.font = UIFont.systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -35,6 +41,7 @@ final class SearchResultRoomsHeaderView: UIView {
     private let roomCountLabel: UILabel = {
         let label = UILabel()
         label.text = "300개 이상의 숙소"
+        label.font = UIFont.systemFont(ofSize: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

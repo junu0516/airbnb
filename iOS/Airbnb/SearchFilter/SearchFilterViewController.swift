@@ -24,7 +24,7 @@ final class SearchFilterViewController: UIViewController {
     }()
     
     typealias CELL = SearchFilterTableViewCell
-    typealias DataSource = SearchFilterTableViewDataSource
+    typealias DataSource = CustomTableDataSource
     private let conditionSettingTableViewDataSource: DataSource<CELL,String> = DataSource(cellIdentifier: CELL.identifier,
                                                                                           items: FilterCategory.allCases.map { $0.rawValue }) { cell, value in
         cell.updateLabelText(conditionTitle: value, conditionValue: "")
@@ -84,7 +84,6 @@ final class SearchFilterViewController: UIViewController {
 }
 
 extension SearchFilterViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height/CGFloat(FilterCategory.allCases.count)
     }
