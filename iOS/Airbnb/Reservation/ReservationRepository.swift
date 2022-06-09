@@ -15,7 +15,7 @@ final class ReservationRepository {
     func sendPostRequest<T: Encodable>(bodyObj: T, completion: @escaping (Bool) -> Void) {
         
         guard let endPoint = EndPoint(path: .reservation, method: .post, headers: ["content-type":"\(ContentType.json)"]) else { return }
-        networkHandler.request(endPoint: endPoint,
+        networkService.request(endPoint: endPoint,
                                body: jsonHandler.convertObjectToJson(from: bodyObj)) { result in
             switch result {
             case .success(let data):
