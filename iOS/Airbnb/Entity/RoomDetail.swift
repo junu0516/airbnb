@@ -34,7 +34,7 @@ struct RoomDetail: Codable {
     let title: String
     let averageOfStar: Float
     let numberOfReviews: Int
-//    let address: String?
+    //    let address: String?
     let hostName: String
     let profileOfHost: String // url
     let maxNumberOfPeople: Int
@@ -44,25 +44,41 @@ struct RoomDetail: Codable {
     let roomDescription: String // room
     let priceForOneDay: Int
     
-    init() {
-        roomId = 0
-        images = []
-        isWished = false
-        wished = false
-        title = ""
-        averageOfStar = 0.0
-        numberOfReviews = 0
-//        address = ""
-        hostName = ""
-        profileOfHost = ""
-        maxNumberOfPeople = 0
-        roomType = "원룸"
-        bedCount = 0
-        bathroomCount = 0
-        roomDescription = ""
-        priceForOneDay = 0
+    init(roomId: UniqueID = 0,
+         images: [String] = [],
+         isWished: Bool = false,
+         wished: Bool = false,
+         title: String = "",
+         averageOfStar: Float = 0.0,
+         numberOfReviews: Int = 0,
+//         address: String = "",
+         hostName: String = "",
+         profileOfHost: String = "",
+         maxNumberOfPeople:Int = 0,
+         roomType: String = "원룸",
+         bedCount: Int = 0,
+         bathroomCount: Int = 0,
+         roomDescription: String = "",
+         priceForOneDay: Int = 0) {
+        
+        self.roomId = roomId
+        self.images = images
+        self.isWished = isWished
+        self.wished = wished
+        self.title = title
+        self.averageOfStar = averageOfStar
+        self.numberOfReviews = numberOfReviews
+//        self.address = address
+        self.hostName = hostName
+        self.profileOfHost = profileOfHost
+        self.maxNumberOfPeople = maxNumberOfPeople
+        self.roomType = roomType
+        self.bedCount = bedCount
+        self.bathroomCount = bathroomCount
+        self.roomDescription = roomDescription
+        self.priceForOneDay = priceForOneDay
     }
-    
+        
     init(from decoder:Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.roomDescription = try container.decode(String.self, forKey: .roomDescription)
@@ -73,7 +89,7 @@ struct RoomDetail: Codable {
         self.title = try container.decode(String.self, forKey: .title)
         self.averageOfStar = try container.decode(Float.self, forKey: .averageOfStar)
         self.numberOfReviews = try container.decode(Int.self, forKey: .numberOfReviews)
-//        self.address = (try? container.decode(String.self, forKey: .address)) ?? ""
+        //        self.address = (try? container.decode(String.self, forKey: .address)) ?? ""
         self.hostName = try container.decode(String.self, forKey: .hostName)
         self.profileOfHost = try container.decode(String.self, forKey: .profileOfHost)
         self.maxNumberOfPeople = try container.decode(Int.self, forKey: .maxNumberOfPeople)
@@ -92,7 +108,7 @@ struct RoomDetail: Codable {
         case title
         case averageOfStar
         case numberOfReviews
-//        case address
+        //        case address
         case hostName
         case profileOfHost
         case maxNumberOfPeople
