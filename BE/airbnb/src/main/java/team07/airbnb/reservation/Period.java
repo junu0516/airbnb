@@ -1,5 +1,6 @@
 package team07.airbnb.reservation;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -17,15 +18,23 @@ public class Period {
 	}
 
 	public boolean isLonger(int range) {
-		long between = ChronoUnit.DAYS.between(this.startAt, this.endAt);
+		long between = getBetween();
 		return between >= range;
 	}
 
-	LocalDate startAt() {
+	private long getBetween() {
+		return ChronoUnit.DAYS.between(this.startAt, this.endAt);
+	}
+
+	public LocalDate startAt() {
 		return this.startAt;
 	}
 
-	LocalDate endAt() {
+	public LocalDate endAt() {
 		return this.endAt;
+	}
+
+	public BigDecimal getDays() {
+		return BigDecimal.valueOf(getBetween());
 	}
 }

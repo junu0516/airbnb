@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public interface ImageRepository extends JpaRepository<Image, Long> {
 
     @Query("select i from Image i where i.room.id=:roomId")

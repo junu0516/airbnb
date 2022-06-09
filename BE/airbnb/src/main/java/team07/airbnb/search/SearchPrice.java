@@ -34,4 +34,12 @@ public class SearchPrice {
 		BigDecimal maxDiscounted = this.weeklyDiscountPolicy.getDiscounted(maxPriceInfo);
 		return maxDiscounted.intValueExact();
 	}
+
+	public int getMinPrice() {
+		return this.minPrice - minPriceOfWeeklyDiscount();
+	}
+
+	public int getMaxPrice() {
+		return maxPrice + maxPriceOfWeeklyDiscount();
+	}
 }

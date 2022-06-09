@@ -38,8 +38,7 @@ public class ReservationService {
         isValidDate(request, period);
 
         Room roomInfo = roomService.getRoom(request.getRoomId());
-        this.reservationCalculator.add(roomInfo.toReservationReport(period));
-        this.reservationCalculator.isValid(request.getTotalPrice());
+        this.reservationCalculator.isValid(request.getTotalPrice(), roomInfo.toReservationReport(period));
 
         User guestInfo = userService.get(request.getGuestId());
         reservationRepository.save(Reservation.builder()

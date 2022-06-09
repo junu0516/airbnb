@@ -24,20 +24,42 @@
 - POST : /airbnb/room/make/reservation
 
 ``` json
-    {
-        "roomId" : 1, 
-        "guestId" : 1,
-        "checkIn" : "2022-05-09",
-        "checkOut" : "2022-05-13",
-        "guestAmount" : 3,
-        "priceForOneDay" : 340000,
-        "discountedPricePerWeek" : 0,
-        "cleaningPrice" : 6800,
-        "fee": 23800,
-        "tax" : 2380,
-        "totalPrice" : 307020
-    }
+        {
+            "roomId" : 1, 
+            "guestId" : 1,
+            "checkIn" : "2022-05-09",
+            "checkOut" : "2022-05-13",
+            "guestAmount" : 3,
+            "priceForOneDay" : 340000,
+            "discountedPricePerWeek" : 0,
+            "cleaningPrice" : 6800,
+            "fee": 23800,
+            "tax" : 2380,
+            "totalPrice" : 1491920
+        }
 ```
 
-- GET : /1
+- GET : /airbnb/search?
+  - curl -X GET "http://localhost:8080/airbnb/search?request%5Blocation%5D=%EA%B0%95%EC%9B%90&request%5BcheckinDate%5D=&request%5BcheckoutDate%5D=&request%5BminPrice%5D=0&request%5BmaxPrice%5D=0&request%5BguestAmount%5D=0" -H "accept: */*"
+
+``` json
+    {
+      "location": "강원",
+      "checkinDate" : "",
+      "checkoutDate" : "",
+      "minPrice" : 0,
+      "maxPrice" : 0,
+      "guestAmount" : 0
+    }
+    
+    
+    {
+      "location": "강원",
+      "checkinDate" : "2022-05-14",
+      "checkoutDate" : "2022-05-18",
+      "minPrice" : 0,
+      "maxPrice" : 0,
+      "guestAmount" : 0
+    }
+```
 

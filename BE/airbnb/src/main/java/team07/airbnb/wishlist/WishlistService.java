@@ -1,6 +1,8 @@
 package team07.airbnb.wishlist;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import team07.airbnb.room.Room;
 import team07.airbnb.room.RoomRepository;
 import team07.airbnb.user.User;
 import team07.airbnb.user.UserRepository;
+import team07.airbnb.wishlist.WishlistsResponse.WishlistResponse;
 
 @Service
 @RequiredArgsConstructor
@@ -52,22 +55,12 @@ public class WishlistService {
 
     @Transactional(readOnly = true)
     public WishlistsResponse findAll(Long userId) {
-        List<Wishlist> userWishlists = wishlistRepository.findAllByUserId(userId);
-
-        WishlistsResponse response = new WishlistsResponse(userId);
-        for (Wishlist wishlist : userWishlists) {
-            Image thumbnailImage = imageRepository.findByRoomIdAndImageOrder(wishlist.roomId(), 1);
-            response.addWishlistResponse(
-                new WishlistResponse(
-                    wishlist.getWishlistId(),
-                    wishlist.roomId(),
-                    wishlist.getRoom().getRoomName(),
-                    wishlist.getRoom().getRoomPricePerDay(),
-                    thumbnailImage.getImageLink(),
-                    4.8,
-                    120
-                ));
-        }
-        return response;
+        List<Wishlist> wishlists = wishlistRepository.findWishlistWithRoomAndImageOrderEqualsOneByUserId(userId);
+        List<WishlistResponse> wishlistResponses =
+                wishlists.stream()
+                        .map(i -> new WishlistResponse(i.getWishlistId(), i.roomId(), i.getRoom().getRoomName(), i.getRoom().getRoomPricePerDay(), i.getRoom().getImages().get(0).getImageLink(), 4.9, 123))
+                        .collect(Collectors.toList());
+        return new WishlistsResponse(userId, wishlistResponses);
     }
+
 }

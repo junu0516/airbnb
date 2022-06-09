@@ -11,7 +11,7 @@ USE db_study1;
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`USER`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_study1`.`USER` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`user` (
     `USER_ID` BIGINT NOT NULL AUTO_INCREMENT,
     `USERNAME` VARCHAR(45) NOT NULL,
     `PROFILE_IMAGE` VARCHAR(500) NULL,
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `db_study1`.`USER` (
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`ROOM`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_study1`.`ROOM` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`room` (
     `ROOM_ID` BIGINT NOT NULL AUTO_INCREMENT,
     `HOST_ID` BIGINT NOT NULL,
     `ROOM_NAME` VARCHAR(50) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `db_study1`.`ROOM` (
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`WISHLIST`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_study1`.`WISHLIST` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`wishlist` (
     `WISHLIST_ID` BIGINT PRIMARY KEY AUTO_INCREMENT,
     `USER_ID` BIGINT NOT NULL,
     `ROOM_ID` BIGINT NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `db_study1`.`WISHLIST` (
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`IMAGE`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_study1`.`IMAGE` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`image` (
     `IMAGE_ID` BIGINT NOT NULL AUTO_INCREMENT,
     `ROOM_ID` BIGINT NOT NULL,
     `IMAGE_LINK` VARCHAR(500) NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `db_study1`.`IMAGE` (
 -- -----------------------------------------------------
 -- Table `airbnb_schema`.`RESERVATION`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_study1`.`RESERVATION` (
+CREATE TABLE IF NOT EXISTS `db_study1`.`reservation` (
     `RESERVATION_ID` BIGINT NOT NULL AUTO_INCREMENT,
     `ROOM_ID` BIGINT NOT NULL,
     `GUEST_ID` BIGINT NOT NULL,

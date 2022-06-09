@@ -5,10 +5,11 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 @Component
-public class RoomCleaningFee {
+public class RoomCleaningFee implements FeeOrTax{
 	private static final BigDecimal ratioOfCleaningFee = new BigDecimal("0.02");
 
-	BigDecimal apply(BigDecimal totalPrice) {
-		return totalPrice.multiply(this.ratioOfCleaningFee);
+	@Override
+	public BigDecimal calculate(BigDecimal totalAmount) {
+		return totalAmount.multiply(this.ratioOfCleaningFee);
 	}
 }

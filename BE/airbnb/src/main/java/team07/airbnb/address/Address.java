@@ -22,4 +22,20 @@ public class Address {
     public String divisions() {
         return String.format(ADDRESS_TEXT, roomCity, roomState, roomCountry);
     }
+
+    public BigDecimal getRoomLongitude() {
+        return roomLongitude;
+    }
+
+    public BigDecimal getRoomLatitude() {
+        return roomLatitude;
+    }
+
+    public void setRoomLongitude(BigDecimal roomLongitude) {
+        this.roomLongitude = roomLongitude;
+    }
+
+    public void setRoomLatitude(BigDecimal roomLatitude) {
+        this.roomLatitude = roomLatitude;
+    }
 }

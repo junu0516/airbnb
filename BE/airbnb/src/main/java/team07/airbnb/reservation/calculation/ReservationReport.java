@@ -20,10 +20,11 @@ public class ReservationReport {
 	}
 
 	public BigDecimal getPriceOfRoom() {
-		return priceOfRoom;
+		BigDecimal days = period.getDays();
+		return priceOfRoom.multiply(days);
 	}
 
 	public BigDecimal getMinus(BigDecimal discounted) {
-		return this.priceOfRoom.subtract(discounted);
+		return this.getPriceOfRoom().subtract(discounted);
 	}
 }

@@ -33,7 +33,7 @@ jobs:
         working-directory: ${{env.working-directory}}
 
       - name: Build with Gradle
-        run: ./gradlew bootJar
+        run: ./gradlew clean bootJar
         working-directory: ${{env.working-directory}}
 
       - name: Build and Push Docker Image
@@ -56,5 +56,5 @@ jobs:
             docker pull leezzangmin/team07-airbnb:be-${GITHUB_SHA::7}
             docker tag leezzangmin/team07-airbnb:be-${GITHUB_SHA::7} airbnb:be-${GITHUB_SHA::7}
             docker stop server
-            docker run -d --rm -e profile=$profile -e MYSQL_DATABASE_USERNAME=$MYSQL_DATABASE_USERNAME -e MYSQL_DATABASE_URL=$MYSQL_DATABASE_URL -e MYSQL_DATABASE_PASSWORD=$MYSQL_DATABASE_PASSWORD --name server -p 8080:8080 airbnb:be-${GITHUB_SHA::7}
+            docker run -d --rm -e profile=$profile -e MYSQL_DATABASE_USERNAME=$MYSQL_DATABASE_USERNAME -e MYSQL_DATABASE_URL=$MYSQL_DATABASE_URL -e MYSQL_DATABASE_PASSWORD=$MYSQL_DATABASE_PASSWORD -e github_client_id=$github_client_id -e github_secret_key=$github_secret_key -e jwt_secret=$jwt_secret -e jwt_expire_length=$jwt_expire_length --name server -p 8080:8080 airbnb:be-${GITHUB_SHA::7}
 

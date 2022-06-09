@@ -1,5 +1,7 @@
 package team07.airbnb.room;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -12,11 +14,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import javax.persistence.OneToMany;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import team07.airbnb.address.Address;
+import team07.airbnb.image.Image;
 import team07.airbnb.reservation.Period;
 import team07.airbnb.reservation.ReservationRoom;
 import team07.airbnb.reservation.calculation.ReservationReport;
@@ -36,6 +40,9 @@ public class Room {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "HOST_ID")
     private User host;
+
+    @OneToMany(mappedBy = "room")
+    private List<Image> images = new ArrayList<>();
 
     private String roomName;
 
