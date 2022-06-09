@@ -10,7 +10,10 @@ class RoomDetailUseCase {
     
     let searchCondition: SearchCondition
     
-    init(roomId: UniqueID, repository: RoomDetailRepository, searchCondition: SearchCondition) {
+    init(roomId: UniqueID,
+         repository: RoomDetailRepository,
+         searchCondition: SearchCondition = SearchCondition()) {
+        
         self.repository = repository
         self.roomId = roomId
         self.searchCondition = searchCondition
