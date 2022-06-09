@@ -17,7 +17,7 @@ class PositionSearchModelTest: XCTestCase {
         let model = PositionSearchUseCase(factory)
         
         model.setIsSearching(true)
-        model.updateSearchResults(searchText: "양재")
+//        model.updateSearchResults(searchText: "양재")
         
         XCTAssertTrue(model.isSearching.value)
         XCTAssertEqual(model.rowsCount(), 4, "Searching results count is matched")
