@@ -32,10 +32,6 @@ class RoomDetailUseCase {
             self?.repository.fetchImage(imageUrl: responseData.profileOfHost) { [weak self] responseImage in
                 self?.profileImage.value = responseImage
             }
-            
-            self?.repository.fetchImage(imageUrl: responseData.profileOfHost) { [weak self] responseImage in
-                self?.profileImage.value = responseImage
-            }
         }
     }
 }
