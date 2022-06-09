@@ -8,9 +8,12 @@ class RoomDetailUseCase {
     private (set)var profileImage: Observable<Data> = Observable<Data>(Data())
     var didSuccessResponseImage: ((Data, Int) -> Void)?
     
-    init(roomId: UniqueID, repository: RoomDetailRepository) {
+    let searchCondition: SearchCondition
+    
+    init(roomId: UniqueID, repository: RoomDetailRepository, searchCondition: SearchCondition) {
         self.repository = repository
         self.roomId = roomId
+        self.searchCondition = searchCondition
     }
   
     func initializeData() {

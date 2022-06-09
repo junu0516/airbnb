@@ -106,10 +106,12 @@ extension RoomListViewController: UICollectionViewDataSource {
 
 extension RoomListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedRoomId = useCase?.roomList[indexPath.row].roomId else {
+        guard let selectedRoomId = useCase?.roomList[indexPath.row].roomId,
+              let searchCondition = useCase?.searchCondition else {
             return
         }
-        let detailUseCase = RoomDetailUseCase(roomId: selectedRoomId, repository: RoomDetailRepository())
+        
+        let detailUseCase = RoomDetailUseCase(roomId: selectedRoomId, repository: RoomDetailRepository(), searchCondition: searchCondition)
         let viewController = RoomDetailViewController(useCase: detailUseCase)
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: false)
