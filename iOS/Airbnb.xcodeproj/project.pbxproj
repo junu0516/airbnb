@@ -78,6 +78,7 @@
 		B56F5AAD285106E300458C44 /* roomList.json in Resources */ = {isa = PBXBuildFile; fileRef = B56F5AAC285106E200458C44 /* roomList.json */; };
 		B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */; };
 		B5A133562852343F005274D6 /* PriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A133552852343F005274D6 /* PriceCalculator.swift */; };
+		B5A1335828524594005274D6 /* SearchCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A1335728524594005274D6 /* SearchCondition.swift */; };
 		B5E098E928406B8D00A69BDF /* PrivateStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E098E828406B8D00A69BDF /* PrivateStorage.swift */; };
 		B8F22F16D6A74B2E79A1AB68 /* Pods_AirbnbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA6B6A2DF8511623B1A7059 /* Pods_AirbnbTests.framework */; };
 /* End PBXBuildFile section */
@@ -180,6 +181,7 @@
 		B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapViewController.swift; sourceTree = "<group>"; };
 		B5A1335428519A2D005274D6 /* ConfigProperty.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ConfigProperty.plist; path = Airbnb/ConfigProperty.plist; sourceTree = "<group>"; };
 		B5A133552852343F005274D6 /* PriceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculator.swift; sourceTree = "<group>"; };
+		B5A1335728524594005274D6 /* SearchCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCondition.swift; sourceTree = "<group>"; };
 		B5E098E828406B8D00A69BDF /* PrivateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStorage.swift; sourceTree = "<group>"; };
 		B8C1C869B0BC716E37E2003A /* Pods_Airbnb_AirbnbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb_AirbnbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFEE1A5F46310189AB0CFE3 /* Pods-Airbnb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb.debug.xcconfig"; path = "Target Support Files/Pods-Airbnb/Pods-Airbnb.debug.xcconfig"; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				B5093538283E12D70017C8E0 /* RoomPositionCategory.swift */,
 				989934A32844F23300317A84 /* RoomDetail.swift */,
 				B55A639728470EC400E08EE0 /* RoomPositionInfo.swift */,
+				B5A1335728524594005274D6 /* SearchCondition.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -854,6 +857,7 @@
 				B56F5A92284E0D0E00458C44 /* ReservationConditionView.swift in Sources */,
 				98B2756F2848F11D003BE859 /* Margins.swift in Sources */,
 				989934A62844F56A00317A84 /* EndPoint.swift in Sources */,
+				B5A1335828524594005274D6 /* SearchCondition.swift in Sources */,
 				989934A82844F5A700317A84 /* ContentType.swift in Sources */,
 				98593DFE283CC75C00B28960 /* AppDelegate.swift in Sources */,
 				B56F5A96284E21B000458C44 /* DateComponents+Extension.swift in Sources */,

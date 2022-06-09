@@ -18,27 +18,6 @@ struct SearchFilterUseCase {
     }
 }
 
-struct SearchCondition {
-
-    let positionTitle: String
-    
-    init(positionTitle: String="") {
-        self.positionTitle = positionTitle
-    }
-    
-    func getMappedValue(filterCategory: FilterCategory) -> String {
-        switch filterCategory {
-        case .position:
-            return self.positionTitle
-        case .period:
-            return ""
-        case .price:
-            return ""
-        case .guestCount:
-            return ""
-        }
-    }
-}
 
 struct RoomSearchResultFactory {
     
