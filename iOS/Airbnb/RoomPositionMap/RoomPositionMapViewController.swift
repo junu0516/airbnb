@@ -23,7 +23,7 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
     private let collectionViewDataSource = CustomCollectionViewDataSource<Cell, Item>(identifier: Cell.identifier,
                                                                                       items: []) { cell , item in
         cell.updateInfo(title: item.roomName,
-                        price: String(item.price),
+                        price: item.price.toDecimalString() ?? "",
                         starCount: String(item.averageOfStar),
                         reviewCount: String(item.numberOfReviews))
     }
@@ -110,7 +110,9 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
             let longitude = Double(item.longitude) ?? 0.0
             let coordinate = CLLocationCoordinate2D(latitude: latitude , longitude: longitude)
 
-            addMarker(coordinate: coordinate, price: String(item.price), roomName: item.roomName)
+            addMarker(coordinate: coordinate,
+                      price: item.price.toDecimalString() ?? "",
+                      roomName: item.roomName)
             if index == 0 { moveToTargetPosition(coordinate: coordinate)}
         }
         
