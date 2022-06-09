@@ -177,6 +177,7 @@
 		B56F5AA92850C79A00458C44 /* RoomPositionMapUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapUseCaseTest.swift; sourceTree = "<group>"; };
 		B56F5AAC285106E200458C44 /* roomList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roomList.json; sourceTree = "<group>"; };
 		B570BC52283FF97C008BBC79 /* RoomPositionMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapViewController.swift; sourceTree = "<group>"; };
+		B5A1335428519A2D005274D6 /* ConfigProperty.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ConfigProperty.plist; path = Airbnb/ConfigProperty.plist; sourceTree = "<group>"; };
 		B5E098E828406B8D00A69BDF /* PrivateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStorage.swift; sourceTree = "<group>"; };
 		B8C1C869B0BC716E37E2003A /* Pods_Airbnb_AirbnbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb_AirbnbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFEE1A5F46310189AB0CFE3 /* Pods-Airbnb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb.debug.xcconfig"; path = "Target Support Files/Pods-Airbnb/Pods-Airbnb.debug.xcconfig"; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 		98593DF1283CC75C00B28960 = {
 			isa = PBXGroup;
 			children = (
+				B5A1335428519A2D005274D6 /* ConfigProperty.plist */,
 				B56F5AA42850433300458C44 /* Mock.json */,
 				98593DFC283CC75C00B28960 /* Airbnb */,
 				98593E13283CC75D00B28960 /* AirbnbTests */,
@@ -860,7 +862,7 @@
 				989934A42844F23300317A84 /* RoomDetail.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
-				B56F5AA1284F28F100458C44 /* MockNetworkHandler.swift in Sources */,
+				B56F5AA1284F28F100458C44 /* MockNetworkServiceManager.swift in Sources */,
 				98B98E152847CAB800F76D11 /* RoomDetailHostProfileView.swift in Sources */,
 				B570BC53283FF97C008BBC79 /* RoomPositionMapViewController.swift in Sources */,
 				B5093544283FD3F90017C8E0 /* SearchFilterTableViewCell.swift in Sources */,
