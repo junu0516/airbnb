@@ -9,16 +9,20 @@ protocol NetworkService {
 struct NetworkServiceManager: NetworkService {
     
     private let logger = Logger()
+    private var serializer: DataResponseSerializer {
+        return .init(emptyResponseCodes: Set([201]))
+    }
     
     func request(endPoint: EndPoint, body: Data?, completion: @escaping (Result<Data, Error>) -> Void) {
         
-        AF.request(endPoint.url,
-                   method: HTTPMethod(rawValue: "\(endPoint.method)"),
-                   parameters: body,
-                   encoder: JSONParameterEncoder.prettyPrinted,
-                   headers: HTTPHeaders(endPoint.headers))
+        guard var request = try? URLRequest(url: endPoint.url,
+                                            method: HTTPMethod(rawValue: "\(endPoint.method)"),
+                                            headers: HTTPHeaders(endPoint.headers)) else { return }
+        request.httpBody = body
+        
+        AF.request(request)
         .validate(statusCode: 200..<300)
-        .responseData { response in
+        .response(responseSerializer: serializer) { response in
             switch response.result {
             case .success(let data):
                 completion(.success(data))
