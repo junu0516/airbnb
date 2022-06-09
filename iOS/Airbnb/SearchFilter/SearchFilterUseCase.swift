@@ -2,7 +2,7 @@ import Foundation
 
 struct SearchFilterUseCase {
     
-    private var searchCondition = Observable<SearchCondition>(SearchCondition())
+    private (set)var searchCondition = Observable<SearchCondition>(SearchCondition())
     
     init(searchCondition: SearchCondition) {
         self.searchCondition.value = searchCondition

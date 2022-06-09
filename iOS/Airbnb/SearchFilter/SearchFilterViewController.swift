@@ -38,11 +38,10 @@ final class SearchFilterViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
         self.navigationItem.title = "숙소 찾기"
         setToolBar()
-        addComponentViews()
-        setComponentLayouts()
+        setUpViews()
     }
     
     private func setToolBar() {
@@ -56,12 +55,10 @@ final class SearchFilterViewController: UIViewController {
         prevBarItem.isEnabled = false
     }
     
-    private func addComponentViews() {
+    private func setUpViews() {
         self.view.addSubview(dummyView)
         self.view.addSubview(conditionSettingTableView)
-    }
-    
-    private func setComponentLayouts() {
+
         NSLayoutConstraint.activate([
             dummyView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             dummyView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
@@ -74,10 +71,11 @@ final class SearchFilterViewController: UIViewController {
             conditionSettingTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
+        
     @objc private func pushNextViewController() {
         useCase?.getRoomList { [weak self] roomList in
-            let usecase = RoomListUseCase(roomList: roomList)
+            guard let searchCondition = self?.useCase?.searchCondition.value else { return }
+            let usecase = RoomListUseCase(roomList: roomList, searchCondition: searchCondition)
             let viewController = RoomListViewController(useCase: usecase)
             self?.navigationController?.pushViewController(viewController, animated: true)
         }
