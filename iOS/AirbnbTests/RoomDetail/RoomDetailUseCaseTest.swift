@@ -8,7 +8,7 @@ class RoomDetailUseCaseTest: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         
-        guard let mockRepository = MockRoomDetailRepository(mockFileName: "Mock") else {
+        guard let mockRepository = MockRoomDetailRepository(mockFileName: "roomDetail") else {
             throw XCTSkip()
         }
         self.useCase = RoomDetailUseCase(roomId: 1, repository: mockRepository)
@@ -54,7 +54,7 @@ class RoomDetailUseCaseTest: XCTestCase {
     
     func testMockRepository_whenInitializeJsonFile_isSuccessfetchRoomEntity() throws {
         // Given
-        let mockRepository = MockRoomDetailRepository(mockFileName: "Mock")
+        let mockRepository = MockRoomDetailRepository(mockFileName: "roomDetail")
         XCTAssertNotNil(mockRepository, "Mock Repository initialize success  by Mock.json")
     
         // When
@@ -80,8 +80,10 @@ class MockRoomDetailRepository: RoomDetailRepositoryProtocol {
     private (set)var room: RoomDetail?
     
     init?(mockFileName: String) {
-        guard let mockData = loadMockData(fileName: mockFileName),
-              let decodedData = try? JSONDecoder().decode(RoomDetail.self, from: mockData) else {
+        guard let mockData = loadMockData(fileName: mockFileName) else {
+            return nil
+        }
+        guard let decodedData = try? JSONDecoder().decode(RoomDetail.self, from: mockData) else {
             return nil
         }
         self.room = decodedData
@@ -89,9 +91,11 @@ class MockRoomDetailRepository: RoomDetailRepositoryProtocol {
     
     func loadMockData(fileName: String) -> Data? {
         guard let path = Bundle.main.url(forResource: fileName, withExtension: "json") else {
+            print(fileName)
             return nil
         }
         guard let data: Data = try? Data(contentsOf: path) else {
+            print("")
             return nil
         }
         return data

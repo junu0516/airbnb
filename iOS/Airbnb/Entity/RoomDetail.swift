@@ -34,7 +34,7 @@ struct RoomDetail: Codable {
     let title: String
     let averageOfStar: Float
     let numberOfReviews: Int
-    //    let address: String?
+    let address: String
     let hostName: String
     let profileOfHost: String // url
     let maxNumberOfPeople: Int
@@ -51,7 +51,7 @@ struct RoomDetail: Codable {
          title: String = "",
          averageOfStar: Float = 0.0,
          numberOfReviews: Int = 0,
-//         address: String = "",
+         address: String = "",
          hostName: String = "",
          profileOfHost: String = "",
          maxNumberOfPeople:Int = 0,
@@ -68,7 +68,7 @@ struct RoomDetail: Codable {
         self.title = title
         self.averageOfStar = averageOfStar
         self.numberOfReviews = numberOfReviews
-//        self.address = address
+        self.address = address
         self.hostName = hostName
         self.profileOfHost = profileOfHost
         self.maxNumberOfPeople = maxNumberOfPeople
@@ -89,7 +89,7 @@ struct RoomDetail: Codable {
         self.title = try container.decode(String.self, forKey: .title)
         self.averageOfStar = try container.decode(Float.self, forKey: .averageOfStar)
         self.numberOfReviews = try container.decode(Int.self, forKey: .numberOfReviews)
-        //        self.address = (try? container.decode(String.self, forKey: .address)) ?? ""
+                self.address = (try? container.decode(String.self, forKey: .address)) ?? ""
         self.hostName = try container.decode(String.self, forKey: .hostName)
         self.profileOfHost = try container.decode(String.self, forKey: .profileOfHost)
         self.maxNumberOfPeople = try container.decode(Int.self, forKey: .maxNumberOfPeople)
@@ -108,7 +108,7 @@ struct RoomDetail: Codable {
         case title
         case averageOfStar
         case numberOfReviews
-        //        case address
+        case address
         case hostName
         case profileOfHost
         case maxNumberOfPeople
