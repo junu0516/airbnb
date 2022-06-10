@@ -23,7 +23,10 @@ final class RoomDetailReservateView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateViews(priceForOneDay: Int) {
+    func updateViews(priceForOneDay: Int, checkInDate: DateComponents?, checkOutDate: DateComponents?) {
+        let checkInText = checkInDate?.toFormattedString(format: "M월 d일") ?? "0월 0일"
+        let checkOutText = checkOutDate?.toFormattedString(format: "M월 d일") ?? "0월 0일"
+        selectDateLabel.text = "\(checkInText) ~ \(checkOutText)"
         priceOneDayLabel.text = "₩ \(priceForOneDay) /박"
     }
     

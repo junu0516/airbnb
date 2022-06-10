@@ -46,9 +46,21 @@ final class RoomDetailViewController: UIViewController {
     
     private func bindView() {
         self.useCase.roomDetail.bind { [weak self] data in
-            self?.titleView.updateViews(title: data.title, averageOfStar: data.averageOfStar, numberOfReviews: data.numberOfReviews, address: "")
-            self?.hostProfileView.updateViews(hostName: data.hostName, maxNumberOfPeople: data.maxNumberOfPeople, styleOfRoom: data.roomType, bedCount: data.bedCount, bathroomCount: data.bathroomCount)
-            self?.reservateView.updateViews(priceForOneDay: data.priceForOneDay)
+            self?.titleView.updateViews(
+                title: data.title,
+                averageOfStar: data.averageOfStar,
+                numberOfReviews: data.numberOfReviews,
+                address: "")
+            self?.hostProfileView.updateViews(
+                hostName: data.hostName,
+                maxNumberOfPeople: data.maxNumberOfPeople,
+                styleOfRoom: data.roomType,
+                bedCount: data.bedCount,
+                bathroomCount: data.bathroomCount)
+            self?.reservateView.updateViews(
+                priceForOneDay: data.priceForOneDay,
+                checkInDate: self?.useCase.searchCondition.checkInDate,
+                checkOutDate: self?.useCase.searchCondition.checkOutDate)
             self?.carouselImageView.start(with: data.images.count)
         }
         
@@ -169,11 +181,10 @@ extension RoomDetailViewController: RoomDetailReservateViewDelegate {
         let checkInDate = searchCondition.checkInDate
         let checkOutDate = searchCondition.checkOutDate
         let guestCount = searchCondition.guestCount
-        let reservation = Reservation(checkInDate: checkInDate, checkOutDate: checkOutDate, guestsCount: guestCount, priceForOneDay: 340000)
+        let reservation = Reservation(checkInDate: checkInDate, checkOutDate: checkOutDate, guestsCount: guestCount, priceForOneDay: useCase.roomDetail.value.priceForOneDay)
         
         let repository = ReservationRepository(networkService: NetworkServiceManager(), jsonHandler: JsonHandler())
         let useCase = ReservationUseCase(reservationRepository: repository, reservation: reservation)
-        let roomDetail = RoomDetail()
         let reservationViewController = ReservationViewController(reservationUseCase: useCase)
         reservationViewController.modalPresentationStyle = .popover
         present(reservationViewController, animated: true)

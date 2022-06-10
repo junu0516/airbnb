@@ -93,7 +93,7 @@ class CarouselImageCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .green
+        imageView.backgroundColor = .airbnbGray3
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
