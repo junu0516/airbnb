@@ -10,8 +10,11 @@ final class SearchResultRoomsHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(with roomCount: Int) {
-        self.roomCountLabel.text = "\(roomCount)개 이상의 숙소"
+    func updateView(roomCount: Int?, checkInDate: DateComponents?, checkOutDate: DateComponents?, guestCount: Int?) {
+        let checkInText = checkInDate?.toFormattedString(format: "M월 d일") ?? "0월 0일"
+        let checkOutText = checkOutDate?.toFormattedString(format: "M월 d일") ?? "0월 0일"
+        self.detailDescriptionLabel.text = "\(checkInText) ~ \(checkOutText) ・ 게스트 \(guestCount ?? 0)명"
+        self.roomCountLabel.text = "\(roomCount ?? 0)개 이상의 숙소"
     }
     
     private func setupViews() {
