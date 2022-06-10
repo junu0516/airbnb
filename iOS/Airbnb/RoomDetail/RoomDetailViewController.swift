@@ -178,10 +178,12 @@ final class RoomDetailViewController: UIViewController {
 extension RoomDetailViewController: RoomDetailReservateViewDelegate {
     @objc func touchedRservationButton() {
         let searchCondition = self.useCase.searchCondition
+        let roomDetail = self.useCase.roomDetail.value
+        
         let checkInDate = searchCondition.checkInDate
         let checkOutDate = searchCondition.checkOutDate
         let guestCount = searchCondition.guestCount
-        let reservation = Reservation(checkInDate: checkInDate, checkOutDate: checkOutDate, guestsCount: guestCount, priceForOneDay: useCase.roomDetail.value.priceForOneDay)
+        let reservation = Reservation(checkInDate: checkInDate, checkOutDate: checkOutDate, guestsCount: guestCount, priceForOneDay: roomDetail.priceForOneDay)
         
         let repository = ReservationRepository(networkService: NetworkServiceManager(), jsonHandler: JsonHandler())
         let useCase = ReservationUseCase(reservationRepository: repository, reservation: reservation)
