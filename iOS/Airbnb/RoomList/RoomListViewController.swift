@@ -16,6 +16,12 @@ class RoomListViewController: UIViewController {
         self.title = "숙소 찾기"
         self.view.backgroundColor = .white
         setupViews()
+        
+        headerView.updateView(
+            roomCount: useCase?.roomList.count ?? 0,
+            checkInDate: useCase?.searchCondition.checkInDate,
+            checkOutDate: useCase?.searchCondition.checkOutDate,
+            guestCount: useCase?.searchCondition.guestCount)
     }
     
     // MARK: - Views

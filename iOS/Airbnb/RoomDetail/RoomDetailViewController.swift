@@ -46,9 +46,21 @@ final class RoomDetailViewController: UIViewController {
     
     private func bindView() {
         self.useCase.roomDetail.bind { [weak self] data in
-            self?.titleView.updateViews(title: data.title, averageOfStar: data.averageOfStar, numberOfReviews: data.numberOfReviews, address: "")
-            self?.hostProfileView.updateViews(hostName: data.hostName, maxNumberOfPeople: data.maxNumberOfPeople, styleOfRoom: data.roomType, bedCount: data.bedCount, bathroomCount: data.bathroomCount)
-            self?.reservateView.updateViews(priceForOneDay: data.priceForOneDay)
+            self?.titleView.updateViews(
+                title: data.title,
+                averageOfStar: data.averageOfStar,
+                numberOfReviews: data.numberOfReviews,
+                address: "")
+            self?.hostProfileView.updateViews(
+                hostName: data.hostName,
+                maxNumberOfPeople: data.maxNumberOfPeople,
+                styleOfRoom: data.roomType,
+                bedCount: data.bedCount,
+                bathroomCount: data.bathroomCount)
+            self?.reservateView.updateViews(
+                priceForOneDay: data.priceForOneDay,
+                checkInDate: self?.useCase.searchCondition.checkInDate,
+                checkOutDate: self?.useCase.searchCondition.checkOutDate)
             self?.carouselImageView.start(with: data.images.count)
         }
         
