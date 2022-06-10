@@ -1,7 +1,7 @@
 import Foundation
 import OSLog
 
-struct RoomDetailRepository {
+struct RoomDetailRepository: RoomDetailRepositoryProtocol {
     
     private let networkHandler = NetworkServiceManager()
     private let jsonHandler = JsonHandler()
