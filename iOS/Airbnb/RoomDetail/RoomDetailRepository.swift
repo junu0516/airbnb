@@ -4,7 +4,7 @@ import OSLog
 struct RoomDetailRepository: RoomDetailRepositoryProtocol {
     
     private let networkHandler = NetworkServiceManager()
-    private let jsonHandler = JsonHandler()
+    private let converter = CustomConverter()
     private let logger = Logger()
     
     func fetch(roomId: UniqueID, completion: @escaping (RoomDetail) -> Void) {
@@ -13,7 +13,7 @@ struct RoomDetailRepository: RoomDetailRepositoryProtocol {
         networkHandler.request(endPoint: endPoint, body: nil) { result in
             switch result {
             case .success(let data):
-                guard let decodedData = jsonHandler.convertJsonToObject(from: data, to: RoomDetail.self) else {
+                guard let decodedData = converter.convertJsonToObject(from: data, to: RoomDetail.self) else {
                     return
                 }
                 completion(decodedData)

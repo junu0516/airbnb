@@ -5,18 +5,18 @@ final class ReservationRepository {
 
     private let logger = Logger()
     private let networkService: NetworkService
-    private let jsonHandler: JsonHandlable
+    private let converter: ObjectConvertible
     
-    init(networkService: NetworkService, jsonHandler: JsonHandlable) {
+    init(networkService: NetworkService, converter: ObjectConvertible) {
         self.networkService = networkService
-        self.jsonHandler = jsonHandler
+        self.converter = converter
     }
     
     func sendPostRequest<T: Encodable>(bodyObj: T, completion: @escaping (Bool) -> Void) {
         
         guard let endPoint = EndPoint(path: .reservation, method: .post, headers: ["content-type":"\(ContentType.json)"]) else { return }
         networkService.request(endPoint: endPoint,
-                               body: jsonHandler.convertObjectToJson(from: bodyObj)) { result in
+                               body: converter.convertObjectToJson(from: bodyObj)) { result in
             switch result {
             case .success(let data):
                 completion(true)

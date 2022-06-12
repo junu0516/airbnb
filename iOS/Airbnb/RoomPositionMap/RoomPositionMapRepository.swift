@@ -5,11 +5,11 @@ struct RoomPositionMapRepository {
     
     private let logger = Logger()
     private let networkService: NetworkService
-    private let jsonHandler: JsonHandlable
+    private let converter: ObjectConvertible
     
-    init(networkService: NetworkService, jsonHandler: JsonHandlable) {
+    init(networkService: NetworkService, converter: ObjectConvertible) {
         self.networkService = networkService
-        self.jsonHandler = jsonHandler
+        self.converter = converter
     }
     
     func fetch(completion: @escaping (RoomPositionInfoList) -> Void) {

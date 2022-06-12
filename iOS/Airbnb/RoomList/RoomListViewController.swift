@@ -57,7 +57,7 @@ class RoomListViewController: UIViewController {
         button.layer.cornerRadius = 20
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addAction(UIAction(handler: { [weak self] _ in
-            let repository = RoomPositionMapRepository(networkService: NetworkServiceManager(), jsonHandler: JsonHandler())
+            let repository = RoomPositionMapRepository(networkService: NetworkServiceManager(), converter: CustomConverter())
             let useCase = RoomPositionMapUseCase(roomPositionMapRepository: repository)
             self?.navigationController?.pushViewController(RoomPositionMapViewController(useCase: useCase), animated: true)
         }), for: .touchDown)

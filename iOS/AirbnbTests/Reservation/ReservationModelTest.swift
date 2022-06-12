@@ -33,7 +33,7 @@ class ReservationModelTest: XCTestCase {
     
     //요청 객체 파싱 테스트
     func test_encoding_to_json() {
-        let jsonHandler = JsonHandler()
+        let jsonHandler = CustomConverter()
         let json = jsonHandler.convertObjectToJson(from: self.reservation)
         XCTAssertNotNil(json)
     }

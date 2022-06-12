@@ -57,7 +57,7 @@
 		B55A638D2845AC5B00E08EE0 /* SearchFilterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638C2845AC5B00E08EE0 /* SearchFilterUseCase.swift */; };
 		B55A6390284706A800E08EE0 /* RoomPositionMapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */; };
 		B55A6392284706B100E08EE0 /* RoomPositionMapUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */; };
-		B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A63932847070200E08EE0 /* JsonHandler.swift */; };
+		B55A63942847070200E08EE0 /* CustomConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A63932847070200E08EE0 /* CustomConverter.swift */; };
 		B55A639828470EC400E08EE0 /* RoomPositionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A639728470EC400E08EE0 /* RoomPositionInfo.swift */; };
 		B55A639A28471E7100E08EE0 /* RoomPositionMapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A639928471E7100E08EE0 /* RoomPositionMapCollectionViewCell.swift */; };
 		B55A639C28477E9600E08EE0 /* CustomCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */; };
@@ -164,7 +164,7 @@
 		B55A638C2845AC5B00E08EE0 /* SearchFilterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterUseCase.swift; sourceTree = "<group>"; };
 		B55A638F284706A800E08EE0 /* RoomPositionMapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapRepository.swift; sourceTree = "<group>"; };
 		B55A6391284706B100E08EE0 /* RoomPositionMapUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapUseCase.swift; sourceTree = "<group>"; };
-		B55A63932847070200E08EE0 /* JsonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHandler.swift; sourceTree = "<group>"; };
+		B55A63932847070200E08EE0 /* CustomConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomConverter.swift; sourceTree = "<group>"; };
 		B55A639728470EC400E08EE0 /* RoomPositionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionInfo.swift; sourceTree = "<group>"; };
 		B55A639928471E7100E08EE0 /* RoomPositionMapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPositionMapCollectionViewCell.swift; sourceTree = "<group>"; };
 		B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -383,7 +383,7 @@
 				98F11305283F27C000009232 /* Observable.swift */,
 				98B98E122847CA3100F76D11 /* UIView+Extension.swift */,
 				98B98E1A2847E23400F76D11 /* RoundButton.swift */,
-				B55A63932847070200E08EE0 /* JsonHandler.swift */,
+				B55A63932847070200E08EE0 /* CustomConverter.swift */,
 				B55A639B28477E9600E08EE0 /* CustomCollectionViewDataSource.swift */,
 				B5093547283FEA200017C8E0 /* CustomTableDataSource.swift */,
 				98B2756E2848F11D003BE859 /* Margins.swift */,
@@ -894,7 +894,7 @@
 				989934A22844E98600317A84 /* RoomDetailRepository.swift in Sources */,
 				98B98E172847CAEE00F76D11 /* RoomDetailTitleView.swift in Sources */,
 				B56F5A98284E3AF500458C44 /* ReservationPrice.swift in Sources */,
-				B55A63942847070200E08EE0 /* JsonHandler.swift in Sources */,
+				B55A63942847070200E08EE0 /* CustomConverter.swift in Sources */,
 				B56F5A92284E0D0E00458C44 /* ReservationConditionView.swift in Sources */,
 				98B2756F2848F11D003BE859 /* Margins.swift in Sources */,
 				989934A62844F56A00317A84 /* EndPoint.swift in Sources */,
