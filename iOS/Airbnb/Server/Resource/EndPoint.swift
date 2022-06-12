@@ -4,7 +4,6 @@ enum Path: CustomStringConvertible {
     case roomDetail(roomId: UniqueID)
     case list
     case image(url: String)
-    case mockList
     case reservation
     
     static let origin: String = "http://13.125.155.123:8080"
@@ -13,11 +12,9 @@ enum Path: CustomStringConvertible {
         case .roomDetail(let roomId):
             return "\(Path.origin)/airbnb/room/\(roomId)"
         case .list:
-            return "\(Path.origin)/airbnb/search/rooms"
+            return "\(Path.origin)/airbnb/search"
         case .image(let url):
             return url
-        case .mockList:
-            return "https://68ba057f-eb57-4bad-be9b-d220ac63ca31.mock.pstmn.io/airbnb/search/rooms"
         case .reservation:
             return "\(Path.origin)/airbnb/room/make/reservation"
         }

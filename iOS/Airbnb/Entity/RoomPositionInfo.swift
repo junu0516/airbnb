@@ -15,7 +15,7 @@ import Foundation
  */
 
 struct RoomPositionInfoList: Codable {
-    let countOfRooms: Int
+    let numberOfRooms: Int
     var rooms: [RoomPositionInfo]
 }
 
@@ -27,7 +27,7 @@ struct RoomPositionInfo: Codable {
     let thumbnailImage: String
     let averageOfStar: Float
     let numberOfReviews: Int
-    let isWished: Bool
+    let wished: Bool
     var latitude: Double
     var longitude: Double
     
@@ -39,9 +39,9 @@ struct RoomPositionInfo: Codable {
         case thumbnailImage
         case averageOfStar
         case numberOfReviews
-        case isWished
+        case wished
         case latitude
-        case longitude = "logitude"
+        case longitude
     }
     
     init(from decoder:Decoder) throws {
@@ -52,12 +52,10 @@ struct RoomPositionInfo: Codable {
         self.price = try container.decode(Int.self, forKey: .price)
         self.totalPrice = try container.decode(Int.self, forKey: .totalPrice)
         self.thumbnailImage = try container.decode(String.self, forKey: .thumbnailImage)
-        self .averageOfStar = try container.decode(Float.self, forKey: .averageOfStar)
-        self.numberOfReviews = try container.decode(Int.self, forKey: .numberOfReviews)
-        self.isWished = try container.decode(Bool.self, forKey: .isWished)
-        let latitude = try container.decode(String.self, forKey: .latitude)
-        self.latitude = Double(latitude) ?? 0.0
-        let longitude = try container.decode(String.self, forKey: .longitude)
-        self.longitude = Double(longitude) ?? 0.0
+        self.averageOfStar = (try? container.decode(Float.self, forKey: .averageOfStar)) ?? 0.0
+        self.numberOfReviews = (try? container.decode(Int.self, forKey: .numberOfReviews)) ?? 0
+        self.wished = try container.decode(Bool.self, forKey: .wished)
+        self.latitude = try container.decode(Double.self, forKey: .latitude)
+        self.longitude = try container.decode(Double.self, forKey: .longitude)
     }
 }

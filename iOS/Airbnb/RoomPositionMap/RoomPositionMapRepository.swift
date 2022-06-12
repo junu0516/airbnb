@@ -13,18 +13,21 @@ struct RoomPositionMapRepository {
     }
     
     func fetch(completion: @escaping (RoomPositionInfoList) -> Void) {
+        guard let endPoint = EndPoint(path: Path.list, method: .get, headers: ["Content-Type":"\(ContentType.json)"]) else { return }
+        let body = converter.convertObjectToJson(from: SearchCondition())
         
-        if let endPoint = EndPoint(path: Path.mockList, method: .get, headers: ["Content-Type":"\(ContentType.json)"]) {
-            networkService.request(endPoint: endPoint,
-                                   body: nil) { result in
-                switch result {
-                case .success(let data):
-                    if let decodedData = jsonHandler.convertJsonToObject(from: data, to: RoomPositionInfoList.self) {
-                        completion(decodedData)
-                    }
-                case .failure(let error):
-                    logger.error("\(error.localizedDescription)")
+        networkService.request(endPoint: endPoint,
+                               body: body) { result in
+            switch result {
+            case .success(let data):
+                guard let decodedData = converter.convertJsonToObject(from: data, to: RoomPositionInfoList.self) else {
+                    print("JSON Parsing Error")
+                    return
                 }
+                completion(decodedData)
+
+            case .failure(let error):
+                logger.error("\(error.localizedDescription)")
             }
         }
     }

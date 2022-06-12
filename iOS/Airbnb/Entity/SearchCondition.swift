@@ -13,7 +13,7 @@ struct SearchCondition {
          checkInDate: DateComponents = .init(year: 2022, month:5, day: 9),
          checkOutDate: DateComponents = .init(year: 2022, month:5, day: 13),
          minPrice:Int = 0,
-         maxPrice:Int = 10000000,
+         maxPrice:Int = 100000,
          guestCount:Int = 3) {
 
         self.positionTitle = positionTitle
@@ -39,5 +39,27 @@ struct SearchCondition {
         case .guestCount:
             return "게스트 \(guestCount)명"
         }
+    }
+}
+
+extension SearchCondition: Encodable {
+    
+    enum CodingKeys: String, CodingKey {
+        case location = "request[location]"
+        case checkinDate = "request[checkinDate]"
+        case checkoutDate = "request[checkoutDate]"
+        case minPrice = "request[minPrice]"
+        case maxPrice = "request[maxPrice]"
+        case guestAmount = "request[guestAmount]"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.positionTitle, forKey: .location)
+        try container.encode(self.checkInDate.toFormattedString(format: "yyyy-MM-dd"), forKey: .checkinDate)
+        try container.encode(self.checkOutDate.toFormattedString(format: "yyyy-MM-dd"), forKey: .checkoutDate)
+        try container.encode(self.minPrice, forKey: .minPrice)
+        try container.encode(self.maxPrice, forKey: .maxPrice)
+        try container.encode(self.guestCount, forKey: .guestAmount)
     }
 }

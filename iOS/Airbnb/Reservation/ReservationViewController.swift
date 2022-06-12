@@ -78,6 +78,7 @@ final class ReservationViewController: UIViewController {
                                              guestsCount: "게스트 \(reservation.guestsCount)명")
             self?.useCase?.reservationPrices.value = self?.useCase?.generateReservationPrices() ?? []
             self?.totalPriceValueLabel.text = "₩\(reservation.totalPrice.toDecimalString() ?? "")"
+            self?.priceLabel.text = "₩\(reservation.priceForOneDay.toDecimalString() ?? "") / 박"
         }
         
         self.useCase?.reservationPrices.bind { [weak self] items in
