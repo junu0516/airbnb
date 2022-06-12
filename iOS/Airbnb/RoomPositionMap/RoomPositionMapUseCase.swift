@@ -9,15 +9,25 @@ final class RoomPositionMapUseCase {
         self.roomPositionMapRepository = repository
     }
     
-    //임시로 임의의 좌표값 부여하는 로직을 임시로 적용(추후 실서버 붙였을 때 제거해야 함)
+    //임시로 임의의 좌표값 부여하는 로직을 임시로 적용(추후 실서버에서 유효한 좌표값 응답하면 제거해야 함)
     func initializeData() {
         roomPositionMapRepository.fetch { [weak self] roomPositionInfoList in
-            var roomPositionInfoList = roomPositionInfoList
-            roomPositionInfoList.rooms[0].latitude = 37.485124
-            roomPositionInfoList.rooms[0].longitude = 127.0275777
-            roomPositionInfoList.rooms[1].latitude = 37.490864
-            roomPositionInfoList.rooms[1].longitude = 127.033406
-            self?.roomPositionInfoList.value = roomPositionInfoList.rooms
+            self?.roomPositionInfoList.value = addTemporaryCoordinates(roomPositionInfoList.rooms)
+        }
+        
+        func addTemporaryCoordinates(_ list: [RoomPositionInfo]) -> [RoomPositionInfo] {
+            var list = list
+            var latitude = 37.485124
+            var longitude = 127.0275777
+            
+            for index in 0..<list.count {
+                list[index].latitude = latitude
+                list[index].longitude = longitude
+        
+                latitude += 0.01
+                longitude += 0.01
+            }
+            return list
         }
     }
 }
