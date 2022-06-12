@@ -11,7 +11,7 @@ class RoomPositionMapUseCaseTest: XCTestCase {
         try super.setUpWithError()
         
         self.networkManager = MockNetworkServiceManager()
-        self.repository = RoomPositionMapRepository(networkService: networkManager, jsonHandler: JsonHandler())
+        self.repository = RoomPositionMapRepository(networkService: networkManager, converter: CustomConverter())
         self.useCase = RoomPositionMapUseCase(roomPositionMapRepository: repository)
     }
     
