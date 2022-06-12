@@ -16,6 +16,12 @@ class RoomListViewController: UIViewController {
         self.title = "숙소 찾기"
         self.view.backgroundColor = .white
         setupViews()
+        
+        headerView.updateView(
+            roomCount: useCase?.roomList.count ?? 0,
+            checkInDate: useCase?.searchCondition.checkInDate,
+            checkOutDate: useCase?.searchCondition.checkOutDate,
+            guestCount: useCase?.searchCondition.guestCount)
     }
     
     // MARK: - Views
@@ -51,9 +57,9 @@ class RoomListViewController: UIViewController {
         button.layer.cornerRadius = 20
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addAction(UIAction(handler: { [weak self] _ in
-            let repository = RoomPositionMapRepository(networkHandler: NetworkServiceManager(), jsonHandler: JsonHandler())
+            let repository = RoomPositionMapRepository(networkService: NetworkServiceManager(), jsonHandler: JsonHandler())
             let useCase = RoomPositionMapUseCase(roomPositionMapRepository: repository)
-            self?.navigationController?.pushViewController(RoomPositionMapViewController(roomPositionMapUseCase: useCase), animated: true)
+            self?.navigationController?.pushViewController(RoomPositionMapViewController(useCase: useCase), animated: true)
         }), for: .touchDown)
         return button
     }()
@@ -106,10 +112,12 @@ extension RoomListViewController: UICollectionViewDataSource {
 
 extension RoomListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedRoomId = useCase?.roomList[indexPath.row].roomId else {
+        guard let selectedRoomId = useCase?.roomList[indexPath.row].roomId,
+              let searchCondition = useCase?.searchCondition else {
             return
         }
-        let detailUseCase = RoomDetailUseCase(roomId: selectedRoomId, repository: RoomDetailRepository())
+        
+        let detailUseCase = RoomDetailUseCase(roomId: selectedRoomId, repository: RoomDetailRepository(), searchCondition: searchCondition)
         let viewController = RoomDetailViewController(useCase: detailUseCase)
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: false)

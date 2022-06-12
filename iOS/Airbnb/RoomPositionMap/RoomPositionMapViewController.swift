@@ -23,7 +23,7 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
     private let collectionViewDataSource = CustomCollectionViewDataSource<Cell, Item>(identifier: Cell.identifier,
                                                                                       items: []) { cell , item in
         cell.updateInfo(title: item.roomName,
-                        price: String(item.price),
+                        price: item.price.toDecimalString() ?? "",
                         starCount: String(item.averageOfStar),
                         reviewCount: String(item.numberOfReviews))
     }
@@ -44,16 +44,16 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
     }()
     
     private let locationManager: CLLocationManager = CLLocationManager()
-    private var roomPositionMapUseCase: RoomPositionMapUseCase?
+    private var useCase: RoomPositionMapUseCase?
     
-    convenience init(roomPositionMapUseCase useCase: RoomPositionMapUseCase) {
+    convenience init(useCase: RoomPositionMapUseCase) {
         self.init()
-        self.roomPositionMapUseCase = useCase
+        self.useCase = useCase
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.roomPositionMapUseCase?.initializeData()
+        self.useCase?.initializeData()
         self.view.backgroundColor = .systemBackground
         
         setUpViews()
@@ -62,8 +62,8 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
     }
     
     private func bindView() {
-        self.roomPositionMapUseCase?.roomPositionInfoList.bind { [weak self] _ in
-            guard let items = self?.roomPositionMapUseCase?.roomPositionInfoList.value else { return }
+        self.useCase?.roomPositionInfoList.bind { [weak self] _ in
+            guard let items = self?.useCase?.roomPositionInfoList.value else { return }
             self?.collectionViewDataSource.updateNewItems(items: items)
             self?.roomPositionInfoCollectionView.reloadData()
             self?.addMarkers(roomPositionInfoList: items)
@@ -110,7 +110,9 @@ final class RoomPositionMapViewController: UIViewController, CLLocationManagerDe
             let longitude = Double(item.longitude) ?? 0.0
             let coordinate = CLLocationCoordinate2D(latitude: latitude , longitude: longitude)
 
-            addMarker(coordinate: coordinate, price: String(item.price), roomName: item.roomName)
+            addMarker(coordinate: coordinate,
+                      price: item.price.toDecimalString() ?? "",
+                      roomName: item.roomName)
             if index == 0 { moveToTargetPosition(coordinate: coordinate)}
         }
         
@@ -136,7 +138,7 @@ extension RoomPositionMapViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        guard let items = self.roomPositionMapUseCase?.roomPositionInfoList.value else { return }
+        guard let items = self.useCase?.roomPositionInfoList.value else { return }
         let itemCount = items.count
         let fullWidth = self.roomPositionInfoCollectionView.frame.width
         let contentOffsetX = targetContentOffset.pointee.x

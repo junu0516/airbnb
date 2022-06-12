@@ -23,8 +23,7 @@ final class SearchFilterTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addComponentViews()
-        setComponentLayouts()
+        setUpViews()
     }
     
     required init?(coder: NSCoder) {
@@ -35,23 +34,21 @@ final class SearchFilterTableViewCell: UITableViewCell {
         self.titleLabel.text = title
         self.valueLabel.text = value
     }
-    
-    private func addComponentViews() {
+    private func setUpViews() {
+
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(valueLabel)
-    }
-    
-    private func setComponentLayouts() {
+
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: Margins.side),
             titleLabel.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.5),
             
             valueLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             valueLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
             valueLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            valueLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 20)
+            valueLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -Margins.side)
         ])
     }
 }

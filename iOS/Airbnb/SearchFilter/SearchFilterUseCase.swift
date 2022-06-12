@@ -2,7 +2,7 @@ import Foundation
 
 struct SearchFilterUseCase {
     
-    private var searchCondition = Observable<SearchCondition>(SearchCondition())
+    private (set)var searchCondition = Observable<SearchCondition>(SearchCondition())
     
     init(searchCondition: SearchCondition) {
         self.searchCondition.value = searchCondition
@@ -12,25 +12,12 @@ struct SearchFilterUseCase {
         // TODO: repository 를 통해 실서버의 데이터 가져오기
         completion(RoomSearchResultFactory().roomList)
     }
+    
+    func getPositionValue(filterCategory category: FilterCategory) -> String {
+        return self.searchCondition.value.getMappedValue(filterCategory: category) ?? ""
+    }
 }
 
-struct SearchCondition {
-    private let positionTitle: String
-    private let longitude: Double
-    private let latitude: Double
-    
-    init() {
-        self.positionTitle = ""
-        self.longitude = 0
-        self.latitude = 0
-    }
-    
-    init(positionTitle: String, logntitude: Double, latitude: Double) {
-        self.positionTitle = positionTitle
-        self.longitude = logntitude
-        self.latitude = latitude
-    }
-}
 
 struct RoomSearchResultFactory {
     

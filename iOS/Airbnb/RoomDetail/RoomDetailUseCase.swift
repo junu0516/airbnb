@@ -2,15 +2,21 @@ import Foundation
 
 class RoomDetailUseCase {
     
-    private let repository: RoomDetailRepository
+    private let repository: RoomDetailRepositoryProtocol
     private let roomId: UniqueID
     private (set)var roomDetail: Observable<RoomDetail> = Observable<RoomDetail>(RoomDetail())
     private (set)var profileImage: Observable<Data> = Observable<Data>(Data())
     var didSuccessResponseImage: ((Data, Int) -> Void)?
     
-    init(roomId: UniqueID, repository: RoomDetailRepository) {
+    let searchCondition: SearchCondition
+    
+    init(roomId: UniqueID,
+         repository: RoomDetailRepositoryProtocol,
+         searchCondition: SearchCondition = SearchCondition()) {
+        
         self.repository = repository
         self.roomId = roomId
+        self.searchCondition = searchCondition
     }
   
     func initializeData() {
@@ -21,10 +27,6 @@ class RoomDetailUseCase {
                 self?.repository.fetchImage(imageUrl: responseData.images[index], { [weak self] imageData in
                     self?.didSuccessResponseImage?(imageData, index)
                 })
-            }
-            
-            self?.repository.fetchImage(imageUrl: responseData.profileOfHost) { [weak self] responseImage in
-                self?.profileImage.value = responseImage
             }
             
             self?.repository.fetchImage(imageUrl: responseData.profileOfHost) { [weak self] responseImage in

@@ -11,7 +11,7 @@ enum Path: CustomStringConvertible {
     var description: String {
         switch self {
         case .roomDetail(let roomId):
-            return "\(Path.origin)/airbnb/room/1"
+            return "\(Path.origin)/airbnb/room/\(roomId)"
         case .list:
             return "\(Path.origin)/airbnb/search/rooms"
         case .image(let url):

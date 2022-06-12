@@ -1,0 +1,29 @@
+{
+    "countOfRooms" : 2,
+    "rooms" : [
+        {
+            "roomId" : 1,
+            "roomName" : "Spacious and Comfortable cozy house #4",
+            "price" : 82953,
+            "totalPrice" : 1493159,
+            "thumbnailImage" : "www.naver.com",
+            "averageOfStar": 4.98,
+            "numberOfReviews": 50,
+            "isWished" : false,
+            "latitude" : "123.123.123.123",
+            "logitude" : "123.123.123.123"
+        },
+        {
+            "roomId" : 2,
+            "roomName" : "코드스쿼드",
+            "price" : 50000,
+            "totalPrice" : 123456,
+            "thumbnailImage" : "www.naver.com",
+            "averageOfStar": 4.98,
+            "numberOfReviews": 50,
+            "isWished" : true,
+            "latitude" : "123.123.123.123",
+            "logitude" : "123.123.123.123"
+        }
+    ]
+}

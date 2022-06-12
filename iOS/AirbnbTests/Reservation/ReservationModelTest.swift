@@ -19,11 +19,11 @@ class ReservationModelTest: XCTestCase {
      */
     func test_initialization() {
         XCTAssertNotNil(self.reservation)
-        XCTAssertEqual(reservation.checkOutDate.getDateInterval(from: reservation.checkInDate), 2)
+        XCTAssertEqual(reservation.checkOutDate.getDateInterval(from: reservation.checkInDate), 18)
         XCTAssertNotEqual(reservation.checkOutDate.getDateInterval(from: reservation.checkInDate), 1)
     }
     
-    //각 연산프로퍼티의 리턴값 테스트
+    //Property Wrapper 적용에 따라 값이 잘 계산되는 지 테스트
     func test_calculating_prices() {
         XCTAssertEqual(reservation.totalPrice, 1338631)
         XCTAssertEqual(reservation.cleaningPrice, 25328)

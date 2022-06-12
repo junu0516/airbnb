@@ -1,7 +1,7 @@
 import Foundation
 import GooglePlaces
 
-class PositionSearchUseCase {
+final class PositionSearchUseCase {
 
     private let token = GMSAutocompleteSessionToken()
     private let client = GMSPlacesClient()
@@ -28,36 +28,24 @@ class PositionSearchUseCase {
         self.isSearching.value = isSearching
     }
 
-    func updateSearchResults(predictions: [String:String]) {
+    func updateSearchResults(predictions: [String]) {
         if predictions.isEmpty {
             self.isSearching.value = false
             return
         }
         
-        self.filteredSamples = predictions.map { return RoomPosition(address: $0.key, placeId: $0.value) }
+        self.filteredSamples = predictions.map { return RoomPosition(address: $0) }
         self.isSearching.value = true
     }
     
     func fetchPredctionList(searchText: String) {
-        var predictions: [String:String] = [:]
+        var predictions: [String] = []
         client.findAutocompletePredictions(fromQuery: searchText,
                                            filter: nil,
-                                           sessionToken: token) { results, error in
+                                           sessionToken: token) { [weak self] results, error in
             if error != nil { return }
-            results?.forEach { predictions[$0.attributedPrimaryText.string] = $0.placeID }
-            self.updateSearchResults(predictions: predictions)
-        }
-    }
-    
-    func searchPositionInfo(index: Int, completion: @escaping (SearchCondition) -> Void) {
-        let positionTitle = self.filteredSamples[index].address
-        let placeId = self.filteredSamples[index].placeId
-        client.lookUpPlaceID(placeId) { result,error in
-            if error != nil { return }
-            if let coordinate = result?.coordinate {
-                let searchCondition = SearchCondition(positionTitle: positionTitle, logntitude: coordinate.longitude.magnitude, latitude: coordinate.latitude.magnitude)
-                completion(searchCondition)
-            }
+            results?.forEach { predictions.append($0.attributedPrimaryText.string) }
+            self?.updateSearchResults(predictions: predictions)
         }
     }
 }

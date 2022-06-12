@@ -21,7 +21,7 @@ final class ReservationViewController: UIViewController {
         button.layer.cornerRadius = 10
         
         button.addAction(UIAction(handler: { [weak self] _ in
-            self?.useCase?.sendReservationRequest()
+            self?.sendReservationRequest()
         }), for: .touchDown)
         return button
     }()
@@ -84,6 +84,23 @@ final class ReservationViewController: UIViewController {
             self?.pricesView.priceTableViewDataSource.updateNewItems(items: items)
             self?.pricesView.priceTableView.reloadData()
         }
+        
+        self.useCase?.reservationResultFlag?.bind { [weak self] reservationResult in
+            switch reservationResult {
+            case true:
+                self?.showAlert(title: "예약 요청 결과", message: "예약 요청에 성공했습니다.")
+            case false:
+                self?.showAlert(title: "예약 요청 결과", message: "예약 요청에 실패했습니다.")
+                self?.reservationButton.isEnabled = true
+            }
+        }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let closeAction = UIAlertAction(title: "확인", style: .destructive)
+        alert.addAction(closeAction)
+        present(alert, animated: true)
     }
     
     private func setUpViews() {
@@ -139,5 +156,13 @@ final class ReservationViewController: UIViewController {
             totalPriceValueLabel.topAnchor.constraint(equalTo: pricesView.bottomAnchor, constant: 20),
             totalPriceValueLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -25)
         ])
+    }
+}
+
+extension ReservationViewController {
+    
+    private func sendReservationRequest() {
+        self.useCase?.sendReservationRequest()
+        self.reservationButton.isEnabled = false
     }
 }
